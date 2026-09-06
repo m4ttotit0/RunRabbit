@@ -1,14 +1,20 @@
 [gd_scene format=3 uid="uid://dhhfqvi6eaoks"]
 
-[ext_resource type="Texture2D" uid="uid://42vcaev5lk6o" path="res://png/characters/pixil-frame-0 (1).png" id="1_yjt17"]
+[ext_resource type="Texture2D" uid="uid://b2odxkrjfr0qv" path="res://png/characters/89a-11f1-9440-3ff576f3e298.png" id="1_ypqmy"]
+[ext_resource type="Texture2D" uid="uid://drly336crpeex" path="res://png/extras/pisos y bloques/17428.png" id="2_dyby8"]
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=1829655679]
+[node name="Dongdong" type="StaticBody2D" unique_id=1829655679]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1857092694]
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1816169937]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816169937]
+position = Vector2(105, 443)
+scale = Vector2(0.101806626, 0.09863284)
+texture = ExtResource("1_ypqmy")
 
-[node name="PixilFrame0(1)" type="Sprite2D" parent="." unique_id=1526706912]
-position = Vector2(573, -443)
-scale = Vector2(0.3206522, 0.35130435)
-texture = ExtResource("1_yjt17")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=39286044]
+
+[node name="17428" type="Sprite2D" parent="StaticBody2D" unique_id=1470526086]
+position = Vector2(576.75, 323.49997)
+scale = Vector2(0.5981771, 0.59722215)
+texture = ExtResource("2_dyby8")
