@@ -1,0 +1,228 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/Level1.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/Star.tscn" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(2400, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(160, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_end"]
+size = Vector2(48, 200)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0, 0, 0, 0.75)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -200.0
+offset_top = -600.0
+offset_right = 2600.0
+offset_bottom = 700.0
+color = Color(0.55, 0.75, 0.9, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1100, 660)
+collision_layer = 1
+collision_mask = 1
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -1200.0
+offset_top = -40.0
+offset_right = 1200.0
+offset_bottom = 40.0
+color = Color(0.25, 0.6, 0.25, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="PlatformA" type="StaticBody2D" parent="."]
+position = Vector2(700, 580)
+collision_layer = 1
+collision_mask = 1
+
+[node name="ColorRect" type="ColorRect" parent="PlatformA"]
+offset_left = -80.0
+offset_top = -15.0
+offset_right = 80.0
+offset_bottom = 15.0
+color = Color(0.45, 0.3, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="PlatformB" type="StaticBody2D" parent="."]
+position = Vector2(1800, 580)
+collision_layer = 1
+collision_mask = 1
+
+[node name="ColorRect" type="ColorRect" parent="PlatformB"]
+offset_left = -80.0
+offset_top = -15.0
+offset_right = 80.0
+offset_bottom = 15.0
+color = Color(0.45, 0.3, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="StartMarker" type="Marker2D" parent="."]
+position = Vector2(100, 580)
+
+[node name="StartLabel" type="Label" parent="StartMarker"]
+offset_left = -30.0
+offset_top = -60.0
+offset_right = 30.0
+offset_bottom = -30.0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "INICIO"
+
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector2(100, 580)
+
+[node name="Star1" parent="." instance=ExtResource("3")]
+position = Vector2(700, 541)
+
+[node name="Star2" parent="." instance=ExtResource("3")]
+position = Vector2(1400, 596)
+
+[node name="Star3" parent="." instance=ExtResource("3")]
+position = Vector2(1800, 541)
+
+[node name="EndPoint" type="Area2D" parent="."]
+position = Vector2(2100, 560)
+collision_layer = 1
+collision_mask = 1
+
+[node name="ColorRect" type="ColorRect" parent="EndPoint"]
+offset_left = -24.0
+offset_top = -100.0
+offset_right = 24.0
+offset_bottom = 100.0
+color = Color(0.95, 0.85, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndPoint"]
+shape = SubResource("RectangleShape2D_end")
+
+[node name="EndLabel" type="Label" parent="EndPoint"]
+offset_left = -30.0
+offset_top = -140.0
+offset_right = 30.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "META"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LevelLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 220.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Nivel 1"
+
+[node name="StarLabel" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+offset_left = -230.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 0.9, 0.1, 1)
+horizontal_alignment = 2
+text = "Estrellas: 0/3"
+
+[node name="NeedStarsLabel" type="Label" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+offset_left = -280.0
+offset_top = 70.0
+offset_right = 280.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+text = "Necesitas las 3 estrellas para completar el nivel"
+
+[node name="NeedStarsTimer" type="Timer" parent="UI"]
+wait_time = 2.0
+one_shot = true
+
+[node name="WinPanel" type="Control" parent="UI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="UI/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/WinPanel/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/WinPanel/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="WinLabel" type="Label" parent="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "¡Meta alcanzada!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="RetryButton" type="Button" parent="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 44)
+text = "Reintentar"
+
+[node name="MenuButton" type="Button" parent="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 44)
+text = "Menú"
+
+[connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

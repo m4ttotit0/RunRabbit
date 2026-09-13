@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+export_presets.cfg
+
+# Archivos temporales / de sistema
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Exportaciones de builds
+/builds/
+/export/

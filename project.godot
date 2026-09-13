@@ -1,0 +1,24 @@
+; Engine configuration file.
+; Generado para el proyecto "Run Rabbit"
+
+config_version=5
+
+[application]
+
+config/name="Run Rabbit"
+run/main_scene="res://scenes/MainMenu.tscn"
+config/features=PackedStringArray("4.3")
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[autoload]
+
+GameData="*res://scripts/GameData.gd"
+
+[physics]
+
+2d/default_gravity=980
