@@ -1,23 +1,32 @@
 ; Engine configuration file.
-; Generado para el proyecto "Run Rabbit"
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="Run Rabbit"
 run/main_scene="res://scenes/MainMenu.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.7")
+
+[autoload]
+
+GameData="*res://scripts/GameData.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-
-[autoload]
-
-GameData="*res://scripts/GameData.gd"
 
 [physics]
 

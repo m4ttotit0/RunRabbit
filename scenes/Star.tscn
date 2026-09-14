@@ -1,21 +1,19 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://c6l6tjumwbgw8"]
 
-[ext_resource type="Script" path="res://scripts/Star.gd" id="1"]
+[ext_resource type="Script" uid="uid://du3h3qgr5n6nt" path="res://scripts/Star.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ctd2yksrwbihu" path="res://png/extras/N1.png" id="2_t7biv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_star"]
 radius = 16.0
 
-[node name="Star" type="Area2D" groups=["stars"]]
+[node name="Star" type="Area2D" unique_id=1119494563 groups=["stars"]]
 collision_layer = 2
-collision_mask = 1
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-color = Color(1, 0.9, 0.1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1907839505]
 shape = SubResource("CircleShape2D_star")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=312082972]
+position = Vector2(2, -1)
+scale = Vector2(0.169903, 0.16225167)
+texture = ExtResource("2_t7biv")
