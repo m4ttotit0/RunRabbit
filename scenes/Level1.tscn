@@ -130,14 +130,7 @@ scale = Vector2(0.053283695, 0.05517579)
 [node name="Star1" parent="." unique_id=784573789 instance=ExtResource("3")]
 position = Vector2(700, 541)
 
-[node name="ColorRect" parent="Star1" index="0"]
-offset_left = -5.0
-offset_top = -14.0
-offset_right = -4.0
-offset_bottom = 10.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" parent="Star1" index="1"]
+[node name="CollisionShape2D" parent="Star1" index="0" unique_id=1907839505]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_12enf")
 
@@ -275,7 +268,7 @@ text = "Reintentar"
 [node name="MenuButton" type="Button" parent="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=718713416]
 custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
-text = "Menú"
+text = "Menu"
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
