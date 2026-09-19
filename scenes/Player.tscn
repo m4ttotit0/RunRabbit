@@ -1,10 +1,52 @@
 [gd_scene format=3 uid="uid://cwx417bt1ib1"]
 
 [ext_resource type="Script" uid="uid://bqo1nuybvjhcl" path="res://scripts/Player.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://b2odxkrjfr0qv" path="res://png/characters/89a-11f1-9440-3ff576f3e298.png" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://crmc1bctige2i" path="res://assets/characters/dongdong/idle1.png" id="2_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://uvopj00polk6" path="res://assets/characters/dongdong/idle2.png" id="3_70d11"]
+[ext_resource type="Texture2D" uid="uid://b6fctpejgm4iw" path="res://assets/characters/dongdong/run1.png" id="4_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://b8j14w1on0g5j" path="res://assets/characters/dongdong/jump1.png" id="4_khinc"]
+[ext_resource type="Texture2D" uid="uid://blj3f87r6imql" path="res://assets/characters/dongdong/jump2.png" id="5_bruh7"]
+[ext_resource type="Texture2D" uid="uid://dgbrpuppqdxwh" path="res://assets/characters/dongdong/run2.png" id="5_khinc"]
+[ext_resource type="AudioStream" uid="uid://cev6jcetqn2k5" path="res://assets/sounds/jump.wav" id="8_khinc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(53, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1d2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qu4a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_70d11")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_khinc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bruh7")
+}],
+"loop": 1,
+"name": &"jumping",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cw2d6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_khinc")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 3.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1743865288 groups=["player"]]
 script = ExtResource("1")
@@ -17,7 +59,13 @@ shape = SubResource("RectangleShape2D_player")
 zoom = Vector2(1.4, 1.4)
 position_smoothing_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=80899623]
-position = Vector2(-1.5258789e-05, 0.9999995)
-scale = Vector2(0.032470703, 0.034179688)
-texture = ExtResource("2_v6fml")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1913535713]
+position = Vector2(4, 1)
+scale = Vector2(0.04017578, 0.03919922)
+sprite_frames = SubResource("SpriteFrames_y1d2t")
+animation = &"jumping"
+autoplay = "idle"
+flip_h = true
+
+[node name="jumpSound" type="AudioStreamPlayer2D" parent="." unique_id=715291481]
+stream = ExtResource("8_khinc")

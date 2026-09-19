@@ -1,36 +1,43 @@
 extends CharacterBody2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var jump_sound: AudioStreamPlayer2D = $jumpSound
 
-## Script básico del jugador: movimiento lateral + salto.
-## El "sprite" es por ahora un ColorRect blanco (placeholder).
-
-@export var speed: float = 220.0
-@export var jump_velocity: float = -420.0
-
-var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-@onready var sprite: Sprite2D = $Sprite2D
+const SPEED = 350.0
+const JUMP_VELOCITY = -850.0
 
 
-func _physics_process(delta: float) -> void:
-	# Gravedad
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Salto (usa la acción integrada de Godot "ui_accept" -> Espacio / Enter)
-	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up") or Input.is_key_pressed(KEY_W)) and is_on_floor():
-		velocity.y = jump_velocity
-
-	# Movimiento horizontal (usa acciones integradas "ui_left" / "ui_right" -> flechas)
-	var direction: float = Input.get_axis("ui_left", "ui_right")
-	if direction != 0.0:
-		velocity.x = direction * speed
-		sprite.flip_h = direction < 0.0
+func _physics_process(delta: float) -> void:     
+	# ANIMACIONES :3
+	if velocity.x > 1 or velocity.x < -1:
+		animated_sprite_2d.animation = "running"
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, speed)
+		animated_sprite_2d.animation = "idle"
+	
+	# Add the gravity.      
+	if not is_on_floor():          
+		velocity += get_gravity() * delta   
+		animated_sprite_2d.animation = "jumping"   
 
+# Handle jump con la flechita hacia arriba (o Espacio si quieres dejar ambas):
+	if Input.is_action_just_pressed("jump") and is_on_floor():          
+		velocity.y = JUMP_VELOCITY   
+		# AGREGAR SONIDO :3
+		jump_sound.play()
+
+	# Get the input direction and handle the movement/deceleration.      
+	# As good practice, you should replace UI actions with custom gameplay actions.      
+	var direction := Input.get_axis("left", "right")      
+	if direction:          
+		velocity.x = direction * SPEED      
+	else:          velocity.x = move_toward(velocity.x, 0, SPEED)    
+  
 	move_and_slide()
-
-
-func reset_to(pos: Vector2) -> void:
-	global_position = pos
-	velocity = Vector2.ZERO
+	
+	# DIRECCIONES :3
+	if direction == 1.0:
+		animated_sprite_2d.flip_h = false
+	elif direction == -1.0:
+		animated_sprite_2d.flip_h = true
+	
+	
+	

@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" uid="uid://85gqlwtw45m6" path="res://scripts/Level1.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cwx417bt1ib1" path="res://scenes/Player.tscn" id="2"]
-[ext_resource type="Texture2D" uid="uid://cictxejohj4f6" path="res://png/fondo/dessert.png" id="2_lrl65"]
+[ext_resource type="Texture2D" uid="uid://cictxejohj4f6" path="res://assets/fondo/dessert.png" id="2_lrl65"]
 [ext_resource type="PackedScene" uid="uid://c6l6tjumwbgw8" path="res://scenes/Star.tscn" id="3"]
-[ext_resource type="Texture2D" uid="uid://drly336crpeex" path="res://png/extras/pisos y bloques/17428.png" id="3_76388"]
-[ext_resource type="Texture2D" uid="uid://cxi2vqxawp4ta" path="res://png/extras/pisos y bloques/17430.png" id="4_ecr63"]
-[ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://png/extras/Reloj arena.png" id="8_kbo48"]
+[ext_resource type="Texture2D" uid="uid://drly336crpeex" path="res://assets/extras/pisos y bloques/17428.png" id="3_76388"]
+[ext_resource type="Texture2D" uid="uid://cxi2vqxawp4ta" path="res://assets/extras/pisos y bloques/17430.png" id="4_ecr63"]
+[ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="8_kbo48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2400, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
-size = Vector2(78, 30)
+size = Vector2(75, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecr63"]
-size = Vector2(65, 105)
+size = Vector2(726.3158, 1263.158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12enf"]
 size = Vector2(20, 39)
@@ -58,6 +58,7 @@ offset_bottom = 40.0
 color = Color(0.25, 0.6, 0.25, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1622320504]
+position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_ground")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=740509682]
@@ -74,19 +75,19 @@ texture = ExtResource("3_76388")
 position = Vector2(700, 580)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA" unique_id=1469583155]
-position = Vector2(-0.5, 0)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_platform")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlatformA" unique_id=1514120108]
-position = Vector2(7.9999943, 1.9999945)
-scale = Vector2(0.41619053, 0.19841395)
+position = Vector2(8.000013, 1.999979)
+scale = Vector2(0.40144244, 0.19732812)
 texture = ExtResource("4_ecr63")
 
 [node name="PlatformB" type="StaticBody2D" parent="." unique_id=86756453]
 position = Vector2(1800, 580)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB" unique_id=386545356]
-position = Vector2(-1, 0)
+position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_platform")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlatformB" unique_id=2026160432]
@@ -98,10 +99,10 @@ texture = ExtResource("4_ecr63")
 position = Vector2(100, 580)
 
 [node name="StartLabel" type="Label" parent="StartMarker" unique_id=2137524257]
-offset_left = -33.0
-offset_top = -97.0
-offset_right = 30.0
-offset_bottom = -67.0
+offset_left = -31.0
+offset_top = -179.0
+offset_right = 37.0
+offset_bottom = -149.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "INICIO"
@@ -110,22 +111,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=2037065929 instance=ExtResource("2")]
 position = Vector2(100, 580)
+scale = Vector2(0.095, 0.095)
 
 [node name="CollisionShape2D" parent="Player" index="0" unique_id=1050723180]
-position = Vector2(1.5, -3.5)
+position = Vector2(110.526245, -221.05273)
 shape = SubResource("RectangleShape2D_ecr63")
 
 [node name="Camera2D" parent="Player" index="1" unique_id=620828668]
 position = Vector2(0, 2)
 zoom = Vector2(1, 1)
-limit_left = 0
-limit_top = 0
-limit_right = 2200
-limit_bottom = 720
+limit_left = -1
+limit_top = 2
+limit_right = 2199
+limit_bottom = 722
 
-[node name="Sprite2D" parent="Player" index="2" unique_id=80899623]
-position = Vector2(0, -6.000016)
-scale = Vector2(0.053283695, 0.05517579)
+[node name="AnimatedSprite2D" parent="Player" index="2" unique_id=1913535713]
+position = Vector2(178.94739, -242.10495)
+scale = Vector2(0.7, 0.686)
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Star1" parent="." unique_id=784573789 instance=ExtResource("3")]
 position = Vector2(700, 541)
