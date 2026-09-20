@@ -9,29 +9,70 @@
 [ext_resource type="Texture2D" uid="uid://cxi2vqxawp4ta" path="res://assets/extras/pisos y bloques/17430.png" id="4_ecr63"]
 [ext_resource type="Texture2D" uid="uid://ctxyfxywsebaf" path="res://assets/extras/pisos y bloques/19989.png" id="5_kbo48"]
 [ext_resource type="Script" uid="uid://b5w7fr7xmyrtf" path="res://scenes/area_2d.gd" id="6_kbo48"]
+[ext_resource type="Script" uid="uid://bddvd13s2xfp4" path="res://scenes/tramp_2.gd" id="7_2meft"]
+[ext_resource type="Script" uid="uid://b5e4iqomd0yen" path="res://scenes/area_2d_2.gd" id="7_jxjwb"]
+[ext_resource type="Script" uid="uid://dxykcnes8pkwl" path="res://scenes/tramp_3.gd" id="8_0xqs2"]
 [ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="8_kbo48"]
 [ext_resource type="Texture2D" uid="uid://cilyb037ek4w6" path="res://assets/extras/ataques/puas Nivel1.png" id="11_4dyl1"]
+[ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
+[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
-size = Vector2(2259, 119)
+size = Vector2(536, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc7hq"]
 size = Vector2(342.5, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r73rx"]
+size = Vector2(741, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex2iu"]
+size = Vector2(768, 129)
+
+[sub_resource type="Animation" id="Animation_2meft"]
+resource_name = "Caida"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tramp3/Trampa2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(694, 23.999985), Vector2(697, 188.99997)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tramp3/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.64),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_4dyl1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Trampa1:position")
+tracks/0/path = NodePath("Tramp3/Trampa2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-808.0001, 24)]
+"values": [Vector2(697, 188.99997)]
 }
+
+[sub_resource type="Animation" id="Animation_av1gt"]
+resource_name = "bloque"
 
 [sub_resource type="Animation" id="Animation_jxjwb"]
 resource_name = "position"
@@ -39,7 +80,7 @@ length = 1.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Trampa1:position")
+tracks/0/path = NodePath("Tramp1/Trampa1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -51,7 +92,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Tramp1/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -63,28 +104,49 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2meft"]
 _data = {
+&"Caida": SubResource("Animation_2meft"),
 &"RESET": SubResource("Animation_4dyl1"),
+&"bloque": SubResource("Animation_av1gt"),
 &"position": SubResource("Animation_jxjwb")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi68r"]
-size = Vector2(151.5, 108)
+size = Vector2(95, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um4jh"]
+size = Vector2(92, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_333di"]
+size = Vector2(99, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is4ao"]
+size = Vector2(81.5, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
-size = Vector2(75, 36)
+size = Vector2(124.5, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecr63"]
 size = Vector2(726.3158, 1263.158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12enf"]
-size = Vector2(20, 39)
+size = Vector2(28, 39)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12enf"]
 radius = 43.0
 height = 152.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsmy"]
+size = Vector2(64, 19.5)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0, 0, 0, 0.75)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi68r"]
+radius = 30.0
+height = 98.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3vn5"]
+size = Vector2(56.25, 26.5)
 
 [node name="Level1" type="Node2D" unique_id=1156114961]
 script = ExtResource("1")
@@ -109,20 +171,27 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1100, 660)
 
 [node name="ColorRect" type="ColorRect" parent="Ground" unique_id=1567998462]
-visible = false
-offset_left = -1200.0
-offset_top = -40.0
-offset_right = 1200.0
-offset_bottom = 40.0
-color = Color(0.25, 0.6, 0.25, 1)
+offset_left = -1188.0
+offset_top = -42.0
+offset_right = 1212.0
+offset_bottom = 94.0
+color = Color(0.6, 0.50980395, 0.2784314, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1622320504]
-position = Vector2(396.5, 19.5)
+[node name="ColGround1" type="CollisionShape2D" parent="Ground" unique_id=1622320504]
+position = Vector2(-465, 21)
 shape = SubResource("RectangleShape2D_ground")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=1274423590]
+[node name="ColGround2" type="CollisionShape2D" parent="Ground" unique_id=1274423590]
 position = Vector2(-1056.75, 29)
 shape = SubResource("RectangleShape2D_rc7hq")
+
+[node name="ColGround3" type="CollisionShape2D" parent="Ground" unique_id=123115108]
+position = Vector2(268.5, 32)
+shape = SubResource("RectangleShape2D_r73rx")
+
+[node name="ColGround4" type="CollisionShape2D" parent="Ground" unique_id=737055791]
+position = Vector2(1124, 28)
+shape = SubResource("RectangleShape2D_ex2iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=740509682]
 position = Vector2(-728, -252)
@@ -139,45 +208,66 @@ position = Vector2(-33, -257)
 scale = Vector2(0.76484376, 0.5972223)
 texture = ExtResource("3_76388")
 
-[node name="Trampa1" type="Sprite2D" parent="Ground" unique_id=748946721]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground" unique_id=1609900368]
+libraries/ = SubResource("AnimationLibrary_2meft")
+
+[node name="Tramp1" type="Area2D" parent="Ground" unique_id=2004920445]
+script = ExtResource("6_kbo48")
+
+[node name="Trampa1" type="Sprite2D" parent="Ground/Tramp1" unique_id=748946721]
 position = Vector2(-808.0001, 24)
 scale = Vector2(0.57562494, 0.5831784)
 texture = ExtResource("5_kbo48")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground" unique_id=1609900368]
-libraries/ = SubResource("AnimationLibrary_2meft")
-
-[node name="Area2D" type="Area2D" parent="Ground" unique_id=2004920445]
-script = ExtResource("6_kbo48")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Area2D" unique_id=352211242]
-position = Vector2(-808.75, 12)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Tramp1" unique_id=352211242]
+position = Vector2(-818, 13)
 shape = SubResource("RectangleShape2D_qi68r")
 debug_color = Color(0.9731359, 0, 0.4394883, 0.41960785)
 
-[node name="PlatformA" type="StaticBody2D" parent="." unique_id=1800071905]
-position = Vector2(700, 580)
+[node name="Tramp2" type="Area2D" parent="Ground" unique_id=1245845900]
+script = ExtResource("7_2meft")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA" unique_id=1469583155]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_platform")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Tramp2" unique_id=196405402]
+position = Vector2(-150, 23)
+shape = SubResource("RectangleShape2D_um4jh")
+debug_color = Color(0.92335653, 4.9863458e-05, 0.6859954, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlatformA" unique_id=1514120108]
-position = Vector2(8.000013, 1.999979)
-scale = Vector2(0.40144244, 0.19732812)
-texture = ExtResource("4_ecr63")
+[node name="Tramp3" type="Area2D" parent="Ground" unique_id=374735113]
+script = ExtResource("8_0xqs2")
+
+[node name="Trampa2" type="Sprite2D" parent="Ground/Tramp3" unique_id=176872899]
+position = Vector2(697, 188.99997)
+scale = Vector2(0.5382868, 0.5894958)
+texture = ExtResource("5_kbo48")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground/Tramp3" unique_id=24229962]
+position = Vector2(691, 18)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_333di")
+debug_color = Color(0.9454673, 7.70092e-06, 0.5946111, 0.41960785)
 
 [node name="PlatformB" type="StaticBody2D" parent="." unique_id=86756453]
 position = Vector2(1800, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB" unique_id=386545356]
-position = Vector2(-3.5, 0)
-shape = SubResource("RectangleShape2D_platform")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlatformB" unique_id=1655258973]
+position = Vector2(-221.75, 16)
+shape = SubResource("RectangleShape2D_is4ao")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlatformB" unique_id=2026160432]
-position = Vector2(4, 2.0000038)
-scale = Vector2(0.26923078, 0.164405)
+[node name="bloque" type="Sprite2D" parent="PlatformB" unique_id=1589299565]
+position = Vector2(-205.00003, 17.000006)
+scale = Vector2(0.34459448, 0.18971811)
 texture = ExtResource("4_ecr63")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformB" unique_id=896680143]
+visible = false
+position = Vector2(-21, -94.28125)
+scale = Vector2(0.43659034, 0.15748957)
+texture = ExtResource("4_ecr63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB" unique_id=386545356]
+position = Vector2(-16, -100)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_platform")
 
 [node name="StartMarker" type="Marker2D" parent="." unique_id=1795464747]
 position = Vector2(100, 580)
@@ -221,11 +311,8 @@ position = Vector2(700, 541)
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_12enf")
 
-[node name="Star2" parent="." unique_id=1899535053 instance=ExtResource("3")]
-position = Vector2(1400, 596)
-
-[node name="Star3" parent="." unique_id=807614190 instance=ExtResource("3")]
-position = Vector2(1800, 541)
+[node name="Sprite2D" parent="Star1" index="1" unique_id=312082972]
+position = Vector2(3, -5)
 
 [node name="EndPoint" type="Area2D" parent="." unique_id=1855880850]
 position = Vector2(2100, 560)
@@ -249,6 +336,34 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(28, -34)
 scale = Vector2(0.27470776, 0.25178027)
 texture = ExtResource("8_kbo48")
+
+[node name="Puas" type="Sprite2D" parent="." unique_id=1372948785]
+position = Vector2(507, 607)
+scale = Vector2(0.38345864, 0.39215687)
+texture = ExtResource("11_4dyl1")
+
+[node name="Puas2" type="Area2D" parent="." unique_id=346173488]
+position = Vector2(1100, 660)
+script = ExtResource("7_jxjwb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Puas2" unique_id=349726204]
+position = Vector2(-592, -49.75)
+shape = SubResource("RectangleShape2D_cfsmy")
+debug_color = Color(0.8114921, 0.41129196, 0, 0.41960785)
+
+[node name="Puas3" type="Area2D" parent="." unique_id=394391915]
+position = Vector2(1100, 660)
+script = ExtResource("7_jxjwb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Puas3" unique_id=1955775716]
+position = Vector2(182, -50)
+shape = SubResource("RectangleShape2D_cfsmy")
+debug_color = Color(0.8114921, 0.41129196, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Puas3" unique_id=2071529475]
+position = Vector2(184, -53)
+scale = Vector2(0.31203008, 0.38235295)
+texture = ExtResource("11_4dyl1")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1530402256]
 
@@ -357,10 +472,24 @@ custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
 text = "Menu"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1372948785]
-position = Vector2(507, 607)
-scale = Vector2(0.38345864, 0.39215687)
-texture = ExtResource("11_4dyl1")
+[node name="Ancla" type="RigidBody2D" parent="." unique_id=1045989297]
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Ancla" unique_id=1201310387]
+position = Vector2(1844, -47)
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("15_av1gt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ancla" unique_id=216872793]
+position = Vector2(1840, -52)
+shape = SubResource("CapsuleShape2D_qi68r")
+
+[node name="Caida" type="Area2D" parent="." unique_id=538682817]
+script = ExtResource("16_r7dij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caida" unique_id=806761874]
+position = Vector2(1819.125, 479.75)
+shape = SubResource("RectangleShape2D_r3vn5")
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
