@@ -5,6 +5,8 @@ extends CharacterBody2D
 const SPEED = 350.0
 const JUMP_VELOCITY = -850.0
 
+func _ready() -> void: #Para que lo reconozcan las trampas
+	add_to_group("jugador")
 
 func _physics_process(delta: float) -> void:     
 	# ANIMACIONES :3

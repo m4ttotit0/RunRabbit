@@ -5,11 +5,70 @@
 [ext_resource type="Texture2D" uid="uid://cictxejohj4f6" path="res://assets/fondo/dessert.png" id="2_lrl65"]
 [ext_resource type="PackedScene" uid="uid://c6l6tjumwbgw8" path="res://scenes/Star.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://drly336crpeex" path="res://assets/extras/pisos y bloques/17428.png" id="3_76388"]
+[ext_resource type="Texture2D" uid="uid://c3fcpi1vcg7ut" path="res://assets/extras/pisos y bloques/17435.png" id="3_n34uq"]
 [ext_resource type="Texture2D" uid="uid://cxi2vqxawp4ta" path="res://assets/extras/pisos y bloques/17430.png" id="4_ecr63"]
+[ext_resource type="Texture2D" uid="uid://ctxyfxywsebaf" path="res://assets/extras/pisos y bloques/19989.png" id="5_kbo48"]
+[ext_resource type="Script" uid="uid://b5w7fr7xmyrtf" path="res://scenes/area_2d.gd" id="6_kbo48"]
 [ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="8_kbo48"]
+[ext_resource type="Texture2D" uid="uid://cilyb037ek4w6" path="res://assets/extras/ataques/puas Nivel1.png" id="11_4dyl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
-size = Vector2(2400, 80)
+size = Vector2(2259, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc7hq"]
+size = Vector2(342.5, 131)
+
+[sub_resource type="Animation" id="Animation_4dyl1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trampa1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-808.0001, 24)]
+}
+
+[sub_resource type="Animation" id="Animation_jxjwb"]
+resource_name = "position"
+length = 1.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trampa1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001, 0.55, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-808.0001, 24), Vector2(-812.00006, 173), Vector2(-813.00006, 194)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.71),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2meft"]
+_data = {
+&"RESET": SubResource("Animation_4dyl1"),
+&"position": SubResource("Animation_jxjwb")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi68r"]
+size = Vector2(151.5, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
 size = Vector2(75, 36)
@@ -58,18 +117,43 @@ offset_bottom = 40.0
 color = Color(0.25, 0.6, 0.25, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1622320504]
-position = Vector2(27, 0)
+position = Vector2(396.5, 19.5)
 shape = SubResource("RectangleShape2D_ground")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=1274423590]
+position = Vector2(-1056.75, 29)
+shape = SubResource("RectangleShape2D_rc7hq")
+
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=740509682]
-position = Vector2(-465.50006, -246.99994)
-scale = Vector2(0.6703125, 0.5666666)
-texture = ExtResource("3_76388")
+position = Vector2(-728, -252)
+scale = Vector2(0.73437506, 0.5842593)
+texture = ExtResource("3_n34uq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground/Sprite2D" unique_id=466142103]
-position = Vector2(1912.0387, -9.70594)
+position = Vector2(2207.3188, -6.846239)
 scale = Vector2(1.0067388, 1.017974)
 texture = ExtResource("3_76388")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ground" unique_id=854010711]
+position = Vector2(-33, -257)
+scale = Vector2(0.76484376, 0.5972223)
+texture = ExtResource("3_76388")
+
+[node name="Trampa1" type="Sprite2D" parent="Ground" unique_id=748946721]
+position = Vector2(-808.0001, 24)
+scale = Vector2(0.57562494, 0.5831784)
+texture = ExtResource("5_kbo48")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground" unique_id=1609900368]
+libraries/ = SubResource("AnimationLibrary_2meft")
+
+[node name="Area2D" type="Area2D" parent="Ground" unique_id=2004920445]
+script = ExtResource("6_kbo48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Area2D" unique_id=352211242]
+position = Vector2(-808.75, 12)
+shape = SubResource("RectangleShape2D_qi68r")
+debug_color = Color(0.9731359, 0, 0.4394883, 0.41960785)
 
 [node name="PlatformA" type="StaticBody2D" parent="." unique_id=1800071905]
 position = Vector2(700, 580)
@@ -129,7 +213,6 @@ limit_bottom = 722
 position = Vector2(178.94739, -242.10495)
 scale = Vector2(0.7, 0.686)
 animation = &"idle"
-autoplay = "idle"
 
 [node name="Star1" parent="." unique_id=784573789 instance=ExtResource("3")]
 position = Vector2(700, 541)
@@ -273,6 +356,11 @@ text = "Reintentar"
 custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
 text = "Menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1372948785]
+position = Vector2(507, 607)
+scale = Vector2(0.38345864, 0.39215687)
+texture = ExtResource("11_4dyl1")
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
