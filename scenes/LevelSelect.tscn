@@ -50,35 +50,35 @@ columns = 5
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Etapa 1"
+text = "1"
 
 [node name="Stage2" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1354520609]
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 disabled = true
-text = "Etapa 2"
+text = "2"
 
 [node name="Stage3" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1372988827]
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 disabled = true
-text = "Etapa 3"
+text = "3"
 
 [node name="Stage4" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=359209090]
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 disabled = true
-text = "Etapa 4"
+text = "4"
 
 [node name="Stage5" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=506295146]
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 disabled = true
-text = "Etapa 5"
+text = "5"
 
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1544956382]
 custom_minimum_size = Vector2(140, 50)
