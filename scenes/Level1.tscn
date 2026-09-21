@@ -157,13 +157,16 @@ scale = Vector2(0.54088986, 0.3969512)
 texture = ExtResource("2_lrl65")
 
 [node name="Background2" type="Sprite2D" parent="Background2" unique_id=103412580]
-position = Vector2(2355.8403, 39.047527)
-scale = Vector2(1.0076166, 1.0479379)
+position = Vector2(2364.2627, 1.1288567)
+scale = Vector2(1.000479, 1.0016956)
 texture = ExtResource("2_lrl65")
+flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=934847618]
-offset_right = 2555.0
-offset_bottom = 681.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 2553.0
+offset_bottom = 682.0
 color = Color(0.1643247, 0.119386695, 0, 0.43529412)
 metadata/_edit_use_anchors_ = true
 
