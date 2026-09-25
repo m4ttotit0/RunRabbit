@@ -29,7 +29,8 @@ func _on_star_collected() -> void:
 
 
 func _update_star_label() -> void:
-	star_label.text = "Estrellas: %d/%d" % [stars_collected, REQUIRED_STARS]
+	star_label.text = "" % [stars_collected, REQUIRED_STARS]
+	# star_label.text = "Estrellas: %d/%d" % [stars_collected, REQUIRED_STARS]
 
 
 func _on_end_point_body_entered(body: Node) -> void:
@@ -41,7 +42,7 @@ func _on_end_point_body_entered(body: Node) -> void:
 func _win() -> void:
 	if win_panel.visible:
 		return
-	win_label.text = "¡Nivel completado!\nEstrellas: %d/%d" % [stars_collected, REQUIRED_STARS]
+	win_label.text = "¡Nivel completado!" % [stars_collected, REQUIRED_STARS]
 	win_panel.visible = true
 	get_tree().paused = true
 	GameData.set_level_stars(LEVEL_ID, stars_collected)
