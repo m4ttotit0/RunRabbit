@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dyco8vo132168"]
 
 [ext_resource type="Script" uid="uid://d14lkwt2fjgh8" path="res://scripts/MainMenu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cjogroes7vugf" path="res://scenes/54 sin título.png" id="2_0ykhv"]
 
 [sub_resource type="FontVariation" id="FontVariation_yqorp"]
 
@@ -51,14 +52,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1667722320]
+[node name="Background" type="TextureRect" parent="." unique_id=294663533]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -92.0
+offset_right = -8.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.95803326, 0.5259294, 0.6641341, 1)
+texture = ExtResource("2_0ykhv")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1125915601]
 layout_mode = 1
@@ -83,7 +89,7 @@ offset_right = 288.0
 offset_bottom = 244.0
 grow_horizontal = 2
 pivot_offset = Vector2(288, 50)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.98774236, 0.39292228, 0.5790721, 1)
 theme_override_fonts/font = SubResource("FontVariation_yqorp")
 theme_override_font_sizes/font_size = 98
 text = "Run Rabbit!"
