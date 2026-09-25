@@ -477,6 +477,8 @@ text = "Menu"
 
 [node name="Ancla" type="RigidBody2D" parent="." unique_id=1045989297]
 freeze = true
+contact_monitor = true
+max_contacts_reported = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Ancla" unique_id=1201310387]
 position = Vector2(1844, -47)
