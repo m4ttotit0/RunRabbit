@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cilyb037ek4w6" path="res://assets/extras/ataques/puas Nivel1.png" id="11_4dyl1"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
+[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scenes/zona_muerte.gd" id="17_r7dij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(570, 133)
@@ -148,6 +149,9 @@ height = 98.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3vn5"]
 size = Vector2(56.25, 26.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ouud"]
+size = Vector2(2654, 20)
+
 [node name="Level1" type="Node2D" unique_id=1156114961]
 script = ExtResource("1")
 
@@ -218,8 +222,8 @@ libraries/ = SubResource("AnimationLibrary_2meft")
 script = ExtResource("6_kbo48")
 
 [node name="Trampa1" type="Sprite2D" parent="Ground/Tramp1" unique_id=748946721]
-position = Vector2(-811.5, 24)
-scale = Vector2(0.5370019, 0.5831784)
+position = Vector2(-808, 24)
+scale = Vector2(0.5237192, 0.5831784)
 texture = ExtResource("5_kbo48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Tramp1" unique_id=352211242]
@@ -274,17 +278,6 @@ shape = SubResource("RectangleShape2D_platform")
 
 [node name="StartMarker" type="Marker2D" parent="." unique_id=1795464747]
 position = Vector2(100, 580)
-
-[node name="StartLabel" type="Label" parent="StartMarker" unique_id=2137524257]
-offset_left = -31.0
-offset_top = -179.0
-offset_right = 37.0
-offset_bottom = -149.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
-text = "INICIO"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=2037065929 instance=ExtResource("2")]
 position = Vector2(100, 580)
@@ -493,6 +486,14 @@ script = ExtResource("16_r7dij")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caida" unique_id=806761874]
 position = Vector2(1819.125, 479.75)
 shape = SubResource("RectangleShape2D_r3vn5")
+
+[node name="zona_muerte" type="Area2D" parent="." unique_id=1361837656]
+script = ExtResource("17_r7dij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_muerte" unique_id=1844518534]
+position = Vector2(1326, 790)
+shape = SubResource("RectangleShape2D_2ouud")
+debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
