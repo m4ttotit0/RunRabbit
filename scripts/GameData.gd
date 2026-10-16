@@ -16,3 +16,7 @@ func set_level_stars(level_id: int, stars: int) -> void:
 
 func get_level_stars(level_id: int) -> int:
 	return level_stars.get(level_id, 0)
+
+## Modo de juego elegido
+## false = un jugador, true = dos jugadores.
+var two_players: bool = false
