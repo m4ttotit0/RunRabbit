@@ -1,3 +1,4 @@
+
 extends Node2D
 
 const LEVEL_ID := 1
@@ -8,51 +9,107 @@ const PLAYER2_OFFSET := Vector2(60, 0)
 @onready var win_label: Label = $UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/WinLabel
 @onready var player1: CharacterBody2D = $Player
 @onready var camera: Camera2D = $Player/Camera2D
+@onready var screamer: TextureRect = $UI/Screamer
 
 var player2: CharacterBody2D = null
+var jugador_muerto: bool = false
+
 
 func _ready() -> void:
 	win_panel.visible = false
-	end_point.body_entered.connect(_on_end_point_body_entered)
+	screamer.hide()
+
+	end_point.body_entered.connect(
+		_on_end_point_body_entered
+	)
+
 	if GameData.two_players:
 		_spawn_player2()
+
 
 func _spawn_player2() -> void:
 	player2 = player1.duplicate()
 	player2.name = "Player2"
 	player2.player_id = 2
 	player2.position = player1.position + PLAYER2_OFFSET
+
 	var cam2: Node = player2.get_node("Camera2D")
 	player2.remove_child(cam2)
 	cam2.free()
+
 	add_child(player2)
+
 	camera.top_level = true
 	camera.global_position = _players_center()
 	camera.reset_smoothing()
+
 
 func _process(_delta: float) -> void:
 	if player2 != null:
 		camera.global_position = _players_center()
 
+
 func _players_center() -> Vector2:
-	return (player1.global_position + player2.global_position) / 2.0
+	return (
+		player1.global_position
+		+ player2.global_position
+	) / 2.0
+
 
 func _on_end_point_body_entered(body: Node) -> void:
-	if not (body.name == "Player" or body.is_in_group("jugador") or body.is_in_group("player")):
+	if jugador_muerto:
 		return
+
+	if not (
+		body.name == "Player"
+		or body.is_in_group("jugador")
+		or body.is_in_group("player")
+	):
+		return
+
 	_win()
 
+
 func _win() -> void:
-	if win_panel.visible:
+	if win_panel.visible or jugador_muerto:
 		return
+
 	win_label.text = "¡Nivel completado!"
 	win_panel.visible = true
 	get_tree().paused = true
+
 
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
+
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/LevelSelect.tscn")
+	get_tree().change_scene_to_file(
+        "res://scenes/LevelSelect.tscn"
+	)
+
+
+
+
+func mostrar_screamer() -> void:
+	if jugador_muerto or win_panel.visible:
+		return
+
+	jugador_muerto = true
+
+	player1.velocity = Vector2.ZERO
+	player1.set_physics_process(false)
+	player1.set_process_input(false)
+
+	if is_instance_valid(player2):
+		player2.velocity = Vector2.ZERO
+		player2.set_physics_process(false)
+		player2.set_process_input(false)
+
+	if randf() < 0.5:
+		screamer.show()
+		await get_tree().create_timer(1.5).timeout
+
+	get_tree().reload_current_scene()

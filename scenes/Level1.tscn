@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dxykcnes8pkwl" path="res://scenes/tramp_3.gd" id="8_0xqs2"]
 [ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="8_kbo48"]
 [ext_resource type="Texture2D" uid="uid://cilyb037ek4w6" path="res://assets/extras/ataques/puas Nivel1.png" id="11_4dyl1"]
+[ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="15_2ouud"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scenes/zona_muerte.gd" id="17_r7dij"]
@@ -371,6 +372,17 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Nivel 1"
 metadata/_edit_use_anchors_ = true
+
+[node name="Screamer" type="TextureRect" parent="UI" unique_id=509433475]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_2ouud")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="StarLabel" type="Label" parent="UI" unique_id=2016626814]
 anchors_preset = 1

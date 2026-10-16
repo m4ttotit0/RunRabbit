@@ -1,3 +1,4 @@
+
 extends Area2D
 
 # Arrastra aquí el RigidBody2D que debe caer
@@ -14,18 +15,18 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	# Esta zona SOLO detecta al jugador para soltar el bloque, NUNCA mata aquí
-	if (body.name == "Player" or body.is_in_group("jugador")) and not ya_activado:
+	if (body.name == "Player" or body.name == "Player2" or body.is_in_group("jugador")) and not ya_activado:
 		ya_activado = true
 		if objeto_que_cae:
 			objeto_que_cae.set_deferred("freeze", false)
 
 func _on_roca_toco_algo(body: Node) -> void:
-	if body.name == "Player" or body.is_in_group("jugador"):
+	if body.name == "Player" or body.name == "Player2" or body.is_in_group("jugador"):
 		if objeto_que_cae and objeto_que_cae.linear_velocity.y > 50:
 			# Desconectamos para que no se dispare más de una vez en físicas
 			if objeto_que_cae.body_entered.is_connected(_on_roca_toco_algo):
 				objeto_que_cae.body_entered.disconnect(_on_roca_toco_algo)
-			
-			print(">>> Reinicio provocado por: CAIDA.GD (Roca)")
+
+			print(">>> Screamer provocado por: CAIDA.GD (Roca)")
 			# Usamos call_deferred para que espere al final del frame y no rompa el motor de físicas
-			get_tree().call_deferred("reload_current_scene")
+			get_tree().current_scene.call_deferred("mostrar_screamer")
