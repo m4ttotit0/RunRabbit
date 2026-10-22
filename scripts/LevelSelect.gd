@@ -11,21 +11,17 @@ const LEVEL_PATHS := {
 	5: "",
 }
 
-
 func _on_stage_1_pressed() -> void:
 	_go_to_level(1)
 
+func _on_stage_2_pressed() -> void:
+	_go_to_level(2)
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
-
 
 func _go_to_level(stage: int) -> void:
 	var path: String = LEVEL_PATHS.get(stage, "")
 	if path == "":
 		return
 	get_tree().change_scene_to_file(path)
-
-
-func _on_stage_2_pressed() -> void:
-	pass # Replace with function body.

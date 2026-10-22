@@ -108,7 +108,7 @@ func mostrar_screamer() -> void:
 		player2.set_physics_process(false)
 		player2.set_process_input(false)
 
-	if randf() < 0.5:
+	if randf() < 0.2:
 		screamer.show()
 		await get_tree().create_timer(1.5).timeout
 
