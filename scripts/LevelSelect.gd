@@ -5,7 +5,7 @@ extends Control
 ## y habilita el botón correspondiente en la escena (disabled = false).
 const LEVEL_PATHS := {
 	1: "res://scenes/Level1.tscn",
-	2: "",
+	2: "res://scenes/Level2.tscn",
 	3: "",
 	4: "",
 	5: "",
@@ -25,3 +25,7 @@ func _go_to_level(stage: int) -> void:
 	if path == "":
 		return
 	get_tree().change_scene_to_file(path)
+
+
+func _on_stage_2_pressed() -> void:
+	pass # Replace with function body.

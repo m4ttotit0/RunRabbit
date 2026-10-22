@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cev6jcetqn2k5" path="res://assets/sounds/jump.wav" id="8_khinc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
-size = Vector2(53, 71)
+size = Vector2(30, 72)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y1d2t"]
 animations = [{
@@ -52,7 +52,7 @@ animations = [{
 script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1050723180]
-position = Vector2(0.5, 2.5)
+position = Vector2(5, 2)
 shape = SubResource("RectangleShape2D_player")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=620828668]

@@ -54,7 +54,6 @@ offset_top = 580.0
 offset_right = 438.0
 offset_bottom = 650.0
 theme_override_font_sizes/font_size = 20
-disabled = true
 text = "2"
 
 [node name="Stage3" type="Button" parent="." unique_id=1372988827]
@@ -101,4 +100,5 @@ theme_override_font_sizes/font_size = 18
 text = "Volver"
 
 [connection signal="pressed" from="Stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="Stage2" to="." method="_on_stage_2_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
