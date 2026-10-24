@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://dyco8vo132168"]
 
 [ext_resource type="Script" uid="uid://d14lkwt2fjgh8" path="res://scripts/MainMenu.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://cjogroes7vugf" path="res://scenes/54 sin título.png" id="2_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://c535pun82ffxn" path="res://scenes/mainMenu.png" id="2_0ykhv"]
 
 [sub_resource type="FontVariation" id="FontVariation_yqorp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh52"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 0.70980394)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.601423, 0.75554323, 0.9088809, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="Animation" id="Animation_yqorp"]
 length = 0.001
@@ -57,10 +73,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = -154.0
-offset_right = -8.0
-offset_bottom = 23.0
+offset_left = 1.0
+offset_top = -176.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0ykhv")
@@ -83,10 +98,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -288.0
-offset_top = 144.0
-offset_right = 288.0
-offset_bottom = 244.0
+offset_left = -296.0
+offset_top = 115.0
+offset_right = 280.0
+offset_bottom = 215.0
 grow_horizontal = 2
 pivot_offset = Vector2(288, 50)
 theme_override_colors/font_color = Color(0.98774236, 0.39292228, 0.5790721, 1)
@@ -95,32 +110,36 @@ theme_override_font_sizes/font_size = 98
 text = "Run Rabbit!"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=384607371]
+[node name="QuitButton" type="Button" parent="." unique_id=1369807887]
+custom_minimum_size = Vector2(260, 56)
 layout_mode = 0
-offset_left = 455.0
-offset_top = 251.0
-offset_right = 776.0
-offset_bottom = 453.0
-theme_override_constants/separation = 28
-alignment = 1
+offset_left = 715.0
+offset_top = 244.0
+offset_right = 975.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0.6, 0.75686276, 0.9098039, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2wh52")
+text = "Exit"
 
-[node name="Subtitle" type="Label" parent="VBoxContainer" unique_id=815648623]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 16
-horizontal_alignment = 1
-
-[node name="LevelSelectButton" type="Button" parent="VBoxContainer" unique_id=446287343]
+[node name="LevelSelectButton" type="Button" parent="." unique_id=446287343]
 custom_minimum_size = Vector2(260, 56)
-layout_mode = 2
-theme_override_font_sizes/font_size = 29
-text = "Selector de Niveles"
-
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1369807887]
-custom_minimum_size = Vector2(260, 56)
-layout_mode = 2
-theme_override_font_sizes/font_size = 29
-text = "Salir"
+layout_mode = 0
+offset_left = 242.0
+offset_top = 241.0
+offset_right = 502.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.6, 0.75686276, 0.9098039, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2wh52")
+text = "Play"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=154074678]
 libraries/ = SubResource("AnimationLibrary_2wh52")
@@ -185,8 +204,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Volver"
 
-[connection signal="pressed" from="VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="ModePanel/CenterContainer/PanelContainer/VBoxContainer/OnePlayerButton" to="." method="_on_one_player_button_pressed"]
 [connection signal="pressed" from="ModePanel/CenterContainer/PanelContainer/VBoxContainer/TwoPlayersButton" to="." method="_on_two_players_button_pressed"]
 [connection signal="pressed" from="ModePanel/CenterContainer/PanelContainer/VBoxContainer/ModeBackButton" to="." method="_on_mode_back_button_pressed"]
