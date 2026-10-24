@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scenes/zona_muerte.gd" id="17_r7dij"]
+[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="19_i2gr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(570, 133)
@@ -125,7 +126,7 @@ size = Vector2(99, 120)
 size = Vector2(81.5, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
-size = Vector2(124.5, 26)
+size = Vector2(55.25, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecr63"]
 size = Vector2(726.3158, 1263.158)
@@ -262,7 +263,7 @@ position = Vector2(-221.75, 16)
 shape = SubResource("RectangleShape2D_is4ao")
 
 [node name="bloque" type="Sprite2D" parent="PlatformB" unique_id=1589299565]
-position = Vector2(-205.00003, 17.000006)
+position = Vector2(-212.00003, 15.000006)
 scale = Vector2(0.34459448, 0.18971811)
 texture = ExtResource("4_ecr63")
 
@@ -273,7 +274,7 @@ scale = Vector2(0.43659034, 0.15748957)
 texture = ExtResource("4_ecr63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB" unique_id=386545356]
-position = Vector2(-16, -100)
+position = Vector2(18.625, -100)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_platform")
 
@@ -506,6 +507,11 @@ script = ExtResource("17_r7dij")
 position = Vector2(1326, 790)
 shape = SubResource("RectangleShape2D_2ouud")
 debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1377619551]
+stream = ExtResource("19_i2gr7")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

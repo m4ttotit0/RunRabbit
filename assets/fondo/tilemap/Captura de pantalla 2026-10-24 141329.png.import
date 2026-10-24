@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qbt87o87ffab"
-path="res://.godot/imported/tilemap-backgrounds.png-3a6adc5a1672bb2d88bc9aa86b1368de.ctex"
+uid="uid://cd4hi0jcn72ia"
+path="res://.godot/imported/Captura de pantalla 2026-10-24 141329.png-ec7820a3fd8d1b7d29cb8748a48789fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondo/tilemap/tilemap-backgrounds.png"
-dest_files=["res://.godot/imported/tilemap-backgrounds.png-3a6adc5a1672bb2d88bc9aa86b1368de.ctex"]
+source_file="res://assets/fondo/tilemap/Captura de pantalla 2026-10-24 141329.png"
+dest_files=["res://.godot/imported/Captura de pantalla 2026-10-24 141329.png-ec7820a3fd8d1b7d29cb8748a48789fd.ctex"]
 
 [params]
 

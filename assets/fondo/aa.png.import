@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p6u0sx8h86vb"
-path="res://.godot/imported/blockTaiga2.webp-be2466307c4fe70830cf5faa06157976.ctex"
+uid="uid://bhhhjolefxgqm"
+path="res://.godot/imported/aa.png-d8ed68e9d6f5dcaa507569450ecd0ee5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondo/blockTaiga2.webp"
-dest_files=["res://.godot/imported/blockTaiga2.webp-be2466307c4fe70830cf5faa06157976.ctex"]
+source_file="res://assets/fondo/aa.png"
+dest_files=["res://.godot/imported/aa.png-d8ed68e9d6f5dcaa507569450ecd0ee5.ctex"]
 
 [params]
 
