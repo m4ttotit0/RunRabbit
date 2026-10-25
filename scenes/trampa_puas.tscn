@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cgml2sxb3swou"]
+
+[ext_resource type="Script" uid="uid://cn42tosbfmj0v" path="res://scenes/puas_trampa.gd" id="1_ii4se"]
+[ext_resource type="Texture2D" uid="uid://btuyph3v413j8" path="res://assets/extras/ataques/puas Nivel2.png" id="2_3bhl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2p7p"]
+size = Vector2(66, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1d2t"]
+size = Vector2(79, 18)
+
+[node name="Puas" type="Node2D" unique_id=1449647776]
+
+[node name="PuasTrampa" type="Area2D" parent="." unique_id=759082236]
+script = ExtResource("1_ii4se")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuasTrampa" unique_id=1143647841]
+scale = Vector2(0.312, 0.312)
+texture = ExtResource("2_3bhl6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuasTrampa" unique_id=1108067031]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_d2p7p")
+debug_color = Color(0.9106365, 0.18449885, 0.58325475, 0.41960785)
+
+[node name="SensorPiso" type="Area2D" parent="PuasTrampa" unique_id=1852152591]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuasTrampa/SensorPiso" unique_id=492887651]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_y1d2t")
