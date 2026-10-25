@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgml2sxb3swou"]
 
-[ext_resource type="Script" uid="uid://cn42tosbfmj0v" path="res://scenes/puas_trampa.gd" id="1_ii4se"]
+[ext_resource type="Script" uid="uid://cn42tosbfmj0v" path="res://scripts/puas_trampa.gd" id="1_ii4se"]
 [ext_resource type="Texture2D" uid="uid://btuyph3v413j8" path="res://assets/extras/ataques/puas Nivel2.png" id="2_3bhl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2p7p"]
