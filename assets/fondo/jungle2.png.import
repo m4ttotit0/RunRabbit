@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p6u0sx8h86vb"
-path="res://.godot/imported/blockTaiga2.webp-be2466307c4fe70830cf5faa06157976.ctex"
+uid="uid://dcbpjhk8brnru"
+path="res://.godot/imported/jungle2.png-e12276f5bdba37a471416961d85f5b26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondo/blockTaiga2.webp"
-dest_files=["res://.godot/imported/blockTaiga2.webp-be2466307c4fe70830cf5faa06157976.ctex"]
+source_file="res://assets/fondo/jungle2.png"
+dest_files=["res://.godot/imported/jungle2.png-e12276f5bdba37a471416961d85f5b26.ctex"]
 
 [params]
 

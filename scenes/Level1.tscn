@@ -9,14 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://cxi2vqxawp4ta" path="res://assets/extras/pisos y bloques/17430.png" id="4_ecr63"]
 [ext_resource type="Texture2D" uid="uid://ctxyfxywsebaf" path="res://assets/extras/pisos y bloques/19989.png" id="5_kbo48"]
 [ext_resource type="Script" uid="uid://b5w7fr7xmyrtf" path="res://scenes/area_2d.gd" id="6_kbo48"]
-[ext_resource type="Script" uid="uid://bddvd13s2xfp4" path="res://scenes/tramp_2.gd" id="7_2meft"]
+[ext_resource type="Script" uid="uid://bddvd13s2xfp4" path="res://scripts/tramp_2.gd" id="7_2meft"]
 [ext_resource type="Script" uid="uid://b5e4iqomd0yen" path="res://scenes/area_2d_2.gd" id="7_jxjwb"]
-[ext_resource type="Script" uid="uid://dxykcnes8pkwl" path="res://scenes/tramp_3.gd" id="8_0xqs2"]
+[ext_resource type="Script" uid="uid://dxykcnes8pkwl" path="res://scripts/tramp_3.gd" id="8_0xqs2"]
 [ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="8_kbo48"]
 [ext_resource type="Texture2D" uid="uid://cilyb037ek4w6" path="res://assets/extras/ataques/puas Nivel1.png" id="11_4dyl1"]
 [ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="15_2ouud"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scenes/zona_muerte.gd" id="17_r7dij"]
 [ext_resource type="Shader" uid="uid://chfu41u2cj733" path="res://scenes/Level1.gdshader" id="19_i2gr7"]
 
@@ -25,6 +26,10 @@ shader = ExtResource("19_i2gr7")
 shader_parameter/velocidad = 1.0
 shader_parameter/fuerza = 0.005
 shader_parameter/frecuencia = 40.0
+=======
+[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
+[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="19_i2gr7"]
+>>>>>>> aaa54eb4a4749bdfd524794d90cda6f8f763171a
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(570, 133)
@@ -132,7 +137,7 @@ size = Vector2(99, 120)
 size = Vector2(81.5, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
-size = Vector2(124.5, 26)
+size = Vector2(55.25, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecr63"]
 size = Vector2(726.3158, 1263.158)
@@ -277,7 +282,7 @@ position = Vector2(-221.75, 16)
 shape = SubResource("RectangleShape2D_is4ao")
 
 [node name="bloque" type="Sprite2D" parent="PlatformB" unique_id=1589299565]
-position = Vector2(-205.00003, 17.000006)
+position = Vector2(-212.00003, 15.000006)
 scale = Vector2(0.34459448, 0.18971811)
 texture = ExtResource("4_ecr63")
 
@@ -288,7 +293,7 @@ scale = Vector2(0.43659034, 0.15748957)
 texture = ExtResource("4_ecr63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB" unique_id=386545356]
-position = Vector2(-16, -100)
+position = Vector2(18.625, -100)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_platform")
 
@@ -332,16 +337,6 @@ position = Vector2(2100, 560)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndPoint" unique_id=1035678130]
 position = Vector2(1, -30)
 shape = SubResource("CapsuleShape2D_12enf")
-
-[node name="EndLabel" type="Label" parent="EndPoint" unique_id=1352949743]
-offset_left = -30.0
-offset_top = -140.0
-offset_right = 30.0
-offset_bottom = -110.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EndPoint" unique_id=443736932]
 position = Vector2(28, -34)
@@ -522,11 +517,18 @@ position = Vector2(1326, 790)
 shape = SubResource("RectangleShape2D_2ouud")
 debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
 
+<<<<<<< HEAD
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=589317209]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(2360, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1314301786]
+=======
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1377619551]
+stream = ExtResource("19_i2gr7")
+volume_db = -5.0
+autoplay = true
+>>>>>>> aaa54eb4a4749bdfd524794d90cda6f8f763171a
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

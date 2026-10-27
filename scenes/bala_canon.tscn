@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://fo62u5nh5vbd"]
+
+[ext_resource type="Script" uid="uid://n4tpkqhugrqe" path="res://scripts/bala_canon.gd" id="1_5te1y"]
+[ext_resource type="Texture2D" uid="uid://474fbs65lsg3" path="res://assets/extras/ataques/Bala H.png" id="2_mw76o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1d2t"]
+height = 37.999996
+
+[node name="Node2D" type="Node2D" unique_id=1312879851]
+
+[node name="BalaCanon" type="Area2D" parent="." unique_id=229627296]
+position = Vector2(-266, -32)
+script = ExtResource("1_5te1y")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="BalaCanon" unique_id=1171861370]
+position = Vector2(47.999996, 33.999996)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_mw76o")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BalaCanon" unique_id=1916263654]
+position = Vector2(49, 34)
+rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_y1d2t")

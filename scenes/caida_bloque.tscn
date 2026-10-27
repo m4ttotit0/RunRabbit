@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bh5yf331f5brv"]
+
+[ext_resource type="Texture2D" uid="uid://cd4hi0jcn72ia" path="res://assets/extras/pisos y bloques/lineaBloques.png" id="1_rlj5l"]
+[ext_resource type="Script" uid="uid://dsitjj0wf16pw" path="res://scripts/caida_bloque.gd" id="1_ugfbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1d2t"]
+size = Vector2(846.89154, 114.01205)
+
+[sub_resource type="Animation" id="Animation_ugfbn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r0y2d"]
+resource_name = "caida"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 100), Vector2(0, 400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dya0d"]
+_data = {
+&"RESET": SubResource("Animation_ugfbn"),
+&"caida": SubResource("Animation_r0y2d")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odq6k"]
+size = Vector2(842.1689, 115.66269)
+
+[node name="CaidaBloque" type="Node2D" unique_id=29494060]
+scale = Vector2(0.83, 0.83)
+script = ExtResource("1_ugfbn")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=402908873]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=426827385]
+texture_filter = 1
+texture = ExtResource("1_rlj5l")
+region_enabled = true
+region_rect = Rect2(0.5, 2, 848, 122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=2025206498]
+position = Vector2(0.5542296, 3.993976)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_y1d2t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=2047669791]
+libraries/ = SubResource("AnimationLibrary_dya0d")
+speed_scale = 1.8
+
+[node name="SensorPisar" type="Area2D" parent="." unique_id=244437808]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorPisar" unique_id=877146967]
+position = Vector2(-1.8072534, -8.868882e-06)
+scale = Vector2(0.99999946, 0.99999946)
+shape = SubResource("RectangleShape2D_odq6k")
+debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
