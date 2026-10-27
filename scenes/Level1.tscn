@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="15_2ouud"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scenes/zona_muerte.gd" id="17_r7dij"]
+[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
+[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="20_music"]
 [ext_resource type="Shader" uid="uid://chfu41u2cj733" path="res://scenes/Level1.gdshader" id="19_i2gr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_joxhm"]
@@ -26,10 +26,7 @@ shader = ExtResource("19_i2gr7")
 shader_parameter/velocidad = 1.0
 shader_parameter/fuerza = 0.005
 shader_parameter/frecuencia = 40.0
-=======
-[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
-[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="19_i2gr7"]
->>>>>>> aaa54eb4a4749bdfd524794d90cda6f8f763171a
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(570, 133)
@@ -517,18 +514,18 @@ position = Vector2(1326, 790)
 shape = SubResource("RectangleShape2D_2ouud")
 debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
 
-<<<<<<< HEAD
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=589317209]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(2360, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1314301786]
-=======
+
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1377619551]
-stream = ExtResource("19_i2gr7")
+stream = ExtResource("20_music")
 volume_db = -5.0
 autoplay = true
->>>>>>> aaa54eb4a4749bdfd524794d90cda6f8f763171a
+
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

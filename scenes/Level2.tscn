@@ -407,6 +407,13 @@ size = Vector2(108.000114, 170.00018)
 radius = 30.0
 height = 98.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_onogs"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30000, 1, 1)
+gravity = Vector3(0, 30, 0)
+scale_max = 4.95
+
 [node name="Level2" type="Node2D" unique_id=2040493032]
 position = Vector2(217, 5)
 script = ExtResource("1_v8268")
@@ -691,6 +698,13 @@ texture = ExtResource("15_cd1f0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ancla" unique_id=1882334958]
 position = Vector2(1840, -52)
 shape = SubResource("CapsuleShape2D_k83s3")
+
+[node name="nieve" type="GPUParticles2D" parent="." unique_id=466953518]
+position = Vector2(67, 6.9999847)
+scale = Vector2(0.09, 0.09)
+amount = 400
+lifetime = 12.0
+process_material = SubResource("ParticleProcessMaterial_onogs")
 
 [editable path="Player"]
 [editable path="Star"]
