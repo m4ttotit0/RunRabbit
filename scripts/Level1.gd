@@ -112,4 +112,4 @@ func mostrar_screamer() -> void:
 		screamer.show()
 		await get_tree().create_timer(1.5).timeout
 
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")

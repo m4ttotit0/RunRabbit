@@ -69,3 +69,19 @@ flip_h = true
 
 [node name="jumpSound" type="AudioStreamPlayer2D" parent="." unique_id=715291481]
 stream = ExtResource("8_khinc")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1005224899]
+position = Vector2(0, 41)
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 2)
+spread = 180.0
+gravity = Vector2(0, -50)
+initial_velocity_min = 40.0
+initial_velocity_max = 66.67
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color = Color(0.9516118, 0.85715294, 0.7476262, 0.18039216)

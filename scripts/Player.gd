@@ -1,6 +1,9 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $jumpSound
+@onready var particulas_polvo = $CPUParticles2D
+var was_on_the_floor = true
+
 
 const SPEED = 350.0
 const JUMP_VELOCITY = -850.0
@@ -58,6 +61,12 @@ func _physics_process(delta: float) -> void:
 	else:          velocity.x = move_toward(velocity.x, 0, SPEED)    
   
 	move_and_slide()
+	var touch_floor_now = is_on_floor() # esta funcion es para agregar particulas de polvo al tocar el suelo :p
+	
+	if touch_floor_now == true and was_on_the_floor == false:
+		particulas_polvo.emitting = true
+		
+	was_on_the_floor = touch_floor_now
 	
 	# DIRECCIONES :3
 	if direction == 1.0:
