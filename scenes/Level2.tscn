@@ -26,7 +26,7 @@
 size = Vector2(51, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfxww"]
-size = Vector2(74, 30)
+size = Vector2(93, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ax8h"]
 size = Vector2(89, 13.5)
@@ -417,7 +417,7 @@ gravity = Vector3(0, 30, 0)
 scale_max = 4.95
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12enf"]
-size = Vector2(33, 28)
+size = Vector2(65.5, 28)
 
 [node name="Level2" type="Node2D" unique_id=2040493032]
 position = Vector2(217, 5)
@@ -442,18 +442,18 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1809552080]
 texture_filter = 1
 offset_left = 1279.0
-offset_top = 7.0
 offset_right = 2579.0
-offset_bottom = 717.0
+offset_bottom = 710.0
 texture = ExtResource("1_l6gr7")
 expand_mode = 1
 flip_h = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=767629357]
-offset_left = 54.0
-offset_right = 3154.0
-offset_bottom = 850.0
+offset_left = -261.0
+offset_top = -24.0
+offset_right = 2839.0
+offset_bottom = 826.0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(1.5, 1.5)
 color = Color(0.10980392, 0.18431373, 0.2509804, 0.21176471)
@@ -500,7 +500,7 @@ debug_color = Color(0.9106365, 0.18449885, 0.58325475, 0.41960785)
 [node name="SensorPiso" type="Area2D" parent="TrampasPuas/Puas3" unique_id=2105852084]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrampasPuas/Puas3/SensorPiso" unique_id=1885365389]
-position = Vector2(0, -20)
+position = Vector2(-9.5, -57)
 shape = SubResource("RectangleShape2D_rfxww")
 
 [node name="Puas1" type="Area2D" parent="TrampasPuas" unique_id=1919778729]
@@ -693,10 +693,12 @@ position = Vector2(1840, -52)
 shape = SubResource("CapsuleShape2D_k83s3")
 
 [node name="nieve" type="GPUParticles2D" parent="." unique_id=466953518]
-position = Vector2(67, 6.9999847)
+position = Vector2(200, 7)
 scale = Vector2(0.09, 0.09)
 amount = 400
 lifetime = 12.0
+fixed_fps = 60
+visibility_rect = Rect2(-32000, -1000, 64000, 12000)
 process_material = SubResource("ParticleProcessMaterial_onogs")
 
 [node name="Caida" type="Area2D" parent="." unique_id=1399360132]
@@ -704,7 +706,7 @@ position = Vector2(2360, 246)
 script = ExtResource("20_0roy1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caida" unique_id=322792725]
-position = Vector2(36.5, 30)
+position = Vector2(24, -25)
 shape = SubResource("RectangleShape2D_12enf")
 debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
 
