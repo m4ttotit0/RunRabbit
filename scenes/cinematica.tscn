@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://n3ybwersmo88"]
+
+[ext_resource type="Script" uid="uid://7fh5atdtjee8" path="res://scenes/control.gd" id="1_q8c0b"]
+[ext_resource type="Texture2D" uid="uid://cn11bogso7fxx" path="res://png/cine/pt1.png" id="2_x6i2r"]
+[ext_resource type="Texture2D" uid="uid://deewx288h4srl" path="res://png/cine/pt2.png" id="3_77heu"]
+[ext_resource type="Texture2D" uid="uid://jr2f8hgpi1yr" path="res://png/cine/pt3.png" id="4_1xbg7"]
+[ext_resource type="Texture2D" uid="uid://tpq12dk8csmt" path="res://png/cine/pt4.png" id="5_t71q4"]
+[ext_resource type="Texture2D" uid="uid://d0b8f06qxdagw" path="res://png/cine/pt5.png" id="6_pxk5t"]
+[ext_resource type="Texture2D" uid="uid://ciytvf0q2s5s4" path="res://png/cine/pt6.png" id="7_qj7ak"]
+[ext_resource type="Texture2D" uid="uid://dr6ur0n04qxs8" path="res://png/cine/pt7.png" id="8_ty2vl"]
+[ext_resource type="Texture2D" uid="uid://dduya0h0dcsgj" path="res://png/cine/pt8.png" id="9_mlvm0"]
+
+[sub_resource type="Animation" id="Animation_q8c0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_x6i2r"]
+resource_name = "byeol"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1.001, 1.001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77heu"]
+_data = {
+&"RESET": SubResource("Animation_q8c0b"),
+&"byeol": SubResource("Animation_x6i2r")
+}
+
+[node name="Cinematica" type="Node2D" unique_id=2083872457]
+
+[node name="Control" type="Control" parent="." unique_id=1443235381]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8c0b")
+imagenes_cinematica = Array[Texture2D]([ExtResource("2_x6i2r"), ExtResource("3_77heu"), ExtResource("4_1xbg7"), ExtResource("5_t71q4"), ExtResource("6_pxk5t"), ExtResource("7_qj7ak"), ExtResource("8_ty2vl"), ExtResource("9_mlvm0")])
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=180030938]
+layout_mode = 0
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control" unique_id=1929976609]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 674.1689
+offset_right = 817.9751
+offset_bottom = 698.1689
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(205.77658, 10.115356)
+text = "Presiona espacio para continuar"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=231910268]
+libraries/ = SubResource("AnimationLibrary_77heu")
+autoplay = &"byeol"

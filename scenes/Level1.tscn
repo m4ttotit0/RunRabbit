@@ -18,15 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
-[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="20_music"]
 [ext_resource type="Shader" uid="uid://chfu41u2cj733" path="res://scenes/Level1.gdshader" id="19_i2gr7"]
+[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="20_music"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_joxhm"]
 shader = ExtResource("19_i2gr7")
 shader_parameter/velocidad = 1.0
 shader_parameter/fuerza = 0.005
 shader_parameter/frecuencia = 40.0
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(570, 133)
@@ -187,10 +186,10 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=1920987582]
 material = SubResource("ShaderMaterial_joxhm")
 layout_mode = 0
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 2559.0
-offset_bottom = 787.0
+offset_left = 101.0
+offset_top = -23.0
+offset_right = 2659.0
+offset_bottom = 766.0
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1278307842]
 position = Vector2(1100, 660)
@@ -316,7 +315,6 @@ limit_bottom = 722
 [node name="AnimatedSprite2D" parent="Player" index="2" unique_id=1913535713]
 position = Vector2(178.94739, -242.10495)
 scale = Vector2(0.7, 0.686)
-animation = &"idle"
 
 [node name="Star1" parent="." unique_id=784573789 instance=ExtResource("3")]
 position = Vector2(700, 541)
@@ -514,7 +512,6 @@ position = Vector2(1326, 790)
 shape = SubResource("RectangleShape2D_2ouud")
 debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
 
-
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=589317209]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(2360, 0)
@@ -525,7 +522,6 @@ repeat_size = Vector2(2360, 0)
 stream = ExtResource("20_music")
 volume_db = -5.0
 autoplay = true
-
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

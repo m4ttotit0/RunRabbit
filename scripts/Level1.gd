@@ -69,7 +69,6 @@ func _on_end_point_body_entered(body: Node) -> void:
 
 	_win()
 
-
 func _win() -> void:
 	if win_panel.visible or jugador_muerto:
 		return
@@ -77,7 +76,6 @@ func _win() -> void:
 	win_label.text = "¡Nivel completado!"
 	win_panel.visible = true
 	get_tree().paused = true
-
 
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
@@ -89,9 +87,6 @@ func _on_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file(
         "res://scenes/LevelSelect.tscn"
 	)
-
-
-
 
 func mostrar_screamer() -> void:
 	if jugador_muerto or win_panel.visible:

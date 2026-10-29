@@ -12,8 +12,9 @@ const LEVEL_PATHS := {
 }
 
 func _on_stage_1_pressed() -> void:
-	_go_to_level(1)
-
+	get_tree().change_scene_to_file("res://scenes/cinematica.tscn")
+	#_go_to_level(1)
+	
 func _on_stage_2_pressed() -> void:
 	_go_to_level(2)
 
