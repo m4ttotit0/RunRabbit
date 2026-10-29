@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
 [ext_resource type="Shader" uid="uid://chfu41u2cj733" path="res://scenes/Level1.gdshader" id="19_i2gr7"]
 [ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="20_music"]
+[ext_resource type="PackedScene" uid="uid://bv6dalkvfnim4" path="res://enemigo.tscn" id="21_thv4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_joxhm"]
 shader = ExtResource("19_i2gr7")
@@ -522,6 +523,10 @@ repeat_size = Vector2(2360, 0)
 stream = ExtResource("20_music")
 volume_db = -5.0
 autoplay = true
+
+[node name="Enemigo" parent="." unique_id=1787918559 instance=ExtResource("21_thv4y")]
+position = Vector2(-5, 553)
+scale = Vector2(0.075, 0.075)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
