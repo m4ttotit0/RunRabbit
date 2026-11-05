@@ -5,7 +5,7 @@ extends CharacterBody2D
 var was_on_the_floor = true
 
 
-const SPEED = 350.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -850.0
 
 ## 1 = WASD, 2 = flechas.

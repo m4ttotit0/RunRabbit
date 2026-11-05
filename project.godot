@@ -67,4 +67,4 @@ p2_jump={
 
 [physics]
 
-2d/default_gravity=2000.0
+2d/default_gravity=2500.0

@@ -653,6 +653,7 @@ script = ExtResource("15_2jdof")
 [node name="bloque" type="AnimatableBody2D" parent="MovingPlatforms/CaidaBloque2" unique_id=950033808]
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/CaidaBloque2/bloque" unique_id=1415248090]
+texture_filter = 1
 position = Vector2(-368, 20)
 texture = ExtResource("15_k83s3")
 region_enabled = true
