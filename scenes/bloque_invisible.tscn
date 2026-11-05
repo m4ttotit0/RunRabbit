@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ca86wbr5xu713"]
+
+[ext_resource type="Script" uid="uid://b88tn5dmoyu5" path="res://bloque_invisible.gd" id="1_rvwtv"]
+[ext_resource type="Texture2D" uid="uid://dlooxtxlo8muo" path="res://assets/fondo/tilemap/tilemap.png" id="2_6hbih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84h82"]
+size = Vector2(54, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1d2t"]
+size = Vector2(50, 20)
+
+[node name="BloqueInvisible" type="StaticBody2D" unique_id=361352784]
+script = ExtResource("1_rvwtv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=240786944]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_6hbih")
+region_enabled = true
+region_rect = Rect2(132, 36, 19.419388, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484263159]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_84h82")
+one_way_collision = true
+
+[node name="SensorCabeza" type="Area2D" parent="." unique_id=774586254]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorCabeza" unique_id=446967055]
+position = Vector2(2, 23)
+shape = SubResource("RectangleShape2D_y1d2t")
+debug_color = Color(0.78487206, 0.33493495, 0.7061617, 0.41960785)
