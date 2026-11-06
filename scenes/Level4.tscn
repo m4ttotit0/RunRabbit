@@ -408,7 +408,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84h82"]
-size = Vector2(118.68141, 41.75827)
+size = Vector2(59.34064, 41.75827)
 
 [sub_resource type="Animation" id="Animation_ugfbn"]
 length = 0.001
@@ -448,14 +448,17 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi1i5"]
-size = Vector2(92.28354, 492.30807)
+size = Vector2(113.18724, 133.51659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02xm5"]
+size = Vector2(114.28638, 133.51659)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k83s3"]
 radius = 30.0
 height = 98.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12enf"]
-size = Vector2(112, 28)
+size = Vector2(61, 28)
 
 [node name="Level4" type="Node2D" unique_id=2040493032]
 position = Vector2(-4, -3)
@@ -656,13 +659,13 @@ autoplay = true
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=323511367]
 texture_filter = 1
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAxAEAAAwAFAAcAAAADAAwAAwACAAEAAAADAA0AAwACAAcAAAAEAAsAAwABAAEAAAAEAAwAAwACAAYAAAAEAA0AAwACAAcAAAAFAAoAAwABAAEAAAAFAAsAAwACAAYAAAAFAAwAAwACAAYAAAAFAA0AAwACAAcAAAAGAAkAAwABAAEAAAAGAAoAAwACAAYAAAAGAAwAAwACAAYAAAAGAA0AAwACAAcAAAAHAAkAAwADAAEAAAAHAAoAAwADAAYAAAAHAAsAAwADAAYAAAAHAAwAAwADAAYAAAAHAA0AAwADAAcAAAAAAAwAAwABAAEAAAAAAA0AAwABAAcAAAABAA0AAwACAAcAAAACAA0AAwACAAcAAAABAAwAAwACAAEAAAACAAwAAwACAAEAAAALAAgAAwABAAAAAAAMAAgAAwADAAAAAAD//w0AAwABAAcAAAD//wwAAwAAAAYAAAD//wsAAwAAAAYAAAD//woAAwAAAAYAAAD//wkAAwAAAAYAAAD//wgAAwAAAAYAAAD//wcAAwAAAAYAAAD//wYAAwAAAAYAAAD//wUAAwAAAAYAAAD//wQAAwAAAAYAAAD//wMAAwAAAAYAAAD//wIAAwAAAAYAAAD//wEAAwAAAAYAAAD//wAAAwAAAAYAAAASAA0AAwACAAcAAAASAAYAAwADAAEAAAASAAcAAwACAAYAAAASAAgAAwACAAYAAAASAAkAAwACAAYAAAASAAoAAwACAAYAAAASAAsAAwACAAYAAAASAAwAAwACAAYAAAATAAcAAwADAAEAAAATAA0AAwACAAcAAAAUAA0AAwACAAcAAAAVAA0AAwACAAcAAAAWAA0AAwADAAcAAAAWAAwAAwADAAYAAAAWAAsAAwADAAYAAAAWAAoAAwADAAYAAAAWAAkAAwADAAEAAAATAAgAAwADAAYAAAAUAAkAAwACAAEAAAAVAAkAAwACAAEAAAATAAoAAwACAAYAAAAUAAoAAwACAAYAAAAVAAoAAwACAAYAAAAVAAwAAwACAAYAAAAUAAwAAwACAAYAAAATAAsAAwACAAYAAAAUAAsAAwACAAYAAAAVAAsAAwACAAYAAAAPAAsAAwABAAYAAAAPAAwAAwABAAYAAAAPAA0AAwABAAcAAAAPAAgAAwABAAYAAAAPAAkAAwABAAYAAAAPAAoAAwABAAYAAAAPAAYAAwABAAEAAAAPAAcAAwABAAYAAAAGAAsAAwAEAAUAAAAjAAkAAwABAAEAAAAjAAoAAwABAAYAAAAjAAsAAwABAAYAAAAjAAwAAwABAAYAAAAjAA0AAwABAAcAAAAcAAkAAwABAAEAAAAcAAoAAwABAAYAAAAcAAsAAwABAAYAAAAcAAwAAwABAAYAAAAcAA0AAwABAAcAAAAdAAkAAwACAAEAAAAdAAoAAwACAAYAAAAdAAsAAwACAAYAAAAdAAwAAwACAAYAAAAdAA0AAwACAAcAAAAeAAkAAwADAAEAAAAeAAoAAwADAAYAAAAeAAsAAwADAAYAAAAeAAwAAwADAAYAAAAeAA0AAwADAAcAAAAkAAkAAwACAAEAAAAkAAoAAwACAAYAAAAkAAsAAwACAAYAAAAkAAwAAwACAAYAAAAkAA0AAwACAAcAAAAlAAkAAwACAAEAAAAlAAoAAwACAAYAAAAlAAsAAwACAAYAAAAlAAwAAwACAAYAAAAlAA0AAwACAAcAAAAmAAkAAwADAAEAAAAmAAoAAwADAAYAAAAmAAsAAwADAAYAAAAmAAwAAwADAAYAAAAmAA0AAwADAAcAAAATAAwAAwACAAYAAAATAAkAAwACAAYAAAA=")
+tile_map_data = PackedByteArray("AAAxAEAAAwAFAAcAAAADAAwAAwACAAEAAAADAA0AAwACAAcAAAAEAAsAAwABAAEAAAAEAAwAAwACAAYAAAAEAA0AAwACAAcAAAAFAAoAAwABAAEAAAAFAAsAAwACAAYAAAAFAAwAAwACAAYAAAAFAA0AAwACAAcAAAAGAAkAAwABAAEAAAAGAAoAAwACAAYAAAAGAAwAAwACAAYAAAAGAA0AAwACAAcAAAAHAAkAAwADAAEAAAAHAAoAAwADAAYAAAAHAAsAAwADAAYAAAAHAAwAAwADAAYAAAAHAA0AAwADAAcAAAAAAAwAAwABAAEAAAAAAA0AAwABAAcAAAABAA0AAwACAAcAAAACAA0AAwACAAcAAAABAAwAAwACAAEAAAACAAwAAwACAAEAAAALAAgAAwABAAAAAAAMAAgAAwADAAAAAAD//w0AAwABAAcAAAD//wwAAwAAAAYAAAD//wsAAwAAAAYAAAD//woAAwAAAAYAAAD//wkAAwAAAAYAAAD//wgAAwAAAAYAAAD//wcAAwAAAAYAAAD//wYAAwAAAAYAAAD//wUAAwAAAAYAAAD//wQAAwAAAAYAAAD//wMAAwAAAAYAAAD//wIAAwAAAAYAAAD//wEAAwAAAAYAAAD//wAAAwAAAAYAAAASAA0AAwACAAcAAAASAAYAAwADAAEAAAASAAcAAwACAAYAAAASAAgAAwACAAYAAAASAAkAAwACAAYAAAASAAoAAwACAAYAAAASAAsAAwACAAYAAAASAAwAAwACAAYAAAATAAcAAwADAAEAAAATAA0AAwACAAcAAAAUAA0AAwACAAcAAAAVAA0AAwACAAcAAAAWAA0AAwADAAcAAAAWAAwAAwADAAYAAAAWAAsAAwADAAYAAAAWAAoAAwADAAYAAAAWAAkAAwADAAEAAAATAAgAAwADAAYAAAAUAAkAAwACAAEAAAAVAAkAAwACAAEAAAATAAoAAwACAAYAAAAUAAoAAwACAAYAAAAVAAoAAwACAAYAAAAVAAwAAwACAAYAAAAUAAwAAwACAAYAAAATAAsAAwACAAYAAAAUAAsAAwACAAYAAAAVAAsAAwACAAYAAAAPAAsAAwABAAYAAAAPAAwAAwABAAYAAAAPAA0AAwABAAcAAAAPAAgAAwABAAYAAAAPAAkAAwABAAYAAAAPAAoAAwABAAYAAAAPAAYAAwABAAEAAAAPAAcAAwABAAYAAAAGAAsAAwAEAAUAAAAjAAkAAwABAAEAAAAjAAoAAwABAAYAAAAjAAsAAwABAAYAAAAjAAwAAwABAAYAAAAjAA0AAwABAAcAAAAcAAkAAwABAAEAAAAcAAoAAwABAAYAAAAcAAsAAwABAAYAAAAcAAwAAwABAAYAAAAcAA0AAwABAAcAAAAdAAkAAwACAAEAAAAdAAoAAwACAAYAAAAdAAsAAwACAAYAAAAdAAwAAwACAAYAAAAdAA0AAwACAAcAAAAeAAkAAwADAAEAAAAeAAoAAwADAAYAAAAeAAsAAwADAAYAAAAeAAwAAwADAAYAAAAeAA0AAwADAAcAAAAkAAkAAwACAAEAAAAkAAoAAwACAAYAAAAkAAsAAwACAAYAAAAkAAwAAwACAAYAAAAkAA0AAwACAAcAAAAlAAkAAwACAAEAAAAlAAoAAwACAAYAAAAlAAsAAwACAAYAAAAlAAwAAwACAAYAAAAlAA0AAwACAAcAAAAmAAkAAwADAAEAAAAmAAoAAwADAAYAAAAmAAsAAwADAAYAAAAmAAwAAwADAAYAAAAmAA0AAwADAAcAAAATAAwAAwACAAYAAAATAAkAAwACAAYAAAApAAwAAwABAAEAAAAsAAwAAwACAAEAAAAtAAwAAwADAAEAAAAwAAwAAwABAAEAAAAxAAwAAwACAAEAAAAyAAsAAwABAAEAAAAzAAoAAwABAAEAAAA0AAkAAwABAAEAAAA1AAgAAwABAAEAAAA2AAcAAwABAAEAAAA3AAYAAwADAAEAAAAyAAwAAwACAAYAAAAzAAwAAwACAAYAAAAzAAsAAwACAAYAAAA0AAsAAwACAAYAAAA0AAoAAwACAAYAAAA1AAoAAwACAAYAAAA1AAkAAwACAAYAAAA2AAkAAwACAAYAAAA2AAgAAwACAAYAAAA3AAgAAwADAAYAAAA3AAcAAwADAAYAAAA3AAkAAwADAAYAAAA3AAoAAwADAAYAAAA3AAsAAwADAAYAAAA2AAwAAwACAAYAAAA3AAwAAwADAAYAAAA2AAsAAwACAAYAAAA2AAoAAwACAAYAAAA1AAsAAwACAAYAAAA1AAwAAwACAAYAAAA0AAwAAwACAAYAAAA3AA0AAwADAAcAAAA2AA0AAwACAAcAAAA1AA0AAwACAAcAAAA0AA0AAwACAAcAAAAzAA0AAwACAAcAAAAyAA0AAwACAAcAAAAxAA0AAwACAAcAAAAwAA0AAwABAAcAAAAsAA0AAwACAAcAAAApAA0AAwABAAcAAAAtAA0AAwADAAcAAAA5AAEAAwACAAYAAAA5AAUAAwACAAYAAAA5AAYAAwACAAYAAAA6AAEAAwACAAYAAAA6AAUAAwACAAYAAAA6AAYAAwACAAYAAAA7AAEAAwACAAYAAAA7AAUAAwACAAYAAAA7AAYAAwACAAYAAAA8AAEAAwACAAYAAAA8AAUAAwACAAYAAAA8AAYAAwACAAYAAAA9AAEAAwACAAYAAAA9AAUAAwACAAYAAAA9AAYAAwACAAYAAAA+AAEAAwACAAYAAAA+AAUAAwACAAYAAAA+AAYAAwACAAYAAAA/AAEAAwACAAYAAAA/AAUAAwACAAYAAAA/AAYAAwACAAYAAABAAAEAAwACAAYAAABAAAUAAwACAAYAAABAAAYAAwACAAYAAABBAAEAAwACAAYAAABBAAIAAwACAAYAAABBAAMAAwACAAYAAABBAAQAAwACAAYAAABBAAUAAwACAAYAAABBAAYAAwACAAYAAABCAAEAAwACAAYAAABCAAIAAwACAAYAAABCAAMAAwACAAYAAABCAAQAAwACAAYAAABCAAUAAwACAAYAAABCAAYAAwACAAYAAABDAAEAAwACAAYAAABDAAIAAwACAAYAAABDAAMAAwACAAYAAABDAAQAAwACAAYAAABDAAUAAwACAAYAAABDAAYAAwACAAYAAAA5AAcAAwACAAYAAAA5AAgAAwACAAYAAAA5AAkAAwACAAYAAAA5AAoAAwACAAYAAAA5AAsAAwACAAYAAAA5AAwAAwACAAYAAAA5AA0AAwACAAYAAAA6AAcAAwACAAYAAAA6AAgAAwACAAYAAAA6AAkAAwACAAYAAAA6AAoAAwACAAYAAAA6AAsAAwACAAYAAAA6AAwAAwACAAYAAAA6AA0AAwACAAYAAAA7AAcAAwACAAYAAAA7AAgAAwACAAYAAAA7AAkAAwACAAYAAAA7AAoAAwACAAYAAAA7AAsAAwACAAYAAAA7AAwAAwACAAYAAAA7AA0AAwACAAYAAAA8AAcAAwACAAYAAAA8AAgAAwACAAYAAAA8AAkAAwACAAYAAAA8AAoAAwACAAYAAAA8AAsAAwACAAYAAAA8AAwAAwACAAYAAAA8AA0AAwACAAYAAAA9AAcAAwACAAYAAAA9AAgAAwACAAYAAAA9AAkAAwACAAYAAAA9AAoAAwACAAYAAAA9AAsAAwACAAYAAAA9AAwAAwACAAYAAAA9AA0AAwACAAYAAAA+AAcAAwACAAYAAAA+AAgAAwACAAYAAAA+AAkAAwACAAYAAAA+AAoAAwACAAYAAAA+AAsAAwACAAYAAAA+AAwAAwACAAYAAAA+AA0AAwACAAYAAAA/AAcAAwACAAYAAAA/AAgAAwACAAYAAAA/AAwAAwACAAYAAAA/AA0AAwACAAYAAABAAAcAAwACAAYAAABAAAgAAwACAAYAAABAAAwAAwACAAYAAABAAA0AAwACAAYAAABBAAcAAwACAAYAAABBAAgAAwACAAYAAABBAAkAAwACAAYAAABBAAoAAwACAAYAAABBAAsAAwACAAYAAABBAAwAAwACAAYAAABBAA0AAwACAAYAAABCAAcAAwACAAYAAABCAAgAAwACAAYAAABCAAkAAwACAAYAAABCAAoAAwACAAYAAABCAAsAAwACAAYAAABCAAwAAwACAAYAAABCAA0AAwACAAYAAABDAAcAAwACAAYAAABDAAgAAwACAAYAAABDAAkAAwACAAYAAABDAAoAAwACAAYAAABDAAsAAwACAAYAAABDAAwAAwACAAYAAABDAA0AAwACAAYAAABHAAIAAwACAAYAAABIAAIAAwACAAYAAABJAAIAAwACAAYAAABKAAEAAwACAAYAAABLAAEAAwACAAYAAABMAAIAAwACAAYAAABMAAMAAwACAAYAAABMAAQAAwACAAYAAABMAAUAAwACAAYAAABMAAYAAwACAAYAAABMAAcAAwACAAYAAABMAAgAAwACAAYAAABMAAkAAwACAAYAAABMAAoAAwACAAYAAABMAAsAAwACAAYAAABMAAwAAwACAAYAAABJAAgAAwACAAYAAABKAAgAAwACAAYAAABLAAgAAwACAAYAAABLAAcAAwACAAYAAABNAAcAAwACAAYAAAA=")
 tile_set = SubResource("TileSet_y1d2t")
 
 [node name="Canions" type="Node2D" parent="." unique_id=2068695280]
 
 [node name="canion1" type="StaticBody2D" parent="Canions" unique_id=905952851]
-position = Vector2(1897.9999, 570.99994)
+position = Vector2(1901.9999, 571.99994)
 rotation = 0.59166664
 script = ExtResource("11_hyyf8")
 bala_scene = ExtResource("12_vhnht")
@@ -746,7 +749,7 @@ autoplay = &"move"
 
 [node name="CaidaBloque2" type="Node2D" parent="MovingPlatforms" unique_id=651981774]
 texture_filter = 1
-position = Vector2(2533, 1071)
+position = Vector2(2630, 682.00006)
 scale = Vector2(0.91, 0.91)
 script = ExtResource("16_ga1sf")
 metadata/_edit_group_ = true
@@ -757,10 +760,10 @@ metadata/_edit_group_ = true
 position = Vector2(-368, 20)
 texture = ExtResource("15_ru3g5")
 region_enabled = true
-region_rect = Rect2(4.9920025, 7.0086355, 60.071815, 475.0307)
+region_rect = Rect2(4.9920025, 7.0086355, 60.071815, 114.61806)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque2/bloque" unique_id=753695390]
-position = Vector2(-368.68127, -196.70337)
+position = Vector2(-368.13208, -14.285706)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_84h82")
 
@@ -772,7 +775,7 @@ speed_scale = 2.0
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque2/SensorPisar" unique_id=158481260]
-position = Vector2(-368.68115, 9.890015)
+position = Vector2(-334.615, 15.659363)
 scale = Vector2(0.99999905, 0.99999905)
 shape = SubResource("RectangleShape2D_mi1i5")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
@@ -810,32 +813,38 @@ scale = Vector2(0.9999988, 0.9999988)
 shape = SubResource("RectangleShape2D_mi1i5")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
 
-[node name="Ancla" type="RigidBody2D" parent="." unique_id=2137607533]
-position = Vector2(142, 94)
-mass = 3.0
-gravity_scale = 2.0
-freeze = true
-contact_monitor = true
-max_contacts_reported = 4
+[node name="CaidaBloque3" type="Node2D" parent="MovingPlatforms" unique_id=553168568]
+texture_filter = 1
+position = Vector2(2685.0002, 682)
+scale = Vector2(0.91, 0.91)
+script = ExtResource("16_ga1sf")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Ancla" unique_id=2040097319]
-position = Vector2(1844, -47)
-scale = Vector2(0.116419084, 0.13991545)
-texture = ExtResource("18_vu65m")
+[node name="bloque" type="AnimatableBody2D" parent="MovingPlatforms/CaidaBloque3" unique_id=1047500997]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ancla" unique_id=1882334958]
-position = Vector2(1840, -52)
-shape = SubResource("CapsuleShape2D_k83s3")
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/CaidaBloque3/bloque" unique_id=1934507930]
+position = Vector2(-368, 20)
+texture = ExtResource("15_ru3g5")
+region_enabled = true
+region_rect = Rect2(4.9920025, 7.0086355, 60.071815, 114.61806)
 
-[node name="CaidaAncla" type="Area2D" parent="." unique_id=1399360132]
-position = Vector2(2360, 246)
-script = ExtResource("19_lqf1v")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque3/bloque" unique_id=1333697350]
+position = Vector2(-368.13208, -14.285706)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_84h82")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaidaAncla" unique_id=322792725]
-position = Vector2(-388, 234)
-shape = SubResource("RectangleShape2D_12enf")
-debug_color = Color(0.16862746, 0.4117647, 0.79607844, 0.7764706)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/CaidaBloque3/bloque" unique_id=549771117]
+libraries/ = SubResource("AnimationLibrary_1ha1x")
+speed_scale = 2.0
+
+[node name="SensorPisar" type="Area2D" parent="MovingPlatforms/CaidaBloque3" unique_id=765960054]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque3/SensorPisar" unique_id=1660100159]
+position = Vector2(-394.5056, 15.659363)
+scale = Vector2(0.99999905, 0.99999905)
+shape = SubResource("RectangleShape2D_02xm5")
+debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=412884765]
 
@@ -931,10 +940,121 @@ position = Vector2(518, -610)
 position = Vector2(-219, -626)
 
 [node name="BloqueInvisible6" parent="BloquesInvisibles" unique_id=1501887544 instance=ExtResource("20_1ha1x")]
-position = Vector2(1458, -612)
+position = Vector2(1440, -619)
+metadata/_edit_group_ = true
 
 [node name="BloqueInvisible8" parent="BloquesInvisibles" unique_id=1387709793 instance=ExtResource("22_02xm5")]
 position = Vector2(645, -774)
+
+[node name="Anclas" type="Node2D" parent="." unique_id=2110896167]
+
+[node name="Ancla" type="RigidBody2D" parent="Anclas" unique_id=2137607533]
+position = Vector2(142, 94)
+mass = 3.0
+gravity_scale = 2.0
+freeze = true
+contact_monitor = true
+max_contacts_reported = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Anclas/Ancla" unique_id=2040097319]
+position = Vector2(1844, -47)
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("18_vu65m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla" unique_id=1882334958]
+position = Vector2(1840, -52)
+shape = SubResource("CapsuleShape2D_k83s3")
+
+[node name="CaidaAncla" type="Area2D" parent="Anclas/Ancla" unique_id=1399360132]
+position = Vector2(2218, 152)
+script = ExtResource("19_lqf1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla/CaidaAncla" unique_id=322792725]
+position = Vector2(-388, 234)
+shape = SubResource("RectangleShape2D_12enf")
+debug_color = Color(0.16862746, 0.4117647, 0.79607844, 0.7764706)
+
+[node name="Ancla2" type="RigidBody2D" parent="Anclas" unique_id=315647701]
+position = Vector2(1037, 41)
+mass = 3.0
+gravity_scale = 2.0
+freeze = true
+contact_monitor = true
+max_contacts_reported = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Anclas/Ancla2" unique_id=2089074469]
+position = Vector2(1844, -47)
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("18_vu65m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla2" unique_id=2116817898]
+position = Vector2(1840, -52)
+shape = SubResource("CapsuleShape2D_k83s3")
+
+[node name="CaidaAncla" type="Area2D" parent="Anclas/Ancla2" unique_id=472731840]
+position = Vector2(2218, 152)
+script = ExtResource("19_lqf1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla2/CaidaAncla" unique_id=1307872838]
+position = Vector2(-362.5, 234)
+shape = SubResource("RectangleShape2D_12enf")
+debug_color = Color(0.16862746, 0.4117647, 0.79607844, 0.7764706)
+
+[node name="Ancla3" type="RigidBody2D" parent="Anclas" unique_id=1067684357]
+position = Vector2(1086, -11)
+mass = 3.0
+gravity_scale = 2.0
+freeze = true
+contact_monitor = true
+max_contacts_reported = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Anclas/Ancla3" unique_id=1564176529]
+position = Vector2(1844, -47)
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("18_vu65m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla3" unique_id=405885154]
+position = Vector2(1840, -52)
+shape = SubResource("CapsuleShape2D_k83s3")
+
+[node name="CaidaAncla" type="Area2D" parent="Anclas/Ancla3" unique_id=336470579]
+position = Vector2(2218, 152)
+script = ExtResource("19_lqf1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla3/CaidaAncla" unique_id=1196375256]
+position = Vector2(-362.5, 234)
+shape = SubResource("RectangleShape2D_12enf")
+debug_color = Color(0.16862746, 0.4117647, 0.79607844, 0.7764706)
+
+[node name="Ancla4" type="RigidBody2D" parent="Anclas" unique_id=614149661]
+position = Vector2(1139, -66)
+mass = 3.0
+gravity_scale = 2.0
+freeze = true
+contact_monitor = true
+max_contacts_reported = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Anclas/Ancla4" unique_id=2143861998]
+position = Vector2(1844, -47)
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("18_vu65m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla4" unique_id=1616632992]
+position = Vector2(1840, -52)
+shape = SubResource("CapsuleShape2D_k83s3")
+
+[node name="CaidaAncla" type="Area2D" parent="Anclas/Ancla4" unique_id=787342589]
+position = Vector2(2218, 152)
+script = ExtResource("19_lqf1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla4/CaidaAncla" unique_id=9992797]
+position = Vector2(-362.5, 234)
+shape = SubResource("RectangleShape2D_12enf")
+debug_color = Color(0.16862746, 0.4117647, 0.79607844, 0.7764706)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
