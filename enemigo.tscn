@@ -45,9 +45,10 @@ animations = [{
 size = Vector2(482, 1592)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph7ok"]
-size = Vector2(475, 1566)
+size = Vector2(1228, 1707)
 
 [node name="Enemigo" type="CharacterBody2D" unique_id=1787918559]
+collision_layer = 2
 script = ExtResource("1_j8qs0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1163632608]
@@ -65,7 +66,7 @@ target_position = Vector2(70, 0)
 [node name="Area2D" type="Area2D" parent="." unique_id=506380007]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=531835137]
-position = Vector2(104.5, 77)
+position = Vector2(-27, 20.5)
 shape = SubResource("RectangleShape2D_ph7ok")
 
 [node name="DetectorSuelo" type="RayCast2D" parent="." unique_id=237185213]
