@@ -11,6 +11,7 @@ extends Area2D
 @onready var sensor: Area2D = $SensorPiso
 
 var activado: bool = false
+var sonido: AudioStreamPlayer
 var pos_activa: Vector2
 var pos_oculta: Vector2
 
@@ -28,12 +29,19 @@ func _ready() -> void:
 		sensor.body_entered.connect(_on_sensor_body_entered)
 	body_entered.connect(_on_pua_body_entered)
 
+	# Sonido al salir las púas
+	sonido = AudioStreamPlayer.new()
+	sonido.stream = load("res://assets/sounds/jeremysykes_hurt05.wav")
+	add_child(sonido)
+
 func _on_sensor_body_entered(body: Node2D) -> void:
 	if (body.name == "Player" or body.is_in_group("jugador")) and not activado:
 		activado = true
 		_disparar_puas()
 
 func _disparar_puas() -> void:
+	if sonido and sonido.stream:
+		sonido.play()
 	if colision_pua:
 		colision_pua.set_deferred("disabled", false)
 	

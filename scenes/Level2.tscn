@@ -605,7 +605,7 @@ position = Vector2(27, -66)
 scale = Vector2(0.27470776, 0.25178027)
 texture = ExtResource("8_rcugv")
 
-[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=554032004]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=554032004]
 stream = ExtResource("8_3aekd")
 volume_db = -5.0
 autoplay = true

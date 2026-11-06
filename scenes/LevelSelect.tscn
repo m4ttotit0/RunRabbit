@@ -64,7 +64,6 @@ offset_top = 329.0
 offset_right = 715.0
 offset_bottom = 399.0
 theme_override_font_sizes/font_size = 20
-disabled = true
 text = "3"
 
 [node name="Stage4" type="Button" parent="." unique_id=359209090]
@@ -75,7 +74,6 @@ offset_top = 578.0
 offset_right = 1000.0
 offset_bottom = 648.0
 theme_override_font_sizes/font_size = 20
-disabled = true
 text = "4"
 
 [node name="Stage5" type="Button" parent="." unique_id=506295146]
@@ -86,7 +84,6 @@ offset_top = 327.0
 offset_right = 1203.0
 offset_bottom = 397.0
 theme_override_font_sizes/font_size = 20
-disabled = true
 text = "5"
 
 [node name="BackButton" type="Button" parent="." unique_id=1544956382]
@@ -99,6 +96,35 @@ offset_bottom = 695.0
 theme_override_font_sizes/font_size = 18
 text = "Volver"
 
+[node name="StarsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.9, 0.1, 1)
+theme_override_colors/font_outline_color = Color(0.19920701, 0.13804752, 0.07963324, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 26
+text = "Estrellas: 0"
+
+[node name="DebugLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 880.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 22
+text = "MODO DEBUG: niveles desbloqueados"
+horizontal_alignment = 2
+
 [connection signal="pressed" from="Stage1" to="." method="_on_stage_1_pressed"]
 [connection signal="pressed" from="Stage2" to="." method="_on_stage_2_pressed"]
+[connection signal="pressed" from="Stage3" to="." method="_on_stage_3_pressed"]
+[connection signal="pressed" from="Stage4" to="." method="_on_stage_4_pressed"]
+[connection signal="pressed" from="Stage5" to="." method="_on_stage_5_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

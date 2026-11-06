@@ -5,10 +5,16 @@ extends Node2D
 @onready var zona_proximidad: Area2D = $ZonaProximidad
 
 var disparado: bool = false
+var sonido_explosion: AudioStreamPlayer
 
 func _ready() -> void:
 	add_to_group("canon")
 	zona_proximidad.body_entered.connect(_on_zona_proximidad_body_entered)
+
+	# Sonido de explosión al disparar
+	sonido_explosion = AudioStreamPlayer.new()
+	sonido_explosion.stream = load("res://assets/sounds/explreal_air_explosion.wav")
+	add_child(sonido_explosion)
 
 func _on_zona_proximidad_body_entered(body: Node2D) -> void:
 	if (body.name == "Player" or body.is_in_group("jugador")) and not disparado:
@@ -19,6 +25,8 @@ func _on_zona_proximidad_body_entered(body: Node2D) -> void:
 		_disparar()
 
 func _disparar() -> void:
+	if sonido_explosion and sonido_explosion.stream:
+		sonido_explosion.play()
 	if bala_scene:
 		var bala = bala_scene.instantiate()
 		bala.global_position = punto_disparo.global_position
