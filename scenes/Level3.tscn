@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cldvjr186x363" path="res://assets/fondo/tilemap/tilemap_packed.png" id="12_g7sqe"]
 [ext_resource type="Script" uid="uid://cy60g1mlwsgdw" path="res://scenes/die.gd" id="12_turoa"]
 [ext_resource type="Script" uid="uid://dmf8bi6au6ehm" path="res://scenes/despliegue.gd" id="14_1fmh2"]
+[ext_resource type="Script" uid="uid://jusw6l1oe5m" path="res://scenes/bloqueinv.gd" id="15_qtcjj"]
+[ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_t3dp5"]
+[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_kid5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_star"]
 size = Vector2(28, 39)
@@ -376,7 +379,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-337, 434), Vector2(-337, 187)]
+"values": [Vector2(-3, 91), Vector2(-3, -145)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -388,7 +391,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-336.5, 439.24994), Vector2(-336.5, 190)]
+"values": [Vector2(-9.000061, 89.99997), Vector2(-3, -140)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwks1"]
@@ -600,6 +603,59 @@ _data = {
 &"moveClock": SubResource("Animation_rljsv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r73rx"]
+size = Vector2(81.75, 26.5)
+
+[sub_resource type="Animation" id="Animation_v36no"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("block/CollisionShape2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xwks1"]
+resource_name = "des"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("block/CollisionShape2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ng6o1"]
+_data = {
+&"RESET": SubResource("Animation_v36no"),
+&"des": SubResource("Animation_xwks1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_333di"]
+size = Vector2(83.5, 38.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is4ao"]
+size = Vector2(84, 35.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kid5y"]
+radius = 30.0
+height = 98.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtcjj"]
+size = Vector2(65.5, 28)
+
 [node name="Level3" type="Node2D" unique_id=1117038883]
 script = ExtResource("1_level")
 
@@ -642,11 +698,11 @@ position = Vector2(3, -5)
 position = Vector2(1800, 500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndPoint" unique_id=330204208]
-position = Vector2(0, -30)
+position = Vector2(-3, 23)
 shape = SubResource("CapsuleShape2D_meta")
 
 [node name="Sprite2D" type="Sprite2D" parent="EndPoint" unique_id=878142075]
-position = Vector2(27, -34)
+position = Vector2(23, 23)
 scale = Vector2(0.27470776, 0.25178027)
 texture = ExtResource("6_meta")
 
@@ -788,6 +844,7 @@ position = Vector2(908, 601)
 script = ExtResource("10_turoa")
 
 [node name="bloque" type="AnimatableBody2D" parent="MovingPlataforms/subidaBlock" unique_id=1449100266]
+position = Vector2(-339, 331)
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlataforms/subidaBlock/bloque" unique_id=116423528]
 texture_filter = 1
@@ -804,10 +861,11 @@ shape = SubResource("RectangleShape2D_v36no")
 libraries/ = SubResource("AnimationLibrary_xwks1")
 
 [node name="SensorPisar" type="Area2D" parent="MovingPlataforms/subidaBlock" unique_id=985055229]
+position = Vector2(-339.99997, 183.99998)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/subidaBlock/SensorPisar" unique_id=1367762513]
-position = Vector2(-694, -251)
+position = Vector2(-350.00003, -437.00006)
 scale = Vector2(0.99999887, 0.99999887)
 shape = SubResource("RectangleShape2D_ng6o1")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
@@ -897,12 +955,65 @@ debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlataforms/despliegue" unique_id=44884729]
 libraries/ = SubResource("AnimationLibrary_v36no")
 
+[node name="bloqueinv" type="Node2D" parent="MovingPlataforms" unique_id=472723463]
+script = ExtResource("15_qtcjj")
+
+[node name="block" type="AnimatableBody2D" parent="MovingPlataforms/bloqueinv" unique_id=872276193]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/block" unique_id=585004169]
+position = Vector2(720, 475.75)
+shape = SubResource("RectangleShape2D_r73rx")
+debug_color = Color(2.695322e-06, 0.64052397, 0.35331583, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlataforms/bloqueinv/block" unique_id=2061431905]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ng6o1")
+
+[node name="dead" type="Area2D" parent="MovingPlataforms/bloqueinv" unique_id=1650462651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/dead" unique_id=1838295741]
+position = Vector2(720.25, 603.25)
+shape = SubResource("RectangleShape2D_333di")
+debug_color = Color(0.82088274, 0.0018191498, 0.96919626, 0.41960785)
+
+[node name="sensor1" type="Area2D" parent="MovingPlataforms/bloqueinv" unique_id=1472830262]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/sensor1" unique_id=1052534979]
+position = Vector2(616, 601)
+shape = SubResource("RectangleShape2D_is4ao")
+debug_color = Color(0.9273225, 3.8889648e-05, 0.67095804, 0.41960785)
+
 [node name="bloque falso" type="Sprite2D" parent="." unique_id=1866896104]
 position = Vector2(2402, 349)
 scale = Vector2(2.351852, 2.3026314)
 texture = ExtResource("12_g7sqe")
 region_enabled = true
 region_rect = Rect2(17.818275, 54.032017, 54.54551, 19.585499)
+
+[node name="Ancla" type="RigidBody2D" parent="." unique_id=523977539]
+position = Vector2(-1021, 6)
+freeze = true
+contact_monitor = true
+max_contacts_reported = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Ancla" unique_id=891911572]
+position = Vector2(1844, -47)
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("15_t3dp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ancla" unique_id=1497363851]
+position = Vector2(1840, -52)
+shape = SubResource("CapsuleShape2D_kid5y")
+
+[node name="Caida" type="Area2D" parent="." unique_id=2068566344]
+position = Vector2(792, 619)
+script = ExtResource("16_kid5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caida" unique_id=471556438]
+position = Vector2(24, -25)
+shape = SubResource("RectangleShape2D_qtcjj")
+debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -14,7 +14,7 @@ func _on_sensor_body_entered(body: Node2D) -> void:
 		activado = true
 		
 		# Micro-pausa ragebait opcional: 0.1 segundos para que alcance a apoyarse
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(3.0).timeout
 		
 		# Dispara tu animación de caída que ya armaste
 		animador.play("subimos")

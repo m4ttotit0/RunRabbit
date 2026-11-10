@@ -703,6 +703,7 @@ visibility_rect = Rect2(-32000, -1000, 64000, 12000)
 process_material = SubResource("ParticleProcessMaterial_onogs")
 
 [node name="Caida" type="Area2D" parent="." unique_id=1399360132]
+visible = false
 position = Vector2(2360, 246)
 script = ExtResource("20_0roy1")
 
