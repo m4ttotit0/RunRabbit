@@ -14,9 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cldvjr186x363" path="res://assets/fondo/tilemap/tilemap_packed.png" id="12_g7sqe"]
 [ext_resource type="Script" uid="uid://cy60g1mlwsgdw" path="res://scenes/die.gd" id="12_turoa"]
 [ext_resource type="Script" uid="uid://dmf8bi6au6ehm" path="res://scenes/despliegue.gd" id="14_1fmh2"]
-[ext_resource type="Script" uid="uid://jusw6l1oe5m" path="res://scenes/bloqueinv.gd" id="15_qtcjj"]
+[ext_resource type="Script" uid="uid://02v3glmuwqyd" path="res://scenes/sensor_1.gd" id="15_rljsv"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_t3dp5"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_kid5y"]
+[ext_resource type="Script" uid="uid://qj0fxo00scpn" path="res://scenes/dead.gd" id="16_rljsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_star"]
 size = Vector2(28, 39)
@@ -603,51 +604,14 @@ _data = {
 &"moveClock": SubResource("Animation_rljsv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is4ao"]
+size = Vector2(84, 35.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r73rx"]
 size = Vector2(81.75, 26.5)
 
-[sub_resource type="Animation" id="Animation_v36no"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("block/CollisionShape2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_xwks1"]
-resource_name = "des"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("block/CollisionShape2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ng6o1"]
-_data = {
-&"RESET": SubResource("Animation_v36no"),
-&"des": SubResource("Animation_xwks1")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_333di"]
 size = Vector2(83.5, 38.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_is4ao"]
-size = Vector2(84, 35.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kid5y"]
 radius = 30.0
@@ -956,32 +920,32 @@ debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_v36no")
 
 [node name="bloqueinv" type="Node2D" parent="MovingPlataforms" unique_id=472723463]
-script = ExtResource("15_qtcjj")
 
-[node name="block" type="AnimatableBody2D" parent="MovingPlataforms/bloqueinv" unique_id=872276193]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/block" unique_id=585004169]
-position = Vector2(720, 475.75)
-shape = SubResource("RectangleShape2D_r73rx")
-debug_color = Color(2.695322e-06, 0.64052397, 0.35331583, 0.41960785)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlataforms/bloqueinv/block" unique_id=2061431905]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_ng6o1")
-
-[node name="dead" type="Area2D" parent="MovingPlataforms/bloqueinv" unique_id=1650462651]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/dead" unique_id=1838295741]
-position = Vector2(720.25, 603.25)
-shape = SubResource("RectangleShape2D_333di")
-debug_color = Color(0.82088274, 0.0018191498, 0.96919626, 0.41960785)
-
-[node name="sensor1" type="Area2D" parent="MovingPlataforms/bloqueinv" unique_id=1472830262]
+[node name="sensor1" type="Area2D" parent="MovingPlataforms/bloqueinv" unique_id=1472830262 node_paths=PackedStringArray("bloque_invisible", "collision_bloque")]
+script = ExtResource("15_rljsv")
+bloque_invisible = NodePath("../invisible2")
+collision_bloque = NodePath("../invisible2/CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/sensor1" unique_id=1052534979]
 position = Vector2(616, 601)
 shape = SubResource("RectangleShape2D_is4ao")
 debug_color = Color(0.9273225, 3.8889648e-05, 0.67095804, 0.41960785)
+
+[node name="invisible2" type="StaticBody2D" parent="MovingPlataforms/bloqueinv" unique_id=302315623]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/invisible2" unique_id=585004169]
+position = Vector2(720, 475.75)
+shape = SubResource("RectangleShape2D_r73rx")
+debug_color = Color(2.695322e-06, 0.64052397, 0.35331583, 0.41960785)
+
+[node name="dead" type="Area2D" parent="MovingPlataforms/bloqueinv" unique_id=1650462651]
+script = ExtResource("16_rljsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/bloqueinv/dead" unique_id=1838295741]
+position = Vector2(720.25, 603.25)
+shape = SubResource("RectangleShape2D_333di")
+debug_color = Color(0.82088274, 0.0018191498, 0.96919626, 0.41960785)
 
 [node name="bloque falso" type="Sprite2D" parent="." unique_id=1866896104]
 position = Vector2(2402, 349)
@@ -1017,6 +981,7 @@ debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="body_entered" from="MovingPlataforms/bloqueinv/sensor1" to="MovingPlataforms/bloqueinv/sensor1" method="_on_body_entered"]
 
 [editable path="Star"]
 [editable path="Player"]
