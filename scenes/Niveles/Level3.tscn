@@ -1,22 +1,22 @@
 [gd_scene format=4 uid="uid://c1heag13x85cj"]
 
-[ext_resource type="Script" uid="uid://ypf2jo525fip" path="res://scripts/Level3.gd" id="1_level"]
-[ext_resource type="Texture2D" uid="uid://dlp386xhy2r7a" path="res://assets/fondo/swamp_.png" id="2_opw0y"]
-[ext_resource type="PackedScene" uid="uid://cwx417bt1ib1" path="res://scenes/Player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://c6l6tjumwbgw8" path="res://scenes/Star.tscn" id="3_star"]
-[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="4_muerte"]
-[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="5_music"]
-[ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="6_meta"]
-[ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="7_screamer"]
-[ext_resource type="Texture2D" uid="uid://dlooxtxlo8muo" path="res://assets/fondo/tilemap/tilemap.png" id="8_g7sqe"]
-[ext_resource type="Script" uid="uid://b0e1qblrbbdd5" path="res://scenes/subida_block.gd" id="10_turoa"]
-[ext_resource type="Texture2D" uid="uid://do2qamb04awte" path="res://assets/extras/pisos y bloques/Captura de pantalla 2026-11-09 182824.png" id="11_1fmh2"]
-[ext_resource type="Texture2D" uid="uid://cldvjr186x363" path="res://assets/fondo/tilemap/tilemap_packed.png" id="12_g7sqe"]
-[ext_resource type="Script" uid="uid://cy60g1mlwsgdw" path="res://scenes/die.gd" id="12_turoa"]
-[ext_resource type="Script" uid="uid://dmf8bi6au6ehm" path="res://scenes/despliegue.gd" id="14_1fmh2"]
-[ext_resource type="Script" uid="uid://jusw6l1oe5m" path="res://scenes/bloqueinv.gd" id="15_qtcjj"]
-[ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_t3dp5"]
-[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_kid5y"]
+[ext_resource type="Script" uid="uid://ypf2jo525fip" path="res://scripts/Level3.gd" id="1_t20qo"]
+[ext_resource type="Texture2D" uid="uid://dlp386xhy2r7a" path="res://assets/fondo/swamp_.png" id="2_01sha"]
+[ext_resource type="PackedScene" uid="uid://c6l6tjumwbgw8" path="res://scenes/Star.tscn" id="3_x4cmr"]
+[ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="4_1hwow"]
+[ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="5_60svi"]
+[ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="6_kcm6d"]
+[ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="7_s14bn"]
+[ext_resource type="Texture2D" uid="uid://dlooxtxlo8muo" path="res://assets/fondo/tilemap/tilemap.png" id="8_p7btb"]
+[ext_resource type="PackedScene" uid="uid://cwx417bt1ib1" path="res://scenes/Player.tscn" id="9_pbgys"]
+[ext_resource type="Script" uid="uid://b0e1qblrbbdd5" path="res://scenes/subida_block.gd" id="10_eeynm"]
+[ext_resource type="Texture2D" uid="uid://do2qamb04awte" path="res://assets/extras/pisos y bloques/Captura de pantalla 2026-11-09 182824.png" id="11_apcon"]
+[ext_resource type="Script" uid="uid://cy60g1mlwsgdw" path="res://scenes/Trampas/die.gd" id="12_njd2i"]
+[ext_resource type="Texture2D" uid="uid://cldvjr186x363" path="res://assets/fondo/tilemap/tilemap_packed.png" id="13_7ryfx"]
+[ext_resource type="Script" uid="uid://dmf8bi6au6ehm" path="res://scenes/Trampas/despliegue.gd" id="14_eby3w"]
+[ext_resource type="Script" uid="uid://jusw6l1oe5m" path="res://scenes/Trampas/bloqueinv.gd" id="15_3q87k"]
+[ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="16_qrre2"]
+[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/Trampas/caida.gd" id="17_boo56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_star"]
 size = Vector2(28, 39)
@@ -50,7 +50,7 @@ texture = SubResource("CompressedTexture2D_khw7m")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kid5y"]
-texture = ExtResource("8_g7sqe")
+texture = ExtResource("8_p7btb")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
@@ -657,14 +657,14 @@ height = 98.0
 size = Vector2(65.5, 28)
 
 [node name="Level3" type="Node2D" unique_id=1117038883]
-script = ExtResource("1_level")
+script = ExtResource("1_t20qo")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=838931928]
 offset_left = -21.0
 offset_top = -13.0
 offset_right = 1316.0
 offset_bottom = 743.0
-texture = ExtResource("2_opw0y")
+texture = ExtResource("2_01sha")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=415022169]
@@ -672,7 +672,7 @@ offset_left = 1253.0
 offset_top = -20.0
 offset_right = 2766.0
 offset_bottom = 744.0
-texture = ExtResource("2_opw0y")
+texture = ExtResource("2_01sha")
 expand_mode = 1
 flip_h = true
 
@@ -683,7 +683,7 @@ offset_right = 2861.0
 offset_bottom = 770.0
 color = Color(0.050980393, 0, 0, 0.44705883)
 
-[node name="Star" parent="." unique_id=633691491 instance=ExtResource("3_star")]
+[node name="Star" parent="." unique_id=633691491 instance=ExtResource("3_x4cmr")]
 visible = false
 position = Vector2(1000, 560)
 
@@ -704,10 +704,10 @@ shape = SubResource("CapsuleShape2D_meta")
 [node name="Sprite2D" type="Sprite2D" parent="EndPoint" unique_id=878142075]
 position = Vector2(23, 23)
 scale = Vector2(0.27470776, 0.25178027)
-texture = ExtResource("6_meta")
+texture = ExtResource("4_1hwow")
 
 [node name="zona_muerte" type="Area2D" parent="." unique_id=1649873995]
-script = ExtResource("4_muerte")
+script = ExtResource("5_60svi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_muerte" unique_id=824409282]
 position = Vector2(1100, 790)
@@ -715,7 +715,7 @@ shape = SubResource("RectangleShape2D_muerte")
 debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1772968159]
-stream = ExtResource("5_music")
+stream = ExtResource("6_kcm6d")
 volume_db = -5.0
 autoplay = true
 
@@ -750,7 +750,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_screamer")
+texture = ExtResource("7_s14bn")
 expand_mode = 1
 stretch_mode = 5
 
@@ -816,7 +816,7 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAxAEAAAwAFAAcAAAD//wUAAwACAAMAAAAAAAUAAwACAAMAAAABAAUAAwACAAMAAAACAAUAAwACAAMAAAADAAUAAwACAAMAAAAEAAUAAwADAAMAAAD//wYAAwACAAYAAAAAAAYAAwACAAYAAAABAAYAAwACAAYAAAACAAYAAwACAAYAAAADAAYAAwACAAYAAAAEAAYAAwADAAYAAAD//wcAAwACAAYAAAAAAAcAAwACAAYAAAABAAcAAwACAAYAAAACAAcAAwACAAYAAAADAAcAAwACAAYAAAADAAgAAwACAAYAAAADAAkAAwACAAYAAAADAAoAAwACAAYAAAADAAsAAwACAAYAAAADAAwAAwACAAYAAAADAA0AAwACAAYAAAACAA0AAwACAAYAAAABAA0AAwACAAYAAAAAAA0AAwACAAYAAAD//w0AAwACAAYAAAD//wwAAwACAAYAAAD//wsAAwACAAYAAAD//woAAwACAAYAAAD//wkAAwACAAYAAAD+/wkAAwACAAYAAAD+/wgAAwACAAYAAAD+/wcAAwACAAYAAAD//wgAAwACAAYAAAAAAAsAAwACAAYAAAAAAAwAAwACAAYAAAAAAAoAAwACAAYAAAAAAAkAAwACAAYAAAAAAAgAAwACAAYAAAABAAsAAwACAAYAAAABAAwAAwACAAYAAAABAAoAAwACAAYAAAABAAkAAwACAAYAAAABAAgAAwACAAYAAAACAAsAAwACAAYAAAACAAwAAwACAAYAAAACAAoAAwACAAYAAAACAAkAAwACAAYAAAACAAgAAwACAAYAAAAEAAcAAwADAAYAAAAEAAgAAwADAAYAAAAEAAkAAwADAAYAAAAEAAoAAwADAAYAAAAEAAsAAwADAAYAAAAEAAwAAwADAAYAAAAEAA0AAwADAAYAAAAQABIAAwABAAYAAAATABIAAwACAAYAAAASABIAAwACAAYAAAARABIAAwACAAYAAAAUABIAAwACAAYAAAAVABIAAwACAAYAAAAWABIAAwACAAYAAAAXABIAAwACAAYAAAAYABIAAwACAAYAAAAZABIAAwACAAYAAAAaABIAAwACAAYAAAAbABIAAwADAAYAAAAYAAoAAwACAAMAAAAYAAsAAwACAAYAAAAYAAwAAwACAAYAAAAYAA0AAwACAAYAAAAYAA4AAwACAAYAAAAYAA8AAwACAAYAAAAYABAAAwACAAYAAAAZAAoAAwACAAMAAAAZAAsAAwACAAYAAAAZAAwAAwACAAYAAAAZAA0AAwACAAYAAAAZAA4AAwACAAYAAAAZAA8AAwACAAYAAAAZABAAAwACAAYAAAAaAAoAAwACAAMAAAAaAAsAAwACAAYAAAAaAAwAAwACAAYAAAAaAA0AAwACAAYAAAAaAA4AAwACAAYAAAAaAA8AAwACAAYAAAAaABAAAwACAAYAAAAbAAoAAwADAAMAAAAbAAsAAwADAAYAAAAbAAwAAwADAAYAAAAbAA0AAwADAAYAAAAbAA4AAwADAAYAAAAbAA8AAwADAAYAAAAbABAAAwADAAYAAAAQAAoAAwABAAMAAAAQAAsAAwABAAYAAAAQAAwAAwABAAYAAAAQAA0AAwABAAYAAAAQAA4AAwABAAYAAAAQAA8AAwABAAYAAAAQABAAAwABAAYAAAAQABEAAwABAAYAAAARAAoAAwACAAMAAAARAAsAAwACAAYAAAARAAwAAwACAAYAAAARAA0AAwACAAYAAAARAA4AAwACAAYAAAARAA8AAwACAAYAAAARABAAAwACAAYAAAARABEAAwACAAYAAAASAAoAAwACAAMAAAASAAsAAwACAAYAAAASAAwAAwACAAYAAAASAA0AAwACAAYAAAASAA4AAwACAAYAAAASAA8AAwACAAYAAAASABAAAwACAAYAAAASABEAAwACAAYAAAATAAoAAwACAAMAAAATAAsAAwACAAYAAAATAAwAAwACAAYAAAATAA0AAwACAAYAAAATAA4AAwACAAYAAAATAA8AAwACAAYAAAATABAAAwACAAYAAAATABEAAwACAAYAAAAUAAoAAwACAAMAAAAUAAsAAwACAAYAAAAUAAwAAwACAAYAAAAUAA0AAwACAAYAAAAUAA4AAwACAAYAAAAUAA8AAwACAAYAAAAUABAAAwACAAYAAAAUABEAAwACAAYAAAAVAAoAAwACAAMAAAAVAAsAAwACAAYAAAAVAAwAAwACAAYAAAAVAA0AAwACAAYAAAAVAA4AAwACAAYAAAAVAA8AAwACAAYAAAAVABAAAwACAAYAAAAVABEAAwACAAYAAAAWAAoAAwACAAMAAAAWAAsAAwACAAYAAAAWAAwAAwACAAYAAAAWAA0AAwACAAYAAAAWAA4AAwACAAYAAAAWAA8AAwACAAYAAAAWABAAAwACAAYAAAAWABEAAwACAAYAAAAXAAoAAwACAAMAAAAXAAsAAwACAAYAAAAXAAwAAwACAAYAAAAXAA0AAwACAAYAAAAXAA4AAwACAAYAAAAXAA8AAwACAAYAAAAXABAAAwACAAYAAAAXABEAAwACAAYAAAAYABEAAwACAAYAAAAZABEAAwACAAYAAAAaABEAAwACAAYAAAAbABEAAwADAAYAAAAjAAQAAwABAAIAAAAkAAQAAwACAAIAAAAlAAQAAwACAAIAAAAmAAQAAwACAAIAAAAnAAQAAwACAAIAAAAoAAQAAwACAAIAAAApAAQAAwACAAIAAAAqAAQAAwADAAIAAAAhAAYAAwAAAAIAAAA=")
 tile_set = SubResource("TileSet_qtcjj")
 
-[node name="Player" parent="." unique_id=1743865288 instance=ExtResource("2_player")]
+[node name="Player" parent="." unique_id=1743865288 instance=ExtResource("9_pbgys")]
 position = Vector2(66.99999, 246)
 scale = Vector2(0.09, 0.09)
 
@@ -841,7 +841,7 @@ scale = Vector2(0.7, 0.686)
 
 [node name="subidaBlock" type="Node2D" parent="MovingPlataforms" unique_id=1115908164]
 position = Vector2(908, 601)
-script = ExtResource("10_turoa")
+script = ExtResource("10_eeynm")
 
 [node name="bloque" type="AnimatableBody2D" parent="MovingPlataforms/subidaBlock" unique_id=1449100266]
 position = Vector2(-339, 331)
@@ -849,7 +849,7 @@ position = Vector2(-339, 331)
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlataforms/subidaBlock/bloque" unique_id=116423528]
 texture_filter = 1
 position = Vector2(-337, 187)
-texture = ExtResource("11_1fmh2")
+texture = ExtResource("11_apcon")
 region_rect = Rect2(2.1, 2, 108, 162)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/subidaBlock/bloque" unique_id=1125480574]
@@ -873,7 +873,7 @@ debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
 [node name="move" type="Node2D" parent="MovingPlataforms" unique_id=976316807]
 
 [node name="die" type="Area2D" parent="MovingPlataforms/move" unique_id=873412053]
-script = ExtResource("12_turoa")
+script = ExtResource("12_njd2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/move/die" unique_id=1756184793]
 position = Vector2(370.5, 320.5)
@@ -885,7 +885,7 @@ debug_color = Color(0.7378126, 0.22355762, 1, 0.41960785)
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlataforms/move/AnimatableBody2D" unique_id=2126077584]
 position = Vector2(701, 325)
 scale = Vector2(1.5, 1.6111112)
-texture = ExtResource("12_g7sqe")
+texture = ExtResource("13_7ryfx")
 region_enabled = true
 region_rect = Rect2(17.536798, 35.608044, 54.91075, 18.459358)
 
@@ -907,7 +907,7 @@ position = Vector2(2, 0)
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlataforms/move2/AnimatableBody2D" unique_id=712120684]
 position = Vector2(1616.5, 464.5)
 scale = Vector2(1.5, 1.6111112)
-texture = ExtResource("12_g7sqe")
+texture = ExtResource("13_7ryfx")
 region_enabled = true
 region_rect = Rect2(17.536798, 35.608044, 54.91075, 18.459358)
 
@@ -921,7 +921,7 @@ libraries/ = SubResource("AnimationLibrary_qtcjj")
 autoplay = &"mover"
 
 [node name="despliegue" type="Node2D" parent="MovingPlataforms" unique_id=508582853]
-script = ExtResource("14_1fmh2")
+script = ExtResource("14_eby3w")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingPlataforms/despliegue" unique_id=753066992]
 
@@ -956,7 +956,7 @@ debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_v36no")
 
 [node name="bloqueinv" type="Node2D" parent="MovingPlataforms" unique_id=472723463]
-script = ExtResource("15_qtcjj")
+script = ExtResource("15_3q87k")
 
 [node name="block" type="AnimatableBody2D" parent="MovingPlataforms/bloqueinv" unique_id=872276193]
 
@@ -986,7 +986,7 @@ debug_color = Color(0.9273225, 3.8889648e-05, 0.67095804, 0.41960785)
 [node name="bloque falso" type="Sprite2D" parent="." unique_id=1866896104]
 position = Vector2(2402, 349)
 scale = Vector2(2.351852, 2.3026314)
-texture = ExtResource("12_g7sqe")
+texture = ExtResource("13_7ryfx")
 region_enabled = true
 region_rect = Rect2(17.818275, 54.032017, 54.54551, 19.585499)
 
@@ -1000,7 +1000,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="Ancla" unique_id=891911572]
 position = Vector2(1844, -47)
 scale = Vector2(0.116419084, 0.13991545)
-texture = ExtResource("15_t3dp5")
+texture = ExtResource("16_qrre2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ancla" unique_id=1497363851]
 position = Vector2(1840, -52)
@@ -1008,7 +1008,7 @@ shape = SubResource("CapsuleShape2D_kid5y")
 
 [node name="Caida" type="Area2D" parent="." unique_id=2068566344]
 position = Vector2(792, 619)
-script = ExtResource("16_kid5y")
+script = ExtResource("17_boo56")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caida" unique_id=471556438]
 position = Vector2(24, -25)

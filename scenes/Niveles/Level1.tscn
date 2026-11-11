@@ -16,11 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://cilyb037ek4w6" path="res://assets/extras/ataques/puas Nivel1.png" id="11_4dyl1"]
 [ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="15_2ouud"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
-[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
+[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/Trampas/caida.gd" id="16_r7dij"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
 [ext_resource type="Shader" uid="uid://chfu41u2cj733" path="res://scenes/Level1.gdshader" id="19_i2gr7"]
 [ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="20_music"]
 [ext_resource type="PackedScene" uid="uid://bv6dalkvfnim4" path="res://enemigo.tscn" id="21_thv4y"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_joxhm"]
 shader = ExtResource("19_i2gr7")
