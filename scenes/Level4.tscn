@@ -34,7 +34,7 @@ size = Vector2(95, 20)
 size = Vector2(95, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rokgc"]
-size = Vector2(95, 127)
+size = Vector2(116, 191)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ax8h"]
 size = Vector2(50, 13.5)
@@ -52,7 +52,7 @@ size = Vector2(54, 29)
 size = Vector2(366.66663, 1185.965)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p0dt"]
-size = Vector2(3832, 20)
+size = Vector2(4577, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwp14"]
 size = Vector2(28, 39)
@@ -662,7 +662,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84h82"]
-size = Vector2(262.72186, 127.810814)
+size = Vector2(131.36095, 34.235054)
 
 [sub_resource type="Animation" id="Animation_ugfbn"]
 length = 0.001
@@ -681,7 +681,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_r0y2d"]
 resource_name = "caida"
-length = 1.5
+length = 3.0000000000000004
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -689,10 +689,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 500), Vector2(0, 1000)]
+"values": [Vector2(0, 0), Vector2(0, 500), Vector2(0, 1000), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ha1x"]
@@ -705,6 +705,12 @@ _data = {
 size = Vector2(113.18724, 62.637466)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpb2a"]
+size = Vector2(120.87923, 41.19825)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrs80"]
+size = Vector2(262.72186, 127.810814)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s82c4"]
 size = Vector2(234.31992, 172.50656)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02xm5"]
@@ -833,7 +839,7 @@ debug_color = Color(0.9106365, 0.18449885, 0.58325475, 0.41960785)
 [node name="SensorPiso" type="Area2D" parent="TrampasPuas/Puas3" unique_id=707957212]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrampasPuas/Puas3/SensorPiso" unique_id=1975296103]
-position = Vector2(21.5, -74.5)
+position = Vector2(11, -106.5)
 shape = SubResource("RectangleShape2D_rokgc")
 
 [node name="Puas1" type="Area2D" parent="TrampasPuas" unique_id=1919778729]
@@ -908,7 +914,7 @@ position = Vector2(1.25, -19)
 shape = SubResource("RectangleShape2D_h0lsg")
 
 [node name="Player" parent="." unique_id=1743865288 instance=ExtResource("5_x2p61")]
-position = Vector2(2700, 452.99997)
+position = Vector2(3901, 598)
 scale = Vector2(0.09, 0.09)
 metadata/_edit_group_ = true
 
@@ -922,7 +928,7 @@ position = Vector2(0, 2)
 zoom = Vector2(1, 1)
 limit_left = -1
 limit_top = -60
-limit_right = 4550
+limit_right = 4662
 limit_bottom = 739
 
 [node name="AnimatedSprite2D" parent="Player" index="2" unique_id=1913535713]
@@ -933,7 +939,7 @@ scale = Vector2(0.7, 0.686)
 script = ExtResource("6_aiv66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_muerte" unique_id=516304224]
-position = Vector2(1928, 777)
+position = Vector2(2300.5, 777)
 shape = SubResource("RectangleShape2D_4p0dt")
 debug_color = Color(0.24313726, 0, 0.49803922, 0.8)
 
@@ -1095,7 +1101,6 @@ texture_filter = 1
 position = Vector2(1254.0001, 466.00003)
 scale = Vector2(0.91, 0.91)
 script = ExtResource("16_at0nj")
-metadata/_edit_group_ = true
 
 [node name="bloque" type="AnimatableBody2D" parent="MovingPlatforms/CaidaBloque1" unique_id=1437034631]
 
@@ -1107,7 +1112,7 @@ region_enabled = true
 region_rect = Rect2(4.003754, 5.005199, 125.01344, 475.01373)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque1/bloque" unique_id=668108905]
-position = Vector2(-368.1322, -196.70337)
+position = Vector2(-371.17505, -197.33731)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_84h82")
 
@@ -1118,7 +1123,7 @@ libraries/ = SubResource("AnimationLibrary_1ha1x")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque1/SensorPisar" unique_id=1378795071]
-position = Vector2(-356.0321, -80.35721)
+position = Vector2(-364.83533, -234.88486)
 scale = Vector2(0.9999988, 0.9999988)
 shape = SubResource("RectangleShape2D_xpb2a")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
@@ -1126,9 +1131,6 @@ debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
 [node name="TechoAplastador" parent="MovingPlatforms" unique_id=591030509 instance=ExtResource("18_xpb2a")]
 position = Vector2(3497.9998, -57.999996)
 scale = Vector2(0.82, 0.82)
-
-[node name="PlataformaSube" parent="MovingPlatforms" unique_id=815124190 instance=ExtResource("19_wwkcm")]
-scale = Vector2(0.2, 0.2)
 
 [node name="CaidaBloque3" type="Node2D" parent="MovingPlatforms" unique_id=1745798869]
 texture_filter = 1
@@ -1148,7 +1150,7 @@ region_rect = Rect2(0.40837097, 12.010425, 537.536, 255.00172)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque3/bloque" unique_id=313896130]
 position = Vector2(-370.41455, 20.118591)
 scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_84h82")
+shape = SubResource("RectangleShape2D_xrs80")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/CaidaBloque3/bloque" unique_id=1656266475]
 libraries/ = SubResource("AnimationLibrary_1ha1x")
@@ -1159,8 +1161,12 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque3/SensorPisar" unique_id=591787276]
 position = Vector2(-358.58057, -9.604736)
 scale = Vector2(0.9999988, 0.9999988)
-shape = SubResource("RectangleShape2D_xpb2a")
+shape = SubResource("RectangleShape2D_s82c4")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
+
+[node name="PlataformaSube" parent="MovingPlatforms" unique_id=815124190 instance=ExtResource("19_wwkcm")]
+position = Vector2(4428, 621)
+scale = Vector2(0.2, 0.2)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=412884765]
 
@@ -1226,17 +1232,6 @@ texture = ExtResource("19_j2kxx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=767629357]
-visible = false
-offset_left = 367.0
-offset_top = -45.0
-offset_right = 3467.0
-offset_bottom = 805.0
-offset_transform_enabled = true
-offset_transform_scale = Vector2(1.5, 1.5)
-color = Color(0.05882353, 0.050980393, 0.13725491, 0.41568628)
-metadata/_edit_use_anchors_ = true
-
 [node name="BloquesInvisibles" type="Node2D" parent="." unique_id=242984912]
 position = Vector2(697, 946)
 
@@ -1253,7 +1248,7 @@ position = Vector2(457, -655)
 position = Vector2(511, -655)
 
 [node name="BloqueInvisible5" parent="BloquesInvisibles" unique_id=844417655 instance=ExtResource("20_4ilpr")]
-position = Vector2(-232, -671)
+position = Vector2(-244, -675)
 
 [node name="BloqueInvisible6" parent="BloquesInvisibles" unique_id=1501887544 instance=ExtResource("20_4ilpr")]
 position = Vector2(1433, -664)
@@ -1351,6 +1346,17 @@ debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
 [node name="Checkpoint" parent="." unique_id=1628973322 instance=ExtResource("26_s82c4")]
 position = Vector2(2623.0002, 573)
 scale = Vector2(2.5, 2.5)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=767629357]
+visible = false
+offset_left = 367.0
+offset_top = -45.0
+offset_right = 3467.0
+offset_bottom = 805.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.5, 1.5)
+color = Color(0.05882353, 0.050980393, 0.13725491, 0.25882354)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
