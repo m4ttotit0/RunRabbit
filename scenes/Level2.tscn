@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="8_rcugv"]
 [ext_resource type="Texture2D" uid="uid://cp620oh66sx1p" path="res://assets/extras/ataques/17468.png" id="9_3aekd"]
 [ext_resource type="PackedScene" uid="uid://bgt0nlmhl3n6i" path="res://scenes/moving_platform.tscn" id="12_khw7m"]
-[ext_resource type="PackedScene" uid="uid://fo62u5nh5vbd" path="res://scenes/bala_canon.tscn" id="13_epefj"]
 [ext_resource type="Script" uid="uid://glmmvedx5l31" path="res://scripts/canion.gd" id="13_rfxww"]
 [ext_resource type="Script" uid="uid://b4823bdociv34" path="res://scripts/caida_bloque_2.gd" id="15_2jdof"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_cd1f0"]
@@ -615,15 +614,15 @@ autoplay = true
 [node name="canion1" type="StaticBody2D" parent="Canions" unique_id=1107922927]
 position = Vector2(829, 452)
 script = ExtResource("13_rfxww")
-bala_scene = ExtResource("13_epefj")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Canions/canion1" unique_id=1229577229]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("9_3aekd")
+region_enabled = true
+region_rect = Rect2(143.883, 104.739, 610.567, 507.856)
 
 [node name="PuntoDisparo" type="Marker2D" parent="Canions/canion1" unique_id=1733272324]
-position = Vector2(-60, -18)
+position = Vector2(-57, -18)
 
 [node name="ZonaProximidad" type="Area2D" parent="Canions/canion1" unique_id=1227951439]
 position = Vector2(-88, -19)
