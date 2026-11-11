@@ -1,34 +1,21 @@
 extends Node2D
 
-@export var bala_scene: PackedScene
-@onready var punto_disparo: Marker2D = $PuntoDisparo
-@onready var zona_proximidad: Area2D = $ZonaProximidad
+const BALA_SCENE = preload("res://scenes/bala_canon.tscn") # Cambia por tu escena de bala
 
-var disparado: bool = false
-var sonido_explosion: AudioStreamPlayer
+@onready var timer = $Timer
+@onready var punto_de_disparo = $PuntoDisparo # O el nodo de donde sale la bala
 
 func _ready() -> void:
-	add_to_group("canon")
-	zona_proximidad.body_entered.connect(_on_zona_proximidad_body_entered)
+	# Si quieres que dispare en bucle continuo al iniciar:
+	timer.start()
 
-	# Sonido de explosión al disparar
-	sonido_explosion = AudioStreamPlayer.new()
-	sonido_explosion.stream = load("res://assets/sounds/explreal_air_explosion.wav")
-	add_child(sonido_explosion)
+# Esta función se ejecuta cada vez que el Timer llega a cero
+func _on_timer_timeout() -> void:
+	disparar()
 
-func _on_zona_proximidad_body_entered(body: Node2D) -> void:
-	if (body.name == "Player" or body.is_in_group("jugador")) and not disparado:
-		disparado = true
-		
-		# Retardo troll opcional (ej: 0.1s para que justo esté en medio del salto)
-		await get_tree().create_timer(0.1).timeout
-		_disparar()
-
-func _disparar() -> void:
-	if sonido_explosion and sonido_explosion.stream:
-		sonido_explosion.play()
-	if bala_scene:
-		var bala = bala_scene.instantiate()
-		bala.global_position = punto_disparo.global_position
-		# Lo agregamos al árbol principal para que se mueva independiente del cañón
-		get_tree().current_scene.add_child(bala)
+func disparar() -> void:
+	var bala = BALA_SCENE.instantiate()
+	# Añade la bala a la escena principal para que no se mueva con el cañón
+	get_tree().current_scene.add_child(bala)
+	bala.global_position = punto_de_disparo.global_position
+	bala.rotation = global_rotation

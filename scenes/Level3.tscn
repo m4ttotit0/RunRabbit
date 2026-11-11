@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://02v3glmuwqyd" path="res://scenes/sensor_1.gd" id="16_xwks1"]
 [ext_resource type="Script" uid="uid://qj0fxo00scpn" path="res://scenes/dead.gd" id="17_ng6o1"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="19_okerj"]
+[ext_resource type="Script" uid="uid://glmmvedx5l31" path="res://scripts/canion.gd" id="20_xwks1"]
+[ext_resource type="Texture2D" uid="uid://cp620oh66sx1p" path="res://assets/extras/ataques/17468.png" id="22_okerj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_star"]
 size = Vector2(28, 39)
@@ -621,6 +623,12 @@ height = 98.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtcjj"]
 size = Vector2(65.5, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwcbd"]
+size = Vector2(188, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_heyux"]
+size = Vector2(86, 72)
+
 [node name="Level3" type="Node2D" unique_id=1117038883]
 script = ExtResource("1_level")
 
@@ -981,9 +989,42 @@ position = Vector2(24, -25)
 shape = SubResource("RectangleShape2D_qtcjj")
 debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
 
+[node name="Canions" type="Node2D" parent="." unique_id=1670938705]
+position = Vector2(416, 57)
+
+[node name="canion1" type="StaticBody2D" parent="Canions" unique_id=1657921994]
+position = Vector2(916, 451)
+script = ExtResource("20_xwks1")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Canions/canion1" unique_id=1556885626]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("22_okerj")
+
+[node name="PuntoDisparo" type="Marker2D" parent="Canions/canion1" unique_id=1516194273]
+position = Vector2(-60, -18)
+
+[node name="ZonaProximidad" type="Area2D" parent="Canions/canion1" unique_id=1532312940]
+position = Vector2(-88, -19)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canions/canion1/ZonaProximidad" unique_id=1644923081]
+position = Vector2(-53, 0)
+shape = SubResource("RectangleShape2D_bwcbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canions/canion1" unique_id=907968511]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_heyux")
+debug_color = Color(0.8307031, 0.30248347, 0.64350206, 0.41960785)
+
+[node name="Timer" type="Timer" parent="Canions/canion1" unique_id=75839486]
+wait_time = 0.5
+autostart = true
+
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="body_entered" from="MovingPlataforms/bloqueinv/sensor1" to="MovingPlataforms/bloqueinv/sensor1" method="_on_body_entered"]
+[connection signal="timeout" from="Canions/canion1/Timer" to="Canions/canion1" method="_on_timer_timeout"]
 
 [editable path="Star"]
 [editable path="Player"]
