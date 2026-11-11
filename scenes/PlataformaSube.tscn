@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://su8r2wseb6e1"]
+
+[ext_resource type="Texture2D" uid="uid://bdgy3vj08m1a4" path="res://assets/extras/pisos y bloques/PlataformaSube.png" id="1_2e6q1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1d2t"]
+size = Vector2(543, 273)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odq6k"]
+size = Vector2(545, 24)
+
+[sub_resource type="Animation" id="Animation_xbjjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2wx0f"]
+resource_name = "subir"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1m1b"]
+_data = {
+&"RESET": SubResource("Animation_xbjjo"),
+&"subir": SubResource("Animation_2wx0f")
+}
+
+[node name="PlataformaSube" type="Node2D" unique_id=815124190]
+
+[node name="Plataforma" type="AnimatableBody2D" parent="." unique_id=1142074785]
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma" unique_id=855117526]
+texture_filter = 1
+texture = ExtResource("1_2e6q1")
+region_enabled = true
+region_rect = Rect2(9.992033, 7.011766, 546.02875, 272.98334)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma" unique_id=495739449]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_y1d2t")
+
+[node name="SensorAbordaje" type="Area2D" parent="." unique_id=1518616432]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorAbordaje" unique_id=1694816903]
+position = Vector2(-0.5, -150)
+shape = SubResource("RectangleShape2D_odq6k")
+debug_color = Color(0.956428, 0, 0.54056317, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=281640673]
+libraries/ = SubResource("AnimationLibrary_f1m1b")
+autoplay = &"subir"

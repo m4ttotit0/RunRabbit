@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://drs5jbveexfga"]
+
+[ext_resource type="Script" uid="uid://dsp2cur38o5ou" path="res://scenes/checkpoint.gd" id="1_ywqth"]
+[ext_resource type="Texture2D" uid="uid://dlooxtxlo8muo" path="res://assets/fondo/tilemap/tilemap.png" id="1_yyywg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywqth"]
+atlas = ExtResource("1_yyywg")
+region = Rect2(209, 95, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsimk"]
+atlas = ExtResource("1_yyywg")
+region = Rect2(228, 95, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1d2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywqth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywqth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsimk")
+}],
+"loop": 1,
+"name": &"flag",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1d2t"]
+size = Vector2(7, 20)
+
+[node name="Checkpoint" type="Area2D" unique_id=1628973322]
+script = ExtResource("1_ywqth")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=891151351]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_y1d2t")
+animation = &"flag"
+frame = 1
+frame_progress = 0.83745414
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1117697350]
+position = Vector2(-6.5, 0)
+shape = SubResource("RectangleShape2D_y1d2t")
+debug_color = Color(0.20738134, 0.58114934, 0.7363762, 0.41960785)

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b7h1tjbtwxxyn"]
+
+[ext_resource type="Script" uid="uid://cxp54a41yd0l4" path="res://scenes/techo_aplastador.gd" id="1_5xp1o"]
+[ext_resource type="Texture2D" uid="uid://bslb5h6frim6i" path="res://assets/extras/pisos y bloques/plataformaCaida.png" id="1_l3lf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1d2t"]
+size = Vector2(536, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odq6k"]
+size = Vector2(536, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwicd"]
+size = Vector2(509, 54.5)
+
+[sub_resource type="Animation" id="Animation_l3lf1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bloque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5xp1o"]
+resource_name = "caida_techo"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bloque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 2, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 170), Vector2(0, 170), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1gey"]
+_data = {
+&"RESET": SubResource("Animation_l3lf1"),
+&"caida_techo": SubResource("Animation_5xp1o")
+}
+
+[node name="TechoAplastador" type="Node2D" unique_id=591030509]
+script = ExtResource("1_5xp1o")
+
+[node name="bloque" type="AnimatableBody2D" parent="." unique_id=1600932030]
+
+[node name="Sprite2D" type="Sprite2D" parent="bloque" unique_id=780524783]
+texture_filter = 1
+position = Vector2(0, -0.5)
+scale = Vector2(1, 0.9930556)
+texture = ExtResource("1_l3lf1")
+region_enabled = true
+region_rect = Rect2(8.603821, 0.382, 531.3962, 144.60744)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bloque" unique_id=431043048]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_y1d2t")
+
+[node name="ZonaDanio" type="Area2D" parent="bloque" unique_id=990385231]
+position = Vector2(1, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bloque/ZonaDanio" unique_id=1530570401]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_odq6k")
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="SensorPaso" type="Area2D" parent="." unique_id=83143907]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorPaso" unique_id=2134390966]
+position = Vector2(15.5, 241.25)
+shape = SubResource("RectangleShape2D_wwicd")
+debug_color = Color(1, 0.22973159, 0.5405406, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=725066955]
+libraries/ = SubResource("AnimationLibrary_f1gey")
