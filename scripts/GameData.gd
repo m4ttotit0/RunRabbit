@@ -33,6 +33,15 @@ var collected_stars: Dictionary = {}
 ## no se guarda en el archivo.
 var debug_unlock_all: bool = false
 
+## Checkpoint activo (solo dura la sesión, no se guarda en el archivo).
+## Cuando el jugador muere con un checkpoint tomado, el nivel se recarga
+## por completo (todas las trampas vuelven a su estado inicial) y el jugador
+## aparece en esta posición. checkpoint_level = 0 significa "sin checkpoint".
+var checkpoint_level: int = 0
+var checkpoint_position: Vector2 = Vector2.ZERO
+## Estrellas tomadas antes de llegar al checkpoint (aún no guardadas).
+var checkpoint_stars: Array[String] = []
+
 ## Para mostrar la pregunta "¿Desea cargar una partida guardada?" solo una
 ## vez al abrir el juego.
 var load_prompt_shown: bool = false
@@ -213,3 +222,23 @@ func get_total_stars() -> int:
 	for level_id in collected_stars.keys():
 		total += collected_stars[level_id].size()
 	return total
+
+
+# ---------------------------------------------------------------------------
+# Checkpoints
+# ---------------------------------------------------------------------------
+
+func set_checkpoint(level_id: int, pos: Vector2, stars: Array) -> void:
+	checkpoint_level = level_id
+	checkpoint_position = pos
+	checkpoint_stars.assign(stars)
+
+
+func has_checkpoint(level_id: int) -> bool:
+	return checkpoint_level == level_id
+
+
+func clear_checkpoint() -> void:
+	checkpoint_level = 0
+	checkpoint_position = Vector2.ZERO
+	checkpoint_stars.clear()

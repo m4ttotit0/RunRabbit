@@ -18,6 +18,8 @@ extends Node2D
 
 const PLAYER2_OFFSET := Vector2(60, 0)
 const PAUSE_MENU_SCENE := preload("res://scenes/PauseMenu.tscn")
+const ENEMIGO_SCENE := preload("res://enemigo.tscn")
+const ENEMIGO_SCALE := Vector2(0.075, 0.075)
 const LEVEL_SELECT_SCENE := "res://scenes/LevelSelect.tscn"
 ## Apariencia del jugador 2 (gato negro). Por ahora es un solo sprite sin
 ## animaciones: se usa la misma imagen para "idle", "running" y "jumping".
@@ -29,6 +31,9 @@ var level_id: int = 1
 var supports_two_players: bool = false
 ## Texto que aparece al llegar a la meta.
 var win_text: String = "¡Final del nivel!"
+## Si es true, aparece el "enemigo" que persigue al jugador copiando su
+## recorrido (ver enemigo.gd). Si la escena ya tiene uno, se usa ese.
+var usar_enemigo: bool = true
 
 @onready var end_point: Area2D = get_node_or_null("EndPoint")
 @onready var win_panel: Control = get_node_or_null("UI/WinPanel")
@@ -40,6 +45,7 @@ var win_text: String = "¡Final del nivel!"
 @onready var music: Node = get_node_or_null("Music")
 
 var player2: CharacterBody2D = null
+var enemigo: Node2D = null
 var jugador_muerto: bool = false
 var pause_menu: CanvasLayer = null
 
@@ -59,6 +65,7 @@ func _ready() -> void:
 		end_point.body_entered.connect(_on_end_point_body_entered)
 
 	_setup_music()
+	_restore_checkpoint()
 	_setup_stars()
 
 	pause_menu = PAUSE_MENU_SCENE.instantiate()
@@ -66,6 +73,10 @@ func _ready() -> void:
 
 	if supports_two_players and GameData.two_players and player1:
 		_spawn_player2()
+
+	# Al final: el enemigo guarda la posición donde (re)apareció el jugador.
+	if usar_enemigo:
+		_setup_enemigo()
 
 
 func _process(_delta: float) -> void:
@@ -98,8 +109,9 @@ func _setup_stars() -> void:
 		if not is_ancestor_of(star):
 			continue
 		var star_id := _star_id(star)
-		if GameData.is_star_collected(level_id, star_id):
-			# Ya se tomó en una partida anterior: no vuelve a aparecer.
+		if GameData.is_star_collected(level_id, star_id) or star_id in pending_stars:
+			# Ya se tomó en una partida anterior (o antes del checkpoint):
+			# no vuelve a aparecer.
 			star.queue_free()
 		elif star.has_signal("collected"):
 			star.collected.connect(_on_star_collected.bind(star_id))
@@ -125,6 +137,58 @@ func _update_star_label() -> void:
 	if star_label:
 		var level_stars := GameData.get_level_stars(level_id) + pending_stars.size()
 		star_label.text = "Estrellas: %d" % level_stars
+
+
+# ---------------------------------------------------------------------------
+# Checkpoints
+# ---------------------------------------------------------------------------
+# Morir con un checkpoint tomado es una derrota normal: la escena se recarga
+# entera (todas las trampas, anclas, cañones, etc. vuelven a su estado
+# inicial) y solo la posición del jugador sale del checkpoint, que se guarda
+# en GameData para sobrevivir a la recarga.
+
+## Lo llama checkpoint.gd al tocar una bandera.
+func actualizar_checkpoint(nueva_pos: Vector2) -> void:
+	GameData.set_checkpoint(level_id, nueva_pos, pending_stars)
+
+
+func _restore_checkpoint() -> void:
+	if not GameData.has_checkpoint(level_id):
+		# Entrada nueva al nivel (o checkpoint de otro nivel): se descarta.
+		GameData.clear_checkpoint()
+		return
+
+	var pos := GameData.checkpoint_position
+	if player1:
+		player1.global_position = pos
+		player1.velocity = Vector2.ZERO
+	if camera:
+		camera.reset_smoothing()
+
+	# Estrellas que se tomaron antes del checkpoint siguen tomadas.
+	for star_id in GameData.checkpoint_stars:
+		if not star_id in pending_stars:
+			pending_stars.append(star_id)
+
+	# La bandera ya tomada se muestra activada y no vuelve a avisar.
+	for cp in get_tree().get_nodes_in_group("checkpoints"):
+		if is_ancestor_of(cp) and cp.global_position.distance_to(pos) < 1.0 				and cp.has_method("marcar_activado"):
+			cp.marcar_activado()
+
+
+# ---------------------------------------------------------------------------
+# Enemigo perseguidor
+# ---------------------------------------------------------------------------
+
+func _setup_enemigo() -> void:
+	for e in get_tree().get_nodes_in_group("enemigo_perseguidor"):
+		if is_ancestor_of(e):
+			enemigo = e
+			return
+	enemigo = ENEMIGO_SCENE.instantiate()
+	enemigo.name = "Enemigo"
+	enemigo.scale = ENEMIGO_SCALE
+	add_child(enemigo)
 
 
 # ---------------------------------------------------------------------------
@@ -201,6 +265,7 @@ func _win() -> void:
 		return
 
 	_commit_pending_stars()
+	GameData.clear_checkpoint()
 	GameData.complete_level(level_id)
 	_update_star_label()
 
@@ -214,11 +279,13 @@ func _win() -> void:
 
 
 func _on_retry_button_pressed() -> void:
+	GameData.clear_checkpoint()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 
 func _on_menu_button_pressed() -> void:
+	GameData.clear_checkpoint()
 	get_tree().paused = false
 	get_tree().change_scene_to_file(LEVEL_SELECT_SCENE)
 
@@ -243,4 +310,6 @@ func mostrar_screamer() -> void:
 		screamer.show()
 		await get_tree().create_timer(1.5).timeout
 
+	# Si hay checkpoint, el nivel recargado pone al jugador ahí
+	# (ver _restore_checkpoint); todo lo demás se reinicia.
 	get_tree().call_deferred("reload_current_scene")

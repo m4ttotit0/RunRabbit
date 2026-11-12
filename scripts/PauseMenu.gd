@@ -62,5 +62,6 @@ func _on_save_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	# Sale sin guardar: las estrellas tomadas en este intento se descartan.
+	GameData.clear_checkpoint()
 	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE)

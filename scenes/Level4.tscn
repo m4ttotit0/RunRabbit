@@ -1163,7 +1163,7 @@ libraries/ = SubResource("AnimationLibrary_1ha1x")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque3/SensorPisar" unique_id=591787276]
-position = Vector2(-358.58057, -9.604736)
+position = Vector2(-213.01814, -3.5502653)
 scale = Vector2(0.9999988, 0.9999988)
 shape = SubResource("RectangleShape2D_s82c4")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
@@ -1285,6 +1285,7 @@ shape = SubResource("CapsuleShape2D_02xm5")
 [node name="Caida" type="Area2D" parent="Anclas" unique_id=687712367]
 position = Vector2(2360, 246)
 script = ExtResource("23_e4ile")
+objeto_que_cae = NodePath("../Ancla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida" unique_id=1035028259]
 position = Vector2(-418, 188)
@@ -1312,6 +1313,7 @@ shape = SubResource("CapsuleShape2D_02xm5")
 [node name="Caida2" type="Area2D" parent="Anclas" unique_id=1725691782]
 position = Vector2(2360, 246)
 script = ExtResource("23_e4ile")
+objeto_que_cae = NodePath("../Ancla2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida2" unique_id=347692323]
@@ -1340,6 +1342,7 @@ shape = SubResource("CapsuleShape2D_02xm5")
 [node name="Caida3" type="Area2D" parent="Anclas" unique_id=515381929]
 position = Vector2(2308, 296)
 script = ExtResource("23_e4ile")
+objeto_que_cae = NodePath("../Ancla3")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida3" unique_id=853705557]

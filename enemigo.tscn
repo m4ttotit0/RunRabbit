@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dtpa6nt0p6can" path="res://assets/characters/Rami/RamiJump1.png" id="2_j8qs0"]
 [ext_resource type="Texture2D" uid="uid://q6l1iuameg1v" path="res://assets/characters/Rami/RamiRun2.png" id="3_57rph"]
 [ext_resource type="Texture2D" uid="uid://cixv0rs2yegmu" path="res://assets/characters/Rami/RamiRun1.png" id="4_db8mt"]
+[ext_resource type="AudioStream" path="res://assets/sounds/interferencia_radio.mp3" id="5_radio"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_becj5"]
 animations = [{
@@ -42,35 +43,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4m3n"]
-size = Vector2(482, 1592)
+size = Vector2(400, 1270)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph7ok"]
-size = Vector2(1228, 1707)
+size = Vector2(560, 1360)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=1787918559]
-collision_layer = 2
+[node name="Enemigo" type="CharacterBody2D" unique_id=1787918559 groups=["enemigo_perseguidor"]]
+collision_layer = 0
 script = ExtResource("1_j8qs0")
+sonido_interferencia = ExtResource("5_radio")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1163632608]
 sprite_frames = SubResource("SpriteFrames_becj5")
 animation = &"jump_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=79399575]
-position = Vector2(105, 66)
+position = Vector2(105, 227)
 shape = SubResource("RectangleShape2D_h4m3n")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1701775130]
-position = Vector2(169, 555)
-target_position = Vector2(70, 0)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=506380007]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=531835137]
-position = Vector2(-27, 20.5)
+position = Vector2(105, 227)
 shape = SubResource("RectangleShape2D_ph7ok")
-
-[node name="DetectorSuelo" type="RayCast2D" parent="." unique_id=237185213]
-position = Vector2(0, 700)
-target_position = Vector2(0, 500)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
