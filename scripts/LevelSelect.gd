@@ -81,3 +81,4 @@ func _go_to_level(stage: int) -> void:
 	if path == "":
 		return
 	get_tree().change_scene_to_file(path)
+	

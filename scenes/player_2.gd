@@ -9,7 +9,7 @@ const SPEED = 500.0
 const JUMP_VELOCITY = -850.0
 
 ## 1 = WASD, 2 = flechas.
-@export var player_id: int = 1
+@export var player_id: int = 2
 
 var _left: Array[String] = []
 var _right: Array[String] = []
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.      
 	# As good practice, you should replace UI actions with custom gameplay actions.      
-	var direction := float(_pressed(_right)) - float(_pressed(_left))      
+	var direction := Input.get_axis("ui_left","ui_right")    
 	if direction:          
 		velocity.x = direction * SPEED      
 	else:          velocity.x = move_toward(velocity.x, 0, SPEED)    

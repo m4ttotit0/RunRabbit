@@ -454,8 +454,6 @@ offset_left = -261.0
 offset_top = -24.0
 offset_right = 2839.0
 offset_bottom = 826.0
-offset_transform_enabled = true
-offset_transform_scale = Vector2(1.5, 1.5)
 color = Color(0.10980392, 0.18431373, 0.2509804, 0.21176471)
 metadata/_edit_use_anchors_ = true
 

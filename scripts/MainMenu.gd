@@ -33,7 +33,7 @@ func _on_one_player_button_pressed() -> void:
 
 func _on_two_players_button_pressed() -> void:
 	GameData.two_players = true
-	get_tree().change_scene_to_file("res://scenes/LevelSelect.tscn")
+	get_tree().change_scene_to_file("res://scenes/LevelSelect_multi.tscn")
 
 
 func _on_mode_back_button_pressed() -> void:
