@@ -11,14 +11,20 @@ const LEVEL_PATHS := {
 	5: "res://scenes/Level5.tscn",
 }
 
-## El nivel 1 empieza con la cinemática (que luego carga Level1.tscn).
+## El nivel 1 empieza con la cinemática.
 const LEVEL1_INTRO := "res://scenes/cinematica.tscn"
 
 @onready var stars_label: Label = $StarsLabel
 @onready var debug_label: Label = $DebugLabel
+@onready var background: TextureRect = $Background
 
 
 func _ready() -> void:
+	if GameData.two_players:
+		background.texture = load(
+			"res://assets/fondo/SeleccionMultijugador.png"
+		)
+
 	_refresh()
 
 
@@ -30,6 +36,7 @@ func _refresh() -> void:
 		var unlocked: bool = GameData.is_level_unlocked(stage) and LEVEL_PATHS[stage] != ""
 		button.disabled = not unlocked
 		button.tooltip_text = "Estrellas: %d" % GameData.get_level_stars(stage)
+
 	stars_label.text = "Estrellas: %d" % GameData.get_total_stars()
 	debug_label.visible = GameData.debug_unlock_all
 
@@ -46,20 +53,26 @@ func _on_stage_1_pressed() -> void:
 	if GameData.is_level_unlocked(1):
 		get_tree().change_scene_to_file(LEVEL1_INTRO)
 
+
 func _on_stage_2_pressed() -> void:
 	_go_to_level(2)
+
 
 func _on_stage_3_pressed() -> void:
 	_go_to_level(3)
 
+
 func _on_stage_4_pressed() -> void:
 	_go_to_level(4)
+
 
 func _on_stage_5_pressed() -> void:
 	_go_to_level(5)
 
+
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+
 
 func _go_to_level(stage: int) -> void:
 	if not GameData.is_level_unlocked(stage):
