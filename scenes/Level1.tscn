@@ -18,16 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_av1gt"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="16_r7dij"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="17_r7dij"]
-[ext_resource type="Shader" uid="uid://chfu41u2cj733" path="res://scenes/Level1.gdshader" id="19_i2gr7"]
 [ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="20_music"]
 [ext_resource type="PackedScene" uid="uid://bv6dalkvfnim4" path="res://enemigo.tscn" id="21_thv4y"]
-
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_joxhm"]
-shader = ExtResource("19_i2gr7")
-shader_parameter/velocidad = 1.0
-shader_parameter/fuerza = 0.005
-shader_parameter/frecuencia = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(570, 133)
@@ -184,14 +176,6 @@ offset_right = 2553.0
 offset_bottom = 682.0
 color = Color(0.1643247, 0.119386695, 0, 0.43529412)
 metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=1920987582]
-material = SubResource("ShaderMaterial_joxhm")
-layout_mode = 0
-offset_left = 101.0
-offset_top = -23.0
-offset_right = 2659.0
-offset_bottom = 766.0
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1278307842]
 position = Vector2(1100, 660)

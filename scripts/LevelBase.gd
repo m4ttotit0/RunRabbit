@@ -28,7 +28,10 @@ const PLAYER2_TEXTURE := preload("res://assets/characters/8a6-11f1-9440-3ff576f3
 ## Número del nivel (1..5). Se define en el script de cada nivel.
 var level_id: int = 1
 ## Si es true, en modo dos jugadores se crea el jugador 2 automáticamente.
-var supports_two_players: bool = false
+var supports_two_players: bool = false 
+##Si el jugador completa el nivel, suena la musica de victoria.
+var sonido_victoria: AudioStreamPlayer
+const HAPPY_WHEELS_AUDIO = preload("res://assets/sounds/happy_wheels.mp3")
 ## Texto que aparece al llegar a la meta.
 var win_text: String = "¡Final del nivel!"
 ## Si es true, aparece el "enemigo" que persigue al jugador copiando su
@@ -55,6 +58,10 @@ var pending_stars: Array[String] = []
 
 
 func _ready() -> void:
+	sonido_victoria = AudioStreamPlayer.new()
+	sonido_victoria.stream = HAPPY_WHEELS_AUDIO
+	sonido_victoria.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(sonido_victoria)
 	if win_panel:
 		win_panel.visible = false
 		# Para que los botones funcionen con el juego en pausa.
@@ -268,7 +275,10 @@ func _win() -> void:
 	GameData.clear_checkpoint()
 	GameData.complete_level(level_id)
 	_update_star_label()
-
+	
+	# Activa el sonido de Happy Wheels
+	if sonido_victoria:
+		sonido_victoria.play()
 	if win_panel:
 		if win_label:
 			win_label.text = win_text
