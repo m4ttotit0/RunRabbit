@@ -916,7 +916,7 @@ position = Vector2(1.25, -19)
 shape = SubResource("RectangleShape2D_h0lsg")
 
 [node name="Player" parent="." unique_id=1743865288 instance=ExtResource("5_x2p61")]
-position = Vector2(2043.9995, 343.99997)
+position = Vector2(3462.0002, 578)
 scale = Vector2(0.09, 0.09)
 metadata/_edit_group_ = true
 
@@ -1285,7 +1285,6 @@ shape = SubResource("CapsuleShape2D_02xm5")
 [node name="Caida" type="Area2D" parent="Anclas" unique_id=687712367]
 position = Vector2(2360, 246)
 script = ExtResource("23_e4ile")
-objeto_que_cae = NodePath("../Ancla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida" unique_id=1035028259]
 position = Vector2(-418, 188)
@@ -1313,7 +1312,6 @@ shape = SubResource("CapsuleShape2D_02xm5")
 [node name="Caida2" type="Area2D" parent="Anclas" unique_id=1725691782]
 position = Vector2(2360, 246)
 script = ExtResource("23_e4ile")
-objeto_que_cae = NodePath("../Ancla2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida2" unique_id=347692323]
@@ -1342,7 +1340,6 @@ shape = SubResource("CapsuleShape2D_02xm5")
 [node name="Caida3" type="Area2D" parent="Anclas" unique_id=515381929]
 position = Vector2(2308, 296)
 script = ExtResource("23_e4ile")
-objeto_que_cae = NodePath("../Ancla3")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida3" unique_id=853705557]

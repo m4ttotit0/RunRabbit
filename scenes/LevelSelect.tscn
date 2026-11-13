@@ -103,11 +103,11 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 360.0
 offset_bottom = 60.0
-theme_override_colors/font_color = Color(1, 0.9, 0.1, 1)
-theme_override_colors/font_outline_color = Color(0.19920701, 0.13804752, 0.07963324, 1)
+theme_override_colors/font_color = Color(0.6575501, 0.12214068, 0.012218473, 1)
+theme_override_colors/font_outline_color = Color(0.6575501, 0.12214068, 0.012218473, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 26
-text = "Estrellas: 0"
+text = "Fragmentos: 0"
 
 [node name="DebugLabel" type="Label" parent="." unique_id=1484567857]
 visible = false

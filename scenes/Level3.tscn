@@ -847,19 +847,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Nivel 3"
 
-[node name="StarLabel" type="Label" parent="UI" unique_id=1379475848]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -230.0
-offset_top = 16.0
-offset_right = -20.0
-offset_bottom = 50.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 0.9, 0.1, 1)
-theme_override_font_sizes/font_size = 24
-horizontal_alignment = 2
-
 [node name="Screamer" type="TextureRect" parent="UI" unique_id=884810472]
 visible = false
 anchors_preset = 15
