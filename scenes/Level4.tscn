@@ -680,7 +680,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_r0y2d"]
 resource_name = "caida"
-length = 1.5
+length = 3.5000000000000004
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -688,10 +688,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6, 1.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 500), Vector2(0, 1000)]
+"values": [Vector2(0, 0), Vector2(0, 500), Vector2(0, 500), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ha1x"]
@@ -713,7 +713,7 @@ size = Vector2(138.27864, 40.05878)
 size = Vector2(262.72186, 127.810814)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s82c4"]
-size = Vector2(234.31992, 172.50656)
+size = Vector2(263.90558, 172.50656)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02xm5"]
 radius = 30.0
@@ -1163,7 +1163,7 @@ libraries/ = SubResource("AnimationLibrary_1ha1x")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/CaidaBloque3/SensorPisar" unique_id=591787276]
-position = Vector2(-213.01814, -3.5502653)
+position = Vector2(-371.00635, -5.917053)
 scale = Vector2(0.9999988, 0.9999988)
 shape = SubResource("RectangleShape2D_s82c4")
 debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
