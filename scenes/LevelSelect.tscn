@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvn5h4pggtv0l" path="res://scripts/LevelSelect.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dgdeesd86sslj" path="res://assets/fondo/islasSeleccion.png" id="2_egmj1"]
+[ext_resource type="AudioStream" uid="uid://d0oevdqc3itnv" path="res://assets/sounds/PICO-8 LOOP1.wav" id="3_6y6kj"]
 
 [node name="LevelSelect" type="Control" unique_id=1742684765]
 layout_mode = 3
@@ -96,7 +97,7 @@ offset_bottom = 695.0
 theme_override_font_sizes/font_size = 18
 text = "Volver"
 
-[node name="StarsLabel" type="Label" parent="."]
+[node name="StarsLabel" type="Label" parent="." unique_id=214566901]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
@@ -108,7 +109,7 @@ theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 26
 text = "Estrellas: 0"
 
-[node name="DebugLabel" type="Label" parent="."]
+[node name="DebugLabel" type="Label" parent="." unique_id=1484567857]
 visible = false
 layout_mode = 0
 offset_left = 880.0
@@ -121,6 +122,11 @@ theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 22
 text = "MODO DEBUG: niveles desbloqueados"
 horizontal_alignment = 2
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1607734025]
+stream = ExtResource("3_6y6kj")
+volume_db = -3.0
+autoplay = true
 
 [connection signal="pressed" from="Stage1" to="." method="_on_stage_1_pressed"]
 [connection signal="pressed" from="Stage2" to="." method="_on_stage_2_pressed"]

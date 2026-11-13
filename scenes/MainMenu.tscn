@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d14lkwt2fjgh8" path="res://scripts/MainMenu.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://c535pun82ffxn" path="res://scenes/mainMenu.png" id="2_0ykhv"]
+[ext_resource type="AudioStream" uid="uid://cglutxdt87ft" path="res://assets/sounds/8-bit_Chiptune.mp3" id="3_2wh52"]
 
 [sub_resource type="FontVariation" id="FontVariation_yqorp"]
 
@@ -204,7 +205,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Volver"
 
-[node name="LoadPanel" type="Control" parent="."]
+[node name="LoadPanel" type="Control" parent="." unique_id=250384136]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -213,7 +214,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dim" type="ColorRect" parent="LoadPanel"]
+[node name="Dim" type="ColorRect" parent="LoadPanel" unique_id=278923481]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -222,7 +223,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="CenterContainer" type="CenterContainer" parent="LoadPanel"]
+[node name="CenterContainer" type="CenterContainer" parent="LoadPanel" unique_id=1880703144]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,32 +231,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="LoadPanel/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="LoadPanel/CenterContainer" unique_id=1855297689]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LoadPanel/CenterContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadPanel/CenterContainer/PanelContainer" unique_id=987468228]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="LoadLabel" type="Label" parent="LoadPanel/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="LoadLabel" type="Label" parent="LoadPanel/CenterContainer/PanelContainer/VBoxContainer" unique_id=1716006748]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "¿Desea cargar una partida guardada?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="LoadYesButton" type="Button" parent="LoadPanel/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="LoadYesButton" type="Button" parent="LoadPanel/CenterContainer/PanelContainer/VBoxContainer" unique_id=288276582]
 custom_minimum_size = Vector2(260, 56)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Sí"
 
-[node name="LoadNoButton" type="Button" parent="LoadPanel/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="LoadNoButton" type="Button" parent="LoadPanel/CenterContainer/PanelContainer/VBoxContainer" unique_id=1794415811]
 custom_minimum_size = Vector2(260, 56)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "No, deseo borrar la partida anterior"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=821302979]
+stream = ExtResource("3_2wh52")
+volume_db = -2.0
+autoplay = true
 
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="LevelSelectButton" to="." method="_on_level_select_button_pressed"]
