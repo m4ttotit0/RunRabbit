@@ -916,7 +916,7 @@ position = Vector2(1.25, -19)
 shape = SubResource("RectangleShape2D_h0lsg")
 
 [node name="Player" parent="." unique_id=1743865288 instance=ExtResource("5_x2p61")]
-position = Vector2(3462.0002, 578)
+position = Vector2(52.99994, 552)
 scale = Vector2(0.09, 0.09)
 metadata/_edit_group_ = true
 

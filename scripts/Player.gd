@@ -22,7 +22,7 @@ func _ready() -> void: #Para que lo reconozcan las trampas
 	elif GameData.two_players:
 		_left = ["left"]; _right = ["right"]; _jump = ["jump"]
 	else:
-		_left = ["left", "p2_left"]; _right = ["right", "p2_right"]; _jump = ["jump", "p2_jump"]
+		_left = ["left"]; _right = ["right"]; _jump = ["jump"]
 
 func _pressed(actions: Array[String]) -> bool:
 	for a in actions:

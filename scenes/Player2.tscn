@@ -79,19 +79,19 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("8_7ekwx")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("9_iw6v3")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("10_fwvp1")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("11_xatjn")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("12_3uyny")
 }],
 "loop": 1,
@@ -114,8 +114,9 @@ position_smoothing_enabled = true
 position = Vector2(4, 1)
 scale = Vector2(0.04017578, 0.03919922)
 sprite_frames = SubResource("SpriteFrames_y1d2t")
-animation = &"running2"
+animation = &"idle2"
 autoplay = "idle2"
+frame_progress = 0.8631751
 flip_h = true
 
 [node name="jumpSound" type="AudioStreamPlayer2D" parent="." unique_id=715291481]
