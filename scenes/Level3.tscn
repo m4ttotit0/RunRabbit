@@ -13,12 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://do2qamb04awte" path="res://assets/extras/pisos y bloques/Captura de pantalla 2026-11-09 182824.png" id="11_1fmh2"]
 [ext_resource type="Texture2D" uid="uid://cldvjr186x363" path="res://assets/fondo/tilemap/tilemap_packed.png" id="12_g7sqe"]
 [ext_resource type="Script" uid="uid://cy60g1mlwsgdw" path="res://scenes/die.gd" id="12_v36no"]
-[ext_resource type="Script" uid="uid://dmf8bi6au6ehm" path="res://scenes/despliegue.gd" id="14_mw3i8"]
 [ext_resource type="Script" uid="uid://jusw6l1oe5m" path="res://scenes/bloqueinv.gd" id="15_ddxw6"]
 [ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="15_t3dp5"]
 [ext_resource type="Script" uid="uid://02v3glmuwqyd" path="res://scenes/sensor_1.gd" id="16_xwks1"]
 [ext_resource type="Script" uid="uid://qj0fxo00scpn" path="res://scenes/dead.gd" id="17_ng6o1"]
+[ext_resource type="Script" uid="uid://d0ovqjfjd3vjo" path="res://scenes/barrera.gd" id="18_ng6o1"]
 [ext_resource type="Script" uid="uid://c72tgutpwq0fq" path="res://scenes/aplastador_3000.gd" id="18_xwks1"]
+[ext_resource type="Script" uid="uid://clfq3pmnabnm8" path="res://scenes/zona_muerte.gd" id="19_bwcbd"]
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="19_okerj"]
 [ext_resource type="Script" uid="uid://glmmvedx5l31" path="res://scripts/canion.gd" id="20_xwks1"]
 [ext_resource type="Texture2D" uid="uid://cp620oh66sx1p" path="res://assets/extras/ataques/17468.png" id="22_okerj"]
@@ -568,70 +569,6 @@ size = Vector2(139.5, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um4jh"]
 size = Vector2(55.625, 54)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsmy"]
-size = Vector2(71.5, 44)
-
-[sub_resource type="Animation" id="Animation_qtcjj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../EndPoint/CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-580, 29)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../EndPoint/Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-554, 27)]
-}
-
-[sub_resource type="Animation" id="Animation_rljsv"]
-resource_name = "moveClock"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../EndPoint/CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(8, 29), Vector2(-580, 29)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../EndPoint/Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(35, 26), Vector2(-554, 27)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v36no"]
-_data = {
-&"RESET": SubResource("Animation_qtcjj"),
-&"moveClock": SubResource("Animation_rljsv")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is4ao"]
 size = Vector2(84, 35.5)
 
@@ -706,6 +643,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatableBody2D/barrera/CollisionShape2D2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1918, 126)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatableBody2D/barrera/CollisionShape2D2:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_okerj"]
 resource_name = "aparecer"
@@ -729,6 +690,18 @@ tracks/1/path = NodePath("AnimatableBody2D/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody2D/barrera/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -773,6 +746,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1917, 125.375), Vector2(2239, 129)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatableBody2D/barrera/CollisionShape2D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1918, 126), Vector2(2243, 129)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_heyux"]
 _data = {
@@ -783,6 +768,12 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3vn5"]
 size = Vector2(319, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dwya"]
+size = Vector2(18, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij14i"]
+size = Vector2(183.5, 17)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kid5y"]
 radius = 30.0
@@ -818,10 +809,10 @@ expand_mode = 1
 flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=783713632]
-offset_left = -61.0
-offset_top = -53.0
-offset_right = 2861.0
-offset_bottom = 770.0
+offset_left = -62.0
+offset_top = -41.0
+offset_right = 2860.0
+offset_bottom = 782.0
 color = Color(0.050980393, 0, 0, 0.44705883)
 
 [node name="Star" parent="." unique_id=633691491 instance=ExtResource("3_star")]
@@ -1049,7 +1040,6 @@ libraries/ = SubResource("AnimationLibrary_qtcjj")
 autoplay = &"mover"
 
 [node name="despliegue" type="Node2D" parent="MovingPlataforms" unique_id=508582853]
-script = ExtResource("14_mw3i8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingPlataforms/despliegue" unique_id=753066992]
 
@@ -1072,16 +1062,6 @@ debug_color = Color(0, 0.6494056, 0.15732747, 0.41960785)
 position = Vector2(2196, 592)
 shape = SubResource("RectangleShape2D_um4jh")
 debug_color = Color(0, 0.6494056, 0.15732747, 0.41960785)
-
-[node name="sensor" type="Area2D" parent="MovingPlataforms/despliegue" unique_id=1003843651]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/despliegue/sensor" unique_id=852118756]
-position = Vector2(2286.25, 232)
-shape = SubResource("RectangleShape2D_cfsmy")
-debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlataforms/despliegue" unique_id=44884729]
-libraries/ = SubResource("AnimationLibrary_v36no")
 
 [node name="bloqueinv" type="Node2D" parent="MovingPlataforms" unique_id=472723463]
 script = ExtResource("15_ddxw6")
@@ -1124,6 +1104,15 @@ texture = ExtResource("11_1fmh2")
 region_enabled = true
 region_rect = Rect2(-1.0778198, -1.7690811, 602.49994, 398.76907)
 
+[node name="barrera" type="Area2D" parent="MovingPlataforms/Aplastador3000/AnimatableBody2D" unique_id=831167422]
+script = ExtResource("18_ng6o1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MovingPlataforms/Aplastador3000/AnimatableBody2D/barrera" unique_id=1865167446]
+position = Vector2(1918, 126)
+shape = SubResource("RectangleShape2D_ex2iu")
+disabled = true
+debug_color = Color(0.7582566, 0.18545768, 0.9999998, 0.41960785)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/Aplastador3000/AnimatableBody2D" unique_id=1114205448]
 position = Vector2(2078, 125.375)
 shape = SubResource("RectangleShape2D_ex2iu")
@@ -1139,6 +1128,21 @@ libraries/ = SubResource("AnimationLibrary_heyux")
 position = Vector2(2091.5, 219.5)
 shape = SubResource("RectangleShape2D_r3vn5")
 debug_color = Color(0.93131113, 2.878219e-05, 0.65530056, 0.41960785)
+
+[node name="zona_muerte" type="Area2D" parent="MovingPlataforms" unique_id=1762601892]
+script = ExtResource("19_bwcbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/zona_muerte" unique_id=1263297697]
+position = Vector2(1761, 489)
+shape = SubResource("RectangleShape2D_5dwya")
+debug_color = Color(0.80931807, 0.0022798574, 0.99351853, 0.41960785)
+
+[node name="zona_muerte2" type="Area2D" parent="MovingPlataforms" unique_id=690513001]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlataforms/zona_muerte2" unique_id=479358934]
+position = Vector2(1928.25, 335.5)
+shape = SubResource("RectangleShape2D_ij14i")
+debug_color = Color(0.7951798, 0.06808964, 1, 0.41960785)
 
 [node name="bloque falso" type="Sprite2D" parent="." unique_id=1866896104]
 position = Vector2(2402, 349)

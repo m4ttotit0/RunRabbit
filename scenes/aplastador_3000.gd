@@ -7,8 +7,10 @@ extends Node2D
 var ya_activada: bool = false
 
 func _ready() -> void:
-	barrera.visible = false
-	colision_barrera.disabled = true
+	if barrera:
+		barrera.visible = false
+	if colision_barrera:
+		colision_barrera.set_deferred("disabled", true)
 
 # Asegúrate de conectar la señal body_entered de "sensormuerte" a esta función
 func _on_sensormuerte_body_entered(body: Node2D) -> void:
