@@ -17,12 +17,10 @@ var _jump: Array[String] = []
 
 func _ready() -> void: #Para que lo reconozcan las trampas
 	add_to_group("jugador")
-	if player_id == 2:
-		_left = ["p2_left"]; _right = ["p2_right"]; _jump = ["p2_jump"]
-	elif GameData.two_players:
-		_left = ["left"]; _right = ["right"]; _jump = ["jump"]
-	else:
-		_left = ["left"]; _right = ["right"]; _jump = ["jump"]
+	# Fuerza a que Player 1 use siempre left, right y jump (Flechas)
+	_left = ["left"]
+	_right = ["right"]
+	_jump = ["jump"]
 
 func _pressed(actions: Array[String]) -> bool:
 	for a in actions:

@@ -573,6 +573,10 @@ limit_bottom = 722
 position = Vector2(115.789474, -315.7895)
 scale = Vector2(0.7, 0.686)
 
+[node name="Player2" parent="." unique_id=1555430880 instance=ExtResource("21_yayui")]
+position = Vector2(59, 147)
+scale = Vector2(1.6, 1.6)
+
 [node name="zona_muerte" type="Area2D" parent="." unique_id=336713701]
 script = ExtResource("8_weurj")
 
@@ -774,10 +778,6 @@ grow_vertical = 2
 texture = ExtResource("20_sb4i8")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="Player2" parent="." unique_id=1555430880 instance=ExtResource("21_yayui")]
-position = Vector2(59, 147)
-scale = Vector2(1.6, 1.6)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

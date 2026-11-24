@@ -17,12 +17,10 @@ var _jump: Array[String] = []
 
 func _ready() -> void: #Para que lo reconozcan las trampas
 	add_to_group("jugador")
-	if player_id == 2:
-		_left = ["p2_left"]; _right = ["p2_right"]; _jump = ["p2_jump"]
-	elif GameData.two_players:
-		_left = ["left"]; _right = ["right"]; _jump = ["jump"]
-	else:
-		_left = ["left", "p2_left"]; _right = ["right", "p2_right"]; _jump = ["jump", "p2_jump"]
+	# Fuerza a que Player 2 use siempre p2_left, p2_right y p2_jump (A, D, W)
+	_left = ["p2_left"]
+	_right = ["p2_right"]
+	_jump = ["p2_jump"]
 
 func _pressed(actions: Array[String]) -> bool:
 	for a in actions:
@@ -55,7 +53,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.      
 	# As good practice, you should replace UI actions with custom gameplay actions.      
-	var direction := Input.get_axis("ui_left","ui_right")    
+	var direction := float(_pressed(_right)) - float(_pressed(_left))
 	if direction:          
 		velocity.x = direction * SPEED      
 	else:          velocity.x = move_toward(velocity.x, 0, SPEED)    
