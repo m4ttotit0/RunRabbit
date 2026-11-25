@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bvs13ka4g0nc6"]
 
 [ext_resource type="Script" uid="uid://cadil4t8ohmmk" path="res://scripts/Level4.gd" id="1_wo680"]
-[ext_resource type="Texture2D" uid="uid://dcbpjhk8brnru" path="res://assets/fondo/jungle2.png" id="2_mo8l6"]
+[ext_resource type="Texture2D" uid="uid://bn5haet4orf70" path="res://assets/fondo/nether2.png" id="2_i7e1c"]
 [ext_resource type="Script" uid="uid://cn42tosbfmj0v" path="res://scripts/puas_trampa.gd" id="3_i7e1c"]
 [ext_resource type="Texture2D" uid="uid://btuyph3v413j8" path="res://assets/extras/ataques/puas Nivel2.png" id="4_bdxaw"]
 [ext_resource type="PackedScene" uid="uid://cwx417bt1ib1" path="res://scenes/Player.tscn" id="5_42nwo"]
@@ -975,7 +975,7 @@ offset_left = 10.0
 offset_top = -52.0
 offset_right = 1290.0
 offset_bottom = 748.0
-texture = ExtResource("2_mo8l6")
+texture = ExtResource("2_i7e1c")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
@@ -987,7 +987,7 @@ offset_left = 1290.0
 offset_top = -52.0
 offset_right = 2570.0
 offset_bottom = 748.0
-texture = ExtResource("2_mo8l6")
+texture = ExtResource("2_i7e1c")
 expand_mode = 1
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -1005,7 +1005,7 @@ offset_left = 2570.0
 offset_top = -52.0
 offset_right = 3850.0
 offset_bottom = 748.0
-texture = ExtResource("2_mo8l6")
+texture = ExtResource("2_i7e1c")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
@@ -1022,7 +1022,7 @@ offset_left = 3850.0
 offset_top = -55.0
 offset_right = 5130.0
 offset_bottom = 745.0
-texture = ExtResource("2_mo8l6")
+texture = ExtResource("2_i7e1c")
 expand_mode = 1
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -1038,6 +1038,16 @@ offset_transform_enabled = true
 color = Color(0.14955807, 0.06734514, 0.035922863, 0.9098039)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=767629357]
+offset_left = 367.0
+offset_top = -45.0
+offset_right = 4367.0
+offset_bottom = 805.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.5, 1.5)
+color = Color(0.050980393, 0, 0, 0.20784314)
+metadata/_edit_use_anchors_ = true
 
 [node name="TrampasPuas" type="Node2D" parent="." unique_id=283283195]
 
@@ -1601,17 +1611,6 @@ debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
 [node name="Checkpoint" parent="." unique_id=1628973322 instance=ExtResource("25_bn46i")]
 position = Vector2(2623.0002, 573)
 scale = Vector2(2.5, 2.5)
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=767629357]
-visible = false
-offset_left = 367.0
-offset_top = -45.0
-offset_right = 3467.0
-offset_bottom = 805.0
-offset_transform_enabled = true
-offset_transform_scale = Vector2(1.5, 1.5)
-color = Color(0.05882353, 0.050980393, 0.13725491, 0.25882354)
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
