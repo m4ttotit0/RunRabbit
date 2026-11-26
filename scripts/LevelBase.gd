@@ -47,7 +47,7 @@ var usar_enemigo: bool = true
 @onready var star_label: Label = get_node_or_null("UI/StarLabel")
 @onready var music: Node = get_node_or_null("Music")
 
-var player2: CharacterBody2D = null
+@onready var player2: CharacterBody2D = get_node_or_null("Player2")
 var enemigo: Node2D = null
 var jugador_muerto: bool = false
 var pause_menu: CanvasLayer = null

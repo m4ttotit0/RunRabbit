@@ -4,7 +4,7 @@ extends Control
 ## completó el anterior (ver GameData.unlocked_level).
 ## CTRL + C desbloquea todos los niveles (modo debug, solo esta sesión).
 const LEVEL_PATHS := {
-	1: "res://scenes/Level1.tscn",
+	1: "res://scenes/Level1_Multi.tscn",
 	2: "res://scenes/Level2_Multi.tscn",
 	3: "res://scenes/Level3.tscn",
 	4: "res://scenes/Level4.tscn",

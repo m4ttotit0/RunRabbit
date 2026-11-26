@@ -25,4 +25,7 @@ func siguiente_imagen() -> void:
 		texture_rect.texture = imagenes_cinematica[indice_actual]
 	else:
 		# Cuando se acaben las imágenes, pasa al juego principal
-		get_tree().change_scene_to_file("res://scenes/Level1.tscn")
+		if GameData.two_players:
+			get_tree().change_scene_to_file("res://scenes/Level1_Multi.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/Level1.tscn")
