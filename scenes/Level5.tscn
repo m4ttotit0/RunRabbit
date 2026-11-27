@@ -8,9 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://vw1fgjl1q8ws" path="res://assets/fondo/tilemap/SegTilemap.png" id="5_6r0j5"]
 [ext_resource type="Texture2D" uid="uid://dlooxtxlo8muo" path="res://assets/fondo/tilemap/tilemap.png" id="6_dvfhi"]
 [ext_resource type="Texture2D" uid="uid://cv80e8x4j301g" path="res://assets/extras/Reloj arena.png" id="7_5f1xg"]
+[ext_resource type="Script" uid="uid://b4823bdociv34" path="res://scripts/caida_bloque_2.gd" id="8_3lyxo"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="8_smyfx"]
 [ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="9_f2w4q"]
 [ext_resource type="Texture2D" uid="uid://dt8h6qua3p0ap" path="res://scenes/1Formato16_9.png" id="10_nc4bu"]
+[ext_resource type="Texture2D" uid="uid://3vwvkrnn4rq6" path="res://assets/extras/ataques/17439.png" id="13_3lyxo"]
+[ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="14_fdjco"]
+[ext_resource type="Texture2D" uid="uid://cpe5p3l6624kv" path="res://assets/extras/petalo uwu.png" id="15_j6k30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(366.66663, 1185.965)
@@ -815,6 +819,66 @@ height = 152.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muerte"]
 size = Vector2(4000, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkc4i"]
+size = Vector2(173.3729, 55.579136)
+
+[sub_resource type="Animation" id="Animation_ugfbn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r0y2d"]
+resource_name = "caida"
+length = 3.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 500), Vector2(0, 500), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3lyxo"]
+_data = {
+&"RESET": SubResource("Animation_ugfbn"),
+&"caida": SubResource("Animation_r0y2d")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdjco"]
+size = Vector2(171.42868, 41.19825)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6k30"]
+radius = 30.0
+height = 98.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdt6j"]
+size = Vector2(75.375, 60)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_onogs"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1200, 10, 1)
+angular_velocity_min = -408.0
+angular_velocity_max = 39.999985
+gravity = Vector3(-15, 35, 0)
+scale_min = 0.39999998
+scale_max = 0.59999996
+
 [node name="Level5" type="Node2D" unique_id=418657248]
 script = ExtResource("1_gbv5o")
 
@@ -870,8 +934,9 @@ position = Vector2(3, -5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=543515434]
 texture_filter = 1
+position = Vector2(0, -5)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAxAEAAAwAFAAcAAAAAAAsAAQABAAEAAAABAAsAAQACAAEAAAACAAsAAQACAAEAAAADAAsAAQACAAEAAAAEAAsAAQACAAEAAAAFAAsAAQACAAEAAAAGAAsAAQACAAEAAAAHAAsAAQACAAEAAAAIAAsAAQACAAEAAAAJAAsAAQACAAEAAAAKAAsAAQACAAEAAAALAAsAAQACAAEAAAAMAAsAAQACAAEAAAANAAsAAQACAAEAAAAOAAsAAQACAAEAAAAPAAsAAQACAAEAAAAQAAsAAQACAAEAAAAAAAwAAQABAAYAAAAAAA0AAQABAAcAAAABAA0AAQACAAcAAAACAA0AAQACAAcAAAADAA0AAQACAAcAAAAEAA0AAQACAAcAAAAFAA0AAQACAAcAAAAGAA0AAQACAAcAAAAHAA0AAQACAAcAAAAIAA0AAQACAAcAAAAJAA0AAQACAAcAAAAKAA0AAQACAAcAAAALAA0AAQACAAcAAAAMAA0AAQACAAcAAAANAA0AAQACAAcAAAAOAA0AAQACAAcAAAAPAA0AAQACAAcAAAAQAA0AAQACAAcAAAABAAwAAQACAAYAAAACAAwAAQACAAYAAAADAAwAAQACAAYAAAAEAAwAAQACAAYAAAAFAAwAAQACAAYAAAAGAAwAAQACAAYAAAAHAAwAAQACAAYAAAAIAAwAAQACAAYAAAAJAAwAAQACAAYAAAAKAAwAAQACAAYAAAALAAwAAQACAAYAAAAMAAwAAQACAAYAAAANAAwAAQACAAYAAAAOAAwAAQACAAYAAAAPAAwAAQACAAYAAAAQAAwAAQACAAYAAAAqAAsAAQACAAEAAAAqAAwAAQACAAYAAAAqAA0AAQACAAcAAAArAAsAAQACAAEAAAArAAwAAQACAAYAAAArAA0AAQACAAcAAAAsAAsAAQACAAEAAAAsAAwAAQACAAYAAAAsAA0AAQACAAcAAAAtAAsAAQACAAEAAAAtAAwAAQACAAYAAAAtAA0AAQACAAcAAAAuAAsAAQACAAEAAAAuAAwAAQACAAYAAAAuAA0AAQACAAcAAAAvAAsAAQACAAEAAAAvAAwAAQACAAYAAAAvAA0AAQACAAcAAAAwAAsAAQADAAEAAAAwAAwAAQADAAYAAAAwAA0AAQADAAcAAAARAAsAAQACAAEAAAARAAwAAQACAAYAAAARAA0AAQACAAcAAAASAAsAAQACAAEAAAASAAwAAQACAAYAAAASAA0AAQACAAcAAAATAAsAAQACAAEAAAATAAwAAQACAAYAAAATAA0AAQACAAcAAAAUAAsAAQACAAEAAAAUAAwAAQACAAYAAAAUAA0AAQACAAcAAAAVAAsAAQACAAEAAAAVAAwAAQACAAYAAAAVAA0AAQACAAcAAAAWAAsAAQACAAEAAAAWAAwAAQACAAYAAAAWAA0AAQACAAcAAAAXAAsAAQACAAEAAAAXAAwAAQACAAYAAAAXAA0AAQACAAcAAAAYAAsAAQACAAEAAAAYAAwAAQACAAYAAAAYAA0AAQACAAcAAAAZAAsAAQACAAEAAAAZAAwAAQACAAYAAAAZAA0AAQACAAcAAAAaAAsAAQACAAEAAAAaAAwAAQACAAYAAAAaAA0AAQACAAcAAAAbAAsAAQACAAEAAAAbAAwAAQACAAYAAAAbAA0AAQACAAcAAAAcAAsAAQACAAEAAAAcAAwAAQACAAYAAAAcAA0AAQACAAcAAAAdAAsAAQACAAEAAAAdAAwAAQACAAYAAAAdAA0AAQACAAcAAAAeAAsAAQACAAEAAAAeAAwAAQACAAYAAAAeAA0AAQACAAcAAAAfAAsAAQACAAEAAAAfAAwAAQACAAYAAAAfAA0AAQACAAcAAAAgAAsAAQACAAEAAAAgAAwAAQACAAYAAAAgAA0AAQACAAcAAAAhAAsAAQACAAEAAAAhAAwAAQACAAYAAAAhAA0AAQACAAcAAAAiAAsAAQACAAEAAAAiAAwAAQACAAYAAAAiAA0AAQACAAcAAAAjAAsAAQACAAEAAAAjAAwAAQACAAYAAAAjAA0AAQACAAcAAAAkAAsAAQACAAEAAAAkAAwAAQACAAYAAAAkAA0AAQACAAcAAAAlAAsAAQACAAEAAAAlAAwAAQACAAYAAAAlAA0AAQACAAcAAAAmAAsAAQACAAEAAAAmAAwAAQACAAYAAAAmAA0AAQACAAcAAAAnAAsAAQACAAEAAAAnAAwAAQACAAYAAAAnAA0AAQACAAcAAAAoAAsAAQACAAEAAAAoAAwAAQACAAYAAAAoAA0AAQACAAcAAAApAAsAAQACAAEAAAApAAwAAQACAAYAAAApAA0AAQACAAcAAAA=")
+tile_map_data = PackedByteArray("AAAxAEAAAwAFAAcAAAAAAAsAAQACAAEAAAACAAsAAQACAAEAAAADAAsAAQACAAEAAAAMAAsAAQACAAYAAAANAAsAAQACAAYAAAAPAAsAAQACAAEAAAAQAAsAAQACAAEAAAAAAAwAAQABAAYAAAAAAA0AAQABAAcAAAABAA0AAQACAAcAAAACAA0AAQACAAcAAAADAA0AAQACAAcAAAAEAA0AAQACAAcAAAAIAA0AAQACAAcAAAAJAA0AAQACAAcAAAAKAA0AAQACAAcAAAALAA0AAQACAAcAAAAMAA0AAQACAAcAAAANAA0AAQACAAcAAAAOAA0AAQACAAcAAAAPAA0AAQACAAcAAAAQAA0AAQACAAcAAAABAAwAAQACAAYAAAACAAwAAQACAAYAAAADAAwAAQACAAYAAAAEAAwAAQACAAYAAAAIAAwAAQACAAYAAAAJAAwAAQACAAYAAAAKAAwAAQACAAYAAAALAAwAAQACAAYAAAAMAAwAAQACAAYAAAANAAwAAQACAAYAAAAOAAwAAQACAAYAAAAQAAwAAQACAAYAAAAqAAsAAQACAAEAAAAqAAwAAQACAAYAAAAqAA0AAQACAAcAAAArAAsAAQACAAEAAAArAAwAAQACAAYAAAArAA0AAQACAAcAAAAsAAsAAQACAAEAAAAsAAwAAQACAAYAAAAsAA0AAQACAAcAAAAtAAsAAQACAAEAAAAtAAwAAQACAAYAAAAtAA0AAQACAAcAAAAuAAsAAQACAAEAAAAuAAwAAQACAAYAAAAuAA0AAQACAAcAAAAvAAsAAQACAAEAAAAvAAwAAQACAAYAAAAvAA0AAQACAAcAAAAwAAsAAQADAAEAAAAwAAwAAQADAAYAAAAwAA0AAQADAAcAAAARAAsAAQACAAEAAAARAAwAAQACAAYAAAARAA0AAQACAAcAAAASAAsAAQACAAEAAAASAAwAAQACAAYAAAASAA0AAQACAAcAAAATAAsAAQACAAEAAAATAAwAAQACAAYAAAATAA0AAQACAAcAAAAUAAsAAQACAAEAAAAUAAwAAQACAAYAAAAUAA0AAQACAAcAAAAVAAsAAQACAAEAAAAVAAwAAQACAAYAAAAVAA0AAQACAAcAAAAWAAsAAQACAAEAAAAWAAwAAQACAAYAAAAWAA0AAQACAAcAAAAXAAsAAQACAAEAAAAXAAwAAQACAAYAAAAXAA0AAQACAAcAAAAYAAsAAQACAAEAAAAYAAwAAQACAAYAAAAYAA0AAQACAAcAAAAZAAsAAQACAAEAAAAZAAwAAQACAAYAAAAZAA0AAQACAAcAAAAaAAsAAQACAAEAAAAaAAwAAQACAAYAAAAaAA0AAQACAAcAAAAbAAsAAQACAAEAAAAbAAwAAQACAAYAAAAbAA0AAQACAAcAAAAcAAsAAQACAAEAAAAcAAwAAQACAAYAAAAcAA0AAQACAAcAAAAdAAsAAQACAAEAAAAdAAwAAQACAAYAAAAdAA0AAQACAAcAAAAeAAsAAQACAAEAAAAeAAwAAQACAAYAAAAeAA0AAQACAAcAAAAfAAsAAQACAAEAAAAfAAwAAQACAAYAAAAfAA0AAQACAAcAAAAgAAsAAQACAAEAAAAgAAwAAQACAAYAAAAgAA0AAQACAAcAAAAhAAsAAQACAAEAAAAhAAwAAQACAAYAAAAhAA0AAQACAAcAAAAiAAsAAQACAAEAAAAiAAwAAQACAAYAAAAiAA0AAQACAAcAAAAjAAsAAQACAAEAAAAjAAwAAQACAAYAAAAjAA0AAQACAAcAAAAkAAsAAQACAAEAAAAkAAwAAQACAAYAAAAkAA0AAQACAAcAAAAlAAsAAQACAAEAAAAlAAwAAQACAAYAAAAlAA0AAQACAAcAAAAmAAsAAQACAAEAAAAmAAwAAQACAAYAAAAmAA0AAQACAAcAAAAnAAsAAQACAAEAAAAnAAwAAQACAAYAAAAnAA0AAQACAAcAAAAoAAsAAQACAAEAAAAoAAwAAQACAAYAAAAoAA0AAQACAAcAAAApAAsAAQACAAEAAAApAAwAAQACAAYAAAApAA0AAQACAAcAAAAEAAsAAQACAAEAAAAPAAwAAQACAAYAAAAIAAsAAQACAAEAAAABAAsAAQACAAEAAAAJAAsAAQACAAEAAAAKAAsAAQACAAYAAAAKAAoAAQACAAEAAAALAAsAAQACAAYAAAAMAAoAAQACAAYAAAALAAkAAQACAAEAAAALAAoAAQACAAYAAAAMAAkAAQACAAYAAAANAAkAAQACAAYAAAANAAoAAQACAAYAAAAMAAgAAQACAAEAAAANAAgAAQACAAYAAAAOAAoAAQACAAYAAAAOAAsAAQACAAYAAAANAAcAAQACAAEAAAAOAAcAAQACAAEAAAAOAAgAAQACAAYAAAAOAAkAAQACAAYAAAA=")
 tile_set = SubResource("TileSet_3lyxo")
 
 [node name="EndPoint" type="Area2D" parent="." unique_id=557792150]
@@ -989,6 +1054,85 @@ text = "Reintentar"
 custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
 text = "Menu"
+
+[node name="CaidaBloque1" type="Node2D" parent="." unique_id=847202237]
+texture_filter = 1
+position = Vector2(1254.0001, 466.00003)
+scale = Vector2(0.91, 0.91)
+script = ExtResource("8_3lyxo")
+
+[node name="bloque" type="AnimatableBody2D" parent="CaidaBloque1" unique_id=923592188]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="CaidaBloque1/bloque" unique_id=1925036551]
+position = Vector2(-1.098999, -21.977966)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AADu/wQAAQACAAYAAADs/wQAAQACAAYAAADv/wQAAQACAAYAAADs/wMAAQACAAEAAADt/wMAAQACAAEAAADu/wMAAQACAAEAAADv/wMAAQACAAEAAADt/wQAAQACAAYAAADs/wUAAQACAAcAAADt/wUAAQACAAcAAADu/wUAAQACAAcAAADv/wUAAQACAAcAAAA=")
+tile_set = SubResource("TileSet_3lyxo")
+collision_enabled = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CaidaBloque1/bloque" unique_id=1086560920]
+position = Vector2(-368, 20)
+scale = Vector2(0.99, 0.99)
+region_enabled = true
+region_rect = Rect2(4.003754, 5.005199, 125.01344, 475.01373)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaidaBloque1/bloque" unique_id=210998346]
+position = Vector2(-992.1806, 174.40826)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_jkc4i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CaidaBloque1/bloque" unique_id=587493776]
+libraries/ = SubResource("AnimationLibrary_3lyxo")
+
+[node name="SensorPisar" type="Area2D" parent="CaidaBloque1" unique_id=294088712]
+position = Vector2(-1.0989926, 5.4944816)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaidaBloque1/SensorPisar" unique_id=452250921]
+position = Vector2(-992.3079, 123.07684)
+scale = Vector2(0.9999988, 0.9999988)
+shape = SubResource("RectangleShape2D_fdjco")
+debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
+
+[node name="Anclas" type="Node2D" parent="." unique_id=170513186]
+position = Vector2(8, -49)
+
+[node name="Ancla" type="RigidBody2D" parent="Anclas" unique_id=439363896]
+position = Vector2(722, -299)
+mass = 3.0
+gravity_scale = 2.0
+can_sleep = false
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Anclas/Ancla" unique_id=172979993]
+scale = Vector2(0.116419084, 0.13991545)
+texture = ExtResource("13_3lyxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Ancla" unique_id=383392690]
+shape = SubResource("CapsuleShape2D_j6k30")
+
+[node name="Caida" type="Area2D" parent="Anclas" unique_id=1568703966 node_paths=PackedStringArray("objeto_que_cae")]
+position = Vector2(2360, 246)
+script = ExtResource("14_fdjco")
+objeto_que_cae = NodePath("../Ancla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anclas/Caida" unique_id=1170581245]
+position = Vector2(-1619, 154)
+shape = SubResource("RectangleShape2D_wdt6j")
+debug_color = Color(0.9590079, 2.0214916e-06, 0.526672, 0.41960785)
+
+[node name="caida de petalos" type="GPUParticles2D" parent="." unique_id=213165515]
+texture_filter = 1
+position = Vector2(1185, -85)
+amount = 40
+texture = ExtResource("15_j6k30")
+lifetime = 8.0
+preprocess = 5.0
+visibility_rect = Rect2(-1000, 0, 5000, 200)
+process_material = SubResource("ParticleProcessMaterial_onogs")
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
