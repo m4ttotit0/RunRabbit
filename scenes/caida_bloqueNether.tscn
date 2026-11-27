@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d7el6lajdqh2"]
+
+[ext_resource type="Script" uid="uid://dh16pft7mq2tt" path="res://caida_bloqueNether.gd" id="1_xwa4b"]
+[ext_resource type="Texture2D" uid="uid://c65x6lnkg6xtt" path="res://assets/extras/pisos y bloques/plataformaLargaNether.png" id="2_xwa4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5stg7"]
+size = Vector2(846.89154, 114.01205)
+
+[sub_resource type="Animation" id="Animation_ugfbn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r0y2d"]
+resource_name = "caida"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 100), Vector2(0, 400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ooryd"]
+_data = {
+&"RESET": SubResource("Animation_ugfbn"),
+&"caida": SubResource("Animation_r0y2d")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1ic6"]
+size = Vector2(842.1689, 115.66269)
+
+[node name="CaidaBloque" type="Node2D" unique_id=1062070855]
+script = ExtResource("1_xwa4b")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1604656223]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=944739836]
+texture_filter = 1
+texture = ExtResource("2_xwa4b")
+region_enabled = true
+region_rect = Rect2(2.9824734, 4.985111, 848.95807, 130.01642)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=219764268]
+position = Vector2(-5.9604645e-08, -7.999999)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_5stg7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=1759083507]
+libraries/ = SubResource("AnimationLibrary_ooryd")
+speed_scale = 1.8
+
+[node name="SensorPisar" type="Area2D" parent="." unique_id=864104740]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorPisar" unique_id=1989405450]
+position = Vector2(1, -17)
+scale = Vector2(0.99999946, 0.99999946)
+shape = SubResource("RectangleShape2D_r1ic6")
+debug_color = Color(0.6604895, 0.37509295, 0.89386314, 0.41960785)
