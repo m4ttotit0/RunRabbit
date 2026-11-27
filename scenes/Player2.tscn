@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ba2hp27r1kd1t" path="res://assets/characters/Larry/run5.png" id="12_3uyny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
-size = Vector2(20, 73)
+size = Vector2(20, 66)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y1d2t"]
 animations = [{
@@ -103,7 +103,7 @@ animations = [{
 script = ExtResource("1_u3gjl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1050723180]
-position = Vector2(4, 2.5)
+position = Vector2(4, 6)
 shape = SubResource("RectangleShape2D_player")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=620828668]
