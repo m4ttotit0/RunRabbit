@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://ddue6b1b46rf6" path="res://scenes/caida.gd" id="17_fjbxb"]
 [ext_resource type="Script" uid="uid://dia80p2m6c0bx" path="res://scripts/zona_muerte.gd" id="18_1jyql"]
 [ext_resource type="AudioStream" uid="uid://boasihdxfhpqa" path="res://assets/sounds/WorldmapTheme.mp3" id="19_4ueyp"]
-[ext_resource type="PackedScene" uid="uid://bv6dalkvfnim4" path="res://enemigo.tscn" id="20_bt7a6"]
 [ext_resource type="PackedScene" uid="uid://d2b266ikvjpd5" path="res://scenes/Player2.tscn" id="21_vxdkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
@@ -499,10 +498,6 @@ repeat_size = Vector2(2360, 0)
 stream = ExtResource("19_4ueyp")
 volume_db = -5.0
 autoplay = true
-
-[node name="Enemigo" parent="." unique_id=1787918559 instance=ExtResource("20_bt7a6")]
-position = Vector2(-5, 553)
-scale = Vector2(0.075, 0.075)
 
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

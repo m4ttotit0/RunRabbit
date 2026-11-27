@@ -41,13 +41,15 @@ var usar_enemigo: bool = true
 @onready var end_point: Area2D = get_node_or_null("EndPoint")
 @onready var win_panel: Control = get_node_or_null("UI/WinPanel")
 @onready var win_label: Label = get_node_or_null("UI/WinPanel/CenterContainer/PanelContainer/VBoxContainer/WinLabel")
-@onready var player1: CharacterBody2D = get_node_or_null("Player")
-@onready var camera: Camera2D = get_node_or_null("Player/Camera2D")
+## Se buscan en _ready() con _find_players(): pueden estar en la raíz o dentro
+## de un nodo agrupador (por ejemplo "Players" en los niveles multijugador).
+var player1: CharacterBody2D = null
+var camera: Camera2D = null
 @onready var screamer: TextureRect = get_node_or_null("UI/Screamer")
 @onready var star_label: Label = get_node_or_null("UI/StarLabel")
 @onready var music: Node = get_node_or_null("Music")
 
-@onready var player2: CharacterBody2D = get_node_or_null("Player2")
+var player2: CharacterBody2D = null
 var enemigo: Node2D = null
 var jugador_muerto: bool = false
 var pause_menu: CanvasLayer = null
@@ -58,6 +60,7 @@ var pending_stars: Array[String] = []
 
 
 func _ready() -> void:
+	_find_players()
 	sonido_victoria = AudioStreamPlayer.new()
 	sonido_victoria.stream = HAPPY_WHEELS_AUDIO
 	sonido_victoria.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -81,9 +84,53 @@ func _ready() -> void:
 	if supports_two_players and GameData.two_players and player1:
 		_spawn_player2()
 
+	if player2 != null:
+		_setup_shared_camera()
+
 	# Al final: el enemigo guarda la posición donde (re)apareció el jugador.
-	if usar_enemigo:
+	# En multijugador (hay Player2) no hay enemigo.
+	if player2 != null:
+		_remove_enemigos()
+	elif usar_enemigo:
 		_setup_enemigo()
+
+
+func _find_players() -> void:
+	player1 = _find_player_node("Player")
+	player2 = _find_player_node("Player2")
+	if player1:
+		camera = player1.get_node_or_null("Camera2D")
+
+
+func _find_player_node(node_name: String) -> CharacterBody2D:
+	var n := get_node_or_null(node_name)
+	if n == null:
+		n = find_child(node_name, true, false)
+	return n as CharacterBody2D
+
+
+## Multijugador: una sola cámara (la del jugador 1, con el mismo zoom y
+## límites que en un jugador) centrada entre los dos. La Camera2D que trae
+## Player2.tscn se elimina para que no le quite el lugar de cámara activa.
+func _setup_shared_camera() -> void:
+	var cam2 := player2.get_node_or_null("Camera2D") as Camera2D
+	if cam2 and cam2 != camera:
+		cam2.enabled = false
+		cam2.queue_free()
+	if camera == null:
+		return
+	camera.top_level = true
+	camera.enabled = true
+	camera.make_current()
+	camera.global_position = _players_center()
+	camera.reset_smoothing()
+
+
+func _remove_enemigos() -> void:
+	for e in get_tree().get_nodes_in_group("enemigo_perseguidor"):
+		if is_ancestor_of(e):
+			e.queue_free()
+	enemigo = null
 
 
 func _process(_delta: float) -> void:
